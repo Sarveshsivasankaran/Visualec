@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visualec — AI-Powered Adaptive Grid Energy Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;650;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <style>
+    :root{
+      --bg:#06101f; --bg2:#091a31; --text:#f4fbff; --muted:#a8bed4;
+      --cyan:#38e8ff; --blue:#4f8dff; --green:#59ff9b; --amber:#ffd166;
+      --card:rgba(255,255,255,.08); --line:rgba(255,255,255,.16); --shadow:0 28px 80px rgba(0,0,0,.42);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 15% 15%,rgba(56,232,255,.22),transparent 33%),radial-gradient(circle at 85% 72%,rgba(89,255,155,.12),transparent 34%),linear-gradient(135deg,#06101f,#091a31 55%,#030812)}
+    body:after{content:"";position:fixed;inset:0;z-index:-2;opacity:.13;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);background-size:46px 46px;animation:grid 16s linear infinite;mask-image:radial-gradient(circle at center,#000,transparent 76%)}
+    @keyframes grid{to{background-position:46px 46px}}
+    .slide{min-height:100vh;padding:48px 66px 58px;display:grid;grid-template-rows:auto 1fr;gap:24px;position:relative;overflow:hidden;scroll-snap-align:start}
+    main{scroll-snap-type:y proximity}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:24px;z-index:5}.brand{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.14em;font-weight:900}.mark{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--cyan),var(--green));color:#03101c;display:grid;place-items:center;font-weight:950;box-shadow:0 0 28px rgba(56,232,255,.35)}.progress{width:260px;height:8px;border-radius:999px;background:rgba(255,255,255,.11);overflow:hidden}.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--green));border-radius:999px}
+    h1,h2,h3,p{margin:0} h1{font-size:clamp(40px,6.2vw,82px);line-height:.95;letter-spacing:-.055em} h2{font-size:clamp(28px,3.9vw,52px);line-height:1.04;letter-spacing:-.04em} h3{font-size:20px;letter-spacing:-.02em} p,li{font-size:clamp(15px,1.25vw,19px);line-height:1.42;color:var(--muted)}
+    .eyebrow{font-size:12px;font-weight:950;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:14px}.gradient{background:linear-gradient(90deg,#fff,var(--cyan),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}.subtitle{margin-top:18px;max-width:760px;color:#c2d8ec;font-size:clamp(17px,1.55vw,23px)}
+    .hero,.two{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:46px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:var(--shadow);backdrop-filter:blur(16px)}.card strong{color:var(--text)}.pill{display:inline-flex;padding:10px 14px;border-radius:999px;background:rgba(56,232,255,.09);border:1px solid rgba(56,232,255,.28);font-weight:950;text-transform:uppercase;letter-spacing:.08em;color:#e8fcff;font-size:11px}.list{display:grid;gap:12px;margin-top:20px}.list div{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;border-radius:15px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.10);color:#c5d6e7;font-size:16px;line-height:1.33}.dot{width:9px;height:9px;flex:0 0 auto;margin-top:7px;border-radius:50%;background:var(--green);box-shadow:0 0 18px rgba(89,255,155,.8)}.num{font-size:38px;font-weight:950;line-height:1;color:var(--cyan)}
+    .room{position:relative;height:440px;border-radius:34px;overflow:hidden;border:1px solid rgba(255,255,255,.15);background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.04));box-shadow:var(--shadow)}.room:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.11) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.11) 1px,transparent 1px);background-size:36px 36px;opacity:.18}.zone{position:absolute;top:84px;bottom:40px;border-radius:24px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.045);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;font-weight:950;font-size:24px}.z1{left:30px;width:calc(33.33% - 42px)}.z2{left:calc(33.33% + 14px);width:calc(33.33% - 42px)}.z3{right:30px;width:calc(33.33% - 42px)}.bulb{width:44px;height:44px;border-radius:50% 50% 44% 44%;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.24)}.bulb:after{content:"";display:block;width:20px;height:8px;border-radius:3px;background:rgba(255,255,255,.25);margin:41px auto 0}.person{position:absolute;bottom:76px;left:65px;width:42px;height:96px;z-index:4;animation:walk 8s infinite cubic-bezier(.45,.05,.55,.95)}.person:before{content:"";position:absolute;top:0;left:10px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 0 22px rgba(255,255,255,.35)}.person:after{content:"";position:absolute;top:29px;left:4px;width:34px;height:58px;border-radius:17px 17px 10px 10px;background:linear-gradient(180deg,var(--cyan),var(--blue))}@keyframes walk{0%,22%{left:65px}34%,56%{left:calc(50% - 21px)}68%,90%{left:calc(100% - 110px)}100%{left:65px}}.room .zone{animation:zonePulse 8s infinite}.room .z1{animation-delay:0s}.room .z2{animation-delay:2.72s}.room .z3{animation-delay:5.45s}.room .bulb{animation:bulbOn 8s infinite}.room .z1 .bulb{animation-delay:0s}.room .z2 .bulb{animation-delay:2.72s}.room .z3 .bulb{animation-delay:5.45s}@keyframes zonePulse{0%,24%{background:rgba(89,255,155,.15);border-color:rgba(89,255,155,.55);box-shadow:inset 0 0 42px rgba(89,255,155,.15)}25%,100%{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.18);box-shadow:none}}@keyframes bulbOn{0%,24%{background:var(--amber);box-shadow:0 0 42px rgba(255,209,102,.85),0 0 92px rgba(255,209,102,.3)}25%,100%{background:rgba(255,255,255,.18);box-shadow:none}}
+    svg{width:100%;height:auto;overflow:visible}.node rect{fill:rgba(255,255,255,.09);stroke:rgba(255,255,255,.24);stroke-width:1.5;rx:22;filter:drop-shadow(0 16px 30px rgba(0,0,0,.32))}.node text{fill:#f4fbff;font-size:18px;font-weight:900;text-anchor:middle}.node .sub{fill:#a8bfd5;font-size:12px;font-weight:750}.arrow{stroke:rgba(56,232,255,.78);stroke-width:3;fill:none;stroke-dasharray:10 11;animation:dash 1.5s linear infinite}@keyframes dash{to{stroke-dashoffset:-42}}.tip{min-height:84px;padding:16px 18px;border-radius:18px;background:rgba(56,232,255,.07);border:1px solid rgba(56,232,255,.2);color:#c8ddef;font-size:18px;line-height:1.35}.node{cursor:pointer;transition:.25s}.node:hover{transform:translateY(-4px)}
+    .workflow-stage{margin-top:28px}.workflow-meter{height:6px;border-radius:999px;background:rgba(255,255,255,.11);overflow:hidden;margin-bottom:22px}.workflow-meter span{display:block;height:100%;width:0%;border-radius:999px;background:linear-gradient(90deg,var(--cyan),var(--green));box-shadow:0 0 22px rgba(56,232,255,.45)}.workflow{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:14px}.workflow:before{content:"";position:absolute;left:6%;right:6%;top:48px;height:2px;background:linear-gradient(90deg,rgba(56,232,255,.18),rgba(89,255,155,.18));z-index:0}.step{position:relative;z-index:1;min-height:190px;padding:18px 14px;border-radius:21px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12);overflow:hidden;opacity:.38;transform:scale(.94);transition:opacity .35s ease,transform .35s ease,border-color .35s ease,background .35s ease,box-shadow .35s ease}.step:before{content:"";position:absolute;left:0;top:0;height:4px;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--cyan),var(--green));transition:transform .5s ease}.step.completed,.step.active{opacity:1;transform:scale(1)}.step.completed:before,.step.active:before{transform:scaleX(1)}.step.active{background:rgba(56,232,255,.11);border-color:rgba(56,232,255,.44);box-shadow:0 22px 52px rgba(0,0,0,.36), inset 0 0 38px rgba(56,232,255,.09)}.step.completed{background:rgba(89,255,155,.075);border-color:rgba(89,255,155,.22)}.icon{font-size:28px;margin-bottom:14px}.step h3{font-size:16px;margin-bottom:7px}.step p{font-size:13px;line-height:1.33}.workflow-status{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-top:22px;padding:18px 20px;border-radius:22px;background:rgba(56,232,255,.065);border:1px solid rgba(56,232,255,.2)}.workflow-status strong{font-size:18px}.workflow-status p{max-width:780px;font-size:15px}.workflow-count{font-size:13px;font-weight:950;color:var(--green);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+    .roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:32px}.road{padding:23px;border-radius:26px;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.15);min-height:255px}.road h3{margin:14px 0 10px}.road p{font-size:16px}.rings{height:430px;position:relative;display:grid;place-items:center}.ring{position:absolute;border-radius:50%;border:1px solid rgba(56,232,255,.36);animation:spin 13s linear infinite}.r1{width:330px;height:330px}.r2{width:245px;height:245px;border-color:rgba(89,255,155,.36);animation-direction:reverse}.r3{width:155px;height:155px}.core{width:92px;height:92px;border-radius:28px;background:linear-gradient(135deg,var(--cyan),var(--green));color:#04101c;display:grid;place-items:center;font-weight:950;font-size:24px;z-index:2;box-shadow:0 0 52px rgba(56,232,255,.38)}@keyframes spin{to{transform:rotate(360deg)}}.sat{position:absolute;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:10px 12px;font-weight:900;color:#e8f7ff;font-size:14px}.s1{top:34px;left:58px}.s2{top:78px;right:42px}.s3{right:48px;bottom:92px}.s4{left:72px;bottom:58px}
+    .nav{position:fixed;right:20px;top:50%;transform:translateY(-50%);display:grid;gap:10px;z-index:20}.nav a{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.2)}.nav a.active{background:var(--green);box-shadow:0 0 18px rgba(89,255,155,.65)}.keys{position:fixed;left:28px;bottom:22px;color:rgba(255,255,255,.45);font-size:13px;z-index:20}.down{position:absolute;bottom:24px;right:74px;color:rgba(255,255,255,.5);font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+    /* signature: cursor-tracked energy spotlight */
+    .spotlight{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity .4s ease;background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(56,232,255,.10),rgba(89,255,155,.05) 38%,transparent 62%)}
+    body.has-mouse .spotlight{opacity:1}
+    /* fine grain for material depth */
+    body:after{ }
+    .grain{position:fixed;inset:0;z-index:-1;opacity:.05;pointer-events:none;mix-blend-mode:overlay}
+    a,button,.node,.step{outline-offset:3px}
+    a:focus-visible,button:focus-visible,.node:focus-visible,.step:focus-visible,.nav a:focus-visible{outline:2px solid var(--green);outline-offset:4px;border-radius:6px}
+    .skip-link{position:fixed;left:-999px;top:12px;z-index:50;background:var(--cyan);color:#03101c;font-weight:900;padding:10px 16px;border-radius:10px}
+    .skip-link:focus{left:12px}
+    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px;max-width:520px}
+    .stat-row .stat{padding:14px 12px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);text-align:center}
+    .stat-row .stat b{display:block;font-size:26px;font-weight:950;color:var(--cyan);letter-spacing:-.02em}
+    .stat-row .stat span{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:750}
+    .stack{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+    .stack .swatch{padding:22px 20px;border-radius:22px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);backdrop-filter:blur(16px);transition:transform .25s ease,border-color .25s ease}
+    .stack .swatch:hover{transform:translateY(-5px);border-color:rgba(56,232,255,.4)}
+    .stack .tag{font-size:11px;font-weight:950;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:10px;display:block}
+    .stack h3{font-size:18px;margin-bottom:8px}
+    .stack p{font-size:14px}
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+    .kpi{padding:26px 22px;border-radius:24px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
+    .kpi b{font-size:clamp(32px,3.6vw,46px);font-weight:950;line-height:1;color:var(--green);letter-spacing:-.03em;display:block}
+    .kpi span{display:block;margin-top:10px;font-size:14px;color:var(--muted)}
+    .kpi small{display:block;margin-top:12px;font-size:12px;color:rgba(168,190,212,.7)}
+    .closing{display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center}
+    .linklist{display:grid;gap:14px;margin-top:26px}
+    .linklist a{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 20px;border-radius:18px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12);color:var(--text);text-decoration:none;font-weight:750;transition:.22s}
+    .linklist a:hover{border-color:rgba(56,232,255,.45);background:rgba(56,232,255,.08);transform:translateX(4px)}
+    .linklist a small{color:var(--muted);font-weight:600;font-size:12px}
+    .linklist a em{font-style:normal;color:var(--cyan);font-weight:950}
+    .signoff{height:400px;border-radius:34px;border:1px solid rgba(255,255,255,.15);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.03));box-shadow:var(--shadow);display:grid;place-items:center;position:relative;overflow:hidden}
+    .signoff .mark{width:120px;height:120px;border-radius:36px;font-size:52px;box-shadow:0 0 90px rgba(56,232,255,.45)}
+    @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}}
+    @media(max-width:950px){.slide{padding:32px 22px 58px;min-height:auto}.hero,.two,.closing{grid-template-columns:1fr}.cards,.workflow,.roadmap,.stack,.kpis,.stat-row{grid-template-columns:repeat(2,1fr)}.workflow:before{display:none}.workflow-status{display:block}.workflow-count{margin-top:10px}.progress{width:140px}.room{height:330px}.nav{display:none}.down{display:none}.signoff{height:260px}}
+    @media(max-width:560px){.stack,.kpis,.stat-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#s1">Skip to content</a>
+  <div class="spotlight" aria-hidden="true"></div>
+  <main>
+    <section class="slide" id="s1">
+      <div class="topbar"><div class="brand"><div class="mark">V</div>Visualec</div><div class="progress"><i></i></div></div>
+      <div class="hero">
+        <div>
+          <div class="eyebrow reveal">Project Title</div>
+          <h1 class="reveal"><span class="gradient">Visualec</span><br>AI-Powered Vision-Based Adaptive Grid Energy Management System</h1>
+          <p class="subtitle reveal">A zone-wise smart energy prototype that detects occupancy and activates only the required lights or fans.</p>
+          <div style="margin-top:30px" class="reveal"><span class="pill">ESP32-S3 MVP • 3 Zones • 3 Relays • Local AI</span></div>
+          <div class="stat-row reveal">
+            <div class="stat"><b data-count="3">0</b><span>Zones</span></div>
+            <div class="stat"><b data-count="3">0</b><span>Relays</span></div>
+            <div class="stat"><b data-count="0">0</b><span>Cloud Calls</span></div>
+          </div>
+        </div>
+        <div class="room reveal"><div class="zone z1"><div class="bulb"></div>Zone 1</div><div class="zone z2"><div class="bulb"></div>Zone 2</div><div class="zone z3"><div class="bulb"></div>Zone 3</div><div class="person"></div></div>
+      </div>
+      <div class="down">Scroll ↓</div>
+    </section>
+
+    <section class="slide" id="s2">
+      <div class="topbar"><div class="brand"><div class="mark">V</div>Base MVP</div><div class="progress"><i></i></div></div>
+      <div class="two">
+        <div>
+          <div class="eyebrow reveal">MVP Done Scope</div>
+          <h2 class="reveal">A simple ESP32-S3-only demonstrator for zone-based switching.</h2>
+          <p class="subtitle reveal">This prototype removes Raspberry Pi, local server and DVR processing. It proves the core idea with a direct camera and low-voltage bulbs.</p>
+        </div>
+        <div class="card reveal">
+          <div class="list">
+            <div><span class="dot"></span><span>ESP32-S3 with supported camera module</span></div>
+            <div><span class="dot"></span><span>Lightweight person/pedestrian detection</span></div>
+            <div><span class="dot"></span><span>3 virtual zones across the camera frame</span></div>
+            <div><span class="dot"></span><span>3 relay outputs controlling 3 low-voltage bulbs</span></div>
+            <div><span class="dot"></span><span>ON confirmation + OFF delay to prevent flickering</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s3">
+      <div class="topbar"><div class="brand"><div class="mark">V</div>Architecture</div><div class="progress"><i></i></div></div>
+      <div class="two">
+        <div class="reveal">
+          <svg viewBox="0 0 920 570" aria-label="Visualec architecture diagram">
+            <defs><marker id="arr" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 Z" fill="#38e8ff"/></marker></defs>
+            <path class="arrow" d="M150 145 C245 145 265 145 350 145" marker-end="url(#arr)"/>
+            <path class="arrow" d="M550 145 C640 145 650 145 755 145" marker-end="url(#arr)"/>
+            <path class="arrow" d="M780 216 C780 280 680 312 565 340" marker-end="url(#arr)"/>
+            <path class="arrow" d="M460 410 C350 456 245 456 145 485" marker-end="url(#arr)"/>
+            <path class="arrow" d="M460 410 C460 452 460 462 460 492" marker-end="url(#arr)"/>
+            <path class="arrow" d="M460 410 C570 456 680 456 780 485" marker-end="url(#arr)"/>
+            <g class="node" tabindex="0" role="button" data-tip="Direct camera input gives the ESP32-S3 a live scene for the MVP. DVR integration is reserved for the scaled version."><rect x="38" y="82" width="175" height="126"/><text x="126" y="135">Camera</text><text class="sub" x="126" y="166">OV2640 / OV5640</text></g>
+            <g class="node" tabindex="0" role="button" data-tip="ESP32-S3 runs capture, lightweight inference, zone mapping, timing logic and relay decisions locally."><rect x="340" y="68" width="230" height="154"/><text x="455" y="132">ESP32-S3</text><text class="sub" x="455" y="164">AI + Control Brain</text></g>
+            <g class="node" tabindex="0" role="button" data-tip="The person detector only checks occupancy/presence. It does not need face recognition or identity storage."><rect x="710" y="82" width="175" height="126"/><text x="798" y="135">AI Model</text><text class="sub" x="798" y="166">Person Presence</text></g>
+            <g class="node" tabindex="0" role="button" data-tip="The zone engine converts a detected person’s position into Zone 1, Zone 2 or Zone 3."><rect x="340" y="294" width="230" height="126"/><text x="455" y="350">Zone Engine</text><text class="sub" x="455" y="381">3 Virtual Areas</text></g>
+            <g class="node" tabindex="0" role="button" data-tip="Relay 1 turns Bulb 1 ON when Zone 1 is occupied."><rect x="40" y="480" width="210" height="76"/><text x="145" y="518">Relay 1 → Bulb 1</text><text class="sub" x="145" y="541">Zone 1</text></g>
+            <g class="node" tabindex="0" role="button" data-tip="Relay 2 turns Bulb 2 ON when Zone 2 is occupied."><rect x="355" y="480" width="210" height="76"/><text x="460" y="518">Relay 2 → Bulb 2</text><text class="sub" x="460" y="541">Zone 2</text></g>
+            <g class="node" tabindex="0" role="button" data-tip="Relay 3 turns Bulb 3 ON when Zone 3 is occupied."><rect x="670" y="480" width="210" height="76"/><text x="775" y="518">Relay 3 → Bulb 3</text><text class="sub" x="775" y="541">Zone 3</text></g>
+          </svg>
+        </div>
+        <div class="card reveal">
+          <h3>Architecture Diagram</h3>
+          <p id="tip" class="tip" style="margin-top:18px">Camera → ESP32-S3 AI → zone decision → relay control. Click any block in the diagram.</p>
+          <div class="list"><div><span class="dot"></span><span>Fully local MVP</span></div><div><span class="dot"></span><span>No cloud or server dependency</span></div><div><span class="dot"></span><span>Privacy-friendly: no face recognition</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s4">
+      <div class="topbar"><div class="brand"><div class="mark">V</div>Workflow</div><div class="progress"><i></i></div></div>
+      <div>
+        <div class="eyebrow reveal">Workflow Diagram</div>
+        <h2 class="reveal">From camera frame to energy action.</h2>
+        <div class="workflow-stage reveal">
+          <div class="workflow-meter"><span></span></div>
+          <div class="workflow" aria-label="Animated workflow steps">
+            <div class="step" data-detail="The ESP32-S3 camera captures a frame at reduced resolution so the microcontroller can process it efficiently."><div class="icon">📷</div><h3>Capture</h3><p>Camera frame enters the ESP32-S3.</p></div>
+            <div class="step" data-detail="A lightweight pedestrian model checks whether a person is visible. The MVP detects presence, not identity."><div class="icon">🧠</div><h3>Infer</h3><p>AI checks person presence.</p></div>
+            <div class="step" data-detail="The detected person box is converted into a practical floor position using the bottom-centre point."><div class="icon">📍</div><h3>Locate</h3><p>Bounding box becomes a zone point.</p></div>
+            <div class="step" data-detail="The point is assigned to Zone 1, Zone 2 or Zone 3 based on the camera-frame grid."><div class="icon">▦</div><h3>Map</h3><p>Position maps to one virtual zone.</p></div>
+            <div class="step" data-detail="ON confirmation and OFF delay prevent relay flickering from brief missed detections."><div class="icon">⏱</div><h3>Stabilise</h3><p>Timers clean the control decision.</p></div>
+            <div class="step" data-detail="Only the occupied zone's relay is activated, so only the required bulb or future fan/light turns on."><div class="icon">💡</div><h3>Switch</h3><p>Required load turns ON.</p></div>
+          </div>
+          <div class="workflow-status">
+            <div><strong id="workflowTitle">Capture</strong><p id="workflowText">The ESP32-S3 camera captures a frame at reduced resolution so the microcontroller can process it efficiently.</p></div>
+            <div class="workflow-count" id="workflowCount">Step 1 / 6</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s5">
+      <div class="topbar"><div class="brand"><div class="mark">V</div>Scaling</div><div class="progress"><i></i></div></div>
+      <div>
+        <div class="eyebrow reveal">How It Scales</div>
+        <h2 class="reveal">Separate vision, control and analytics as resources increase.</h2>
+        <div class="roadmap">
+          <div class="road reveal"><div class="num">01</div><h3>MVP</h3><p>ESP32-S3, direct camera, 3 zones, 3 low-voltage bulbs.</p></div>
+          <div class="road reveal"><div class="num">02</div><h3>Full Room</h3><p>More relays, fans, lights, lux and temperature sensors.</p></div>
+          <div class="road reveal"><div class="num">03</div><h3>Local Server</h3><p>CCTV/DVR streams processed centrally; ESP32 nodes control loads.</p></div>
+          <div class="road reveal"><div class="num">04</div><h3>Campus Platform</h3><p>Multi-room policies, dashboards, kWh reports and savings analytics.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s6">
+      <div class="topbar"><div class="brand"><div class="mark">V</div>Full Utilisation</div><div class="progress"><i></i></div></div>
+      <div class="two">
+        <div>
+          <div class="eyebrow reveal">At Full Resource Utilisation</div>
+          <h2 class="reveal">Visualec becomes an intelligent energy layer for buildings.</h2>
+          <div class="list reveal">
+            <div><span class="dot"></span><span><strong>Occupancy-aware control:</strong> fans and lights follow actual zone usage.</span></div>
+            <div><span class="dot"></span><span><strong>Sensor fusion:</strong> camera + lux + temperature + optional mmWave/PIR.</span></div>
+            <div><span class="dot"></span><span><strong>Energy analytics:</strong> runtime, kWh, cost savings and usage heatmaps.</span></div>
+            <div><span class="dot"></span><span><strong>Safety:</strong> manual override, fail-safe modes and isolated switching panels.</span></div>
+            <div><span class="dot"></span><span><strong>Adaptability:</strong> draw custom zones for classrooms, labs, libraries and offices.</span></div>
+          </div>
+        </div>
+        <div class="rings reveal"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="core">AI</div><div class="sat s1">CCTV Streams</div><div class="sat s2">ESP32 Nodes</div><div class="sat s3">Energy Meter</div><div class="sat s4">Dashboard</div></div>
+      </div>
+    </section>
+
+    <section class="slide" id="s7">
+      <div class="topbar"><div class="brand"><div class="mark">V</div>Tech Stack</div><div class="progress"><i></i></div></div>
+      <div>
+        <div class="eyebrow reveal">Under The Hood</div>
+        <h2 class="reveal">Every part earns its place on a single low-cost board.</h2>
+        <p class="subtitle reveal">No server rack, no GPU, no subscription — the whole pipeline runs on-device.</p>
+        <div class="stack">
+          <div class="swatch reveal"><span class="tag">Sense</span><h3>Camera Module</h3><p>OV2640 / OV5640 feeding raw frames directly into the microcontroller — no separate video pipeline to maintain.</p></div>
+          <div class="swatch reveal"><span class="tag">Think</span><h3>ESP32-S3</h3><p>Dual-core brain that handles capture, inference, zone mapping and timing without offloading to a server.</p></div>
+          <div class="swatch reveal"><span class="tag">Detect</span><h3>Presence Model</h3><p>A lightweight, quantised person-detector — presence only, no identity, no face data stored.</p></div>
+          <div class="swatch reveal"><span class="tag">Act</span><h3>Relay + Timers</h3><p>ON-confirmation and OFF-delay logic drives 3 relays so loads switch cleanly, without flicker.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s8">
+      <div class="topbar"><div class="brand"><div class="mark">V</div>Why It Matters</div><div class="progress"><i></i></div></div>
+      <div>
+        <div class="eyebrow reveal">The Problem With Static Lighting</div>
+        <h2 class="reveal">Most rooms light the whole space for whoever's in one corner of it.</h2>
+        <p class="subtitle reveal">Occupancy-aware control only asks one question per zone: is someone actually there? Independent, evidence-based industry studies commonly cite meaningful lighting-energy reductions from this kind of zoned, presence-based switching — the exact number always depends on the room and usage pattern.</p>
+        <div class="kpis">
+          <div class="kpi reveal"><b>3 → 1</b><span>Zones lit vs. zones actually occupied, on average</span><small>Whole-room switching lights all 3; Visualec lights only what's used</small></div>
+          <div class="kpi reveal"><b>Local</b><span>Every decision is made on-device</span><small>No footage or presence data leaves the ESP32-S3</small></div>
+          <div class="kpi reveal"><b>Presence,<br>not identity</b><span>No face recognition, ever</span><small>The model only answers "is a zone occupied?"</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s9">
+      <div class="topbar"><div class="brand"><div class="mark">V</div>Explore More</div><div class="progress"><i></i></div></div>
+      <div class="closing">
+        <div>
+          <div class="eyebrow reveal">Get In Touch</div>
+          <h2 class="reveal">Visualec is proof that smarter energy control doesn't need to be complicated.</h2>
+          <p class="subtitle reveal">Built and documented by Sarvesh Sivasankaran — code, write-ups and more projects below.</p>
+          <div class="linklist reveal">
+            <a href="https://github.com/Sarveshsivasankaran" target="_blank" rel="noopener"><span>GitHub<br><small>Source, firmware and project history</small></span><em>→</em></a>
+            <a href="https://linkedin.com/in/sarvesh-sivasankaran/" target="_blank" rel="noopener"><span>LinkedIn<br><small>Background and other work</small></span><em>→</em></a>
+            <a href="https://solo-p-leveller-portfolio.vercel.app" target="_blank" rel="noopener"><span>Portfolio<br><small>More projects and writing</small></span><em>→</em></a>
+          </div>
+        </div>
+        <div class="signoff reveal"><div class="mark">V</div></div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="nav" aria-label="Slide navigation"><a href="#s1"></a><a href="#s2"></a><a href="#s3"></a><a href="#s4"></a><a href="#s5"></a><a href="#s6"></a><a href="#s7"></a><a href="#s8"></a><a href="#s9"></a></nav>
+  <div class="keys">Scroll / ↑↓ keys • Architecture blocks are clickable</div>
+
+  <script>
+    const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if(!reduceMotion){
+      window.addEventListener('pointermove',e=>{
+        document.body.classList.add('has-mouse');
+        document.documentElement.style.setProperty('--mx',e.clientX+'px');
+        document.documentElement.style.setProperty('--my',e.clientY+'px');
+      },{passive:true});
+    }
+
+    function countUp(el){
+      const target=parseInt(el.dataset.count,10)||0;
+      if(reduceMotion||target===0){el.textContent=target;return}
+      let cur=0;
+      const step=Math.max(1,Math.round(target/24));
+      const id=setInterval(()=>{
+        cur=Math.min(target,cur+step);
+        el.textContent=cur;
+        if(cur>=target)clearInterval(id);
+      },28);
+    }
+    const statEls=[...document.querySelectorAll('.stat b[data-count]')];
+
+    const slides=[...document.querySelectorAll('.slide')], dots=[...document.querySelectorAll('.nav a')], bars=[...document.querySelectorAll('.progress i')];
+    const workflowSteps=[...document.querySelectorAll('#s4 .step')];
+    const workflowMeter=document.querySelector('.workflow-meter span');
+    const workflowTitle=document.getElementById('workflowTitle');
+    const workflowText=document.getElementById('workflowText');
+    const workflowCount=document.getElementById('workflowCount');
+    let workflowScrollTrigger=null;
+    let activeWorkflowStep=-1;
+
+    function setProgress(i){
+      const pct=((i+1)/slides.length)*100;
+      bars.forEach(b=>b.style.width=pct+'%');
+      dots.forEach((d,idx)=>d.classList.toggle('active',idx===i));
+    }
+
+    function activeSlideIndex(){
+      const y=scrollY+innerHeight/2;
+      const idx=slides.findIndex(s=>s.offsetTop<=y&&s.offsetTop+s.offsetHeight>y);
+      return idx < 0 ? 0 : idx;
+    }
+
+    function go(i){
+      slides[Math.max(0,Math.min(slides.length-1,i))].scrollIntoView({behavior:'smooth'});
+    }
+
+    function activateWorkflow(index){
+      const safe=Math.max(0,Math.min(workflowSteps.length-1,index));
+      if(safe===activeWorkflowStep) return;
+      activeWorkflowStep=safe;
+      workflowSteps.forEach((step,i)=>{
+        step.classList.toggle('completed', i < safe);
+        step.classList.toggle('active', i === safe);
+      });
+      const current=workflowSteps[safe];
+      const title=current.querySelector('h3')?.textContent || '';
+      workflowTitle.textContent=title;
+      workflowText.textContent=current.dataset.detail || '';
+      workflowCount.textContent=`Step ${safe+1} / ${workflowSteps.length}`;
+      workflowMeter.style.width=`${((safe+1)/workflowSteps.length)*100}%`;
+      if(window.gsap){
+        gsap.fromTo(current,{y:10,scale:.97},{y:0,scale:1,duration:.35,ease:'power3.out'});
+      }
+    }
+
+    document.addEventListener('keydown',e=>{
+      const isDown=e.key==='ArrowDown'||e.key===' ';
+      const isUp=e.key==='ArrowUp';
+      if((isDown||isUp)&&workflowScrollTrigger&&scrollY>=workflowScrollTrigger.start-8&&scrollY<=workflowScrollTrigger.end+8){
+        e.preventDefault();
+        const stepSize=(workflowScrollTrigger.end-workflowScrollTrigger.start)/workflowSteps.length;
+        const target=isDown ? Math.min(workflowScrollTrigger.end+3, scrollY+stepSize) : Math.max(workflowScrollTrigger.start, scrollY-stepSize);
+        window.scrollTo({top:target,behavior:'smooth'});
+        return;
+      }
+      const idx=activeSlideIndex();
+      if(isDown){e.preventDefault();go(idx+1)}
+      if(isUp){e.preventDefault();go(idx-1)}
+    });
+
+    document.querySelectorAll('.node').forEach(n=>{
+      const show=()=>document.getElementById('tip').textContent=n.dataset.tip;
+      n.addEventListener('click',show);
+      n.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show()}});
+    });
+
+    if(window.gsap){
+      gsap.registerPlugin(ScrollTrigger);
+      slides.forEach((slide,i)=>{
+        ScrollTrigger.create({trigger:slide,start:'top center',end:'bottom center',onEnter:()=>setProgress(i),onEnterBack:()=>setProgress(i)});
+        gsap.fromTo(slide.querySelectorAll('.reveal'),{autoAlpha:0,y:30,scale:.985},{autoAlpha:1,y:0,scale:1,duration:.68,ease:'power3.out',stagger:.09,scrollTrigger:{trigger:slide,start:'top 67%'}});
+        gsap.fromTo(slide,{filter:'blur(5px)',scale:.985},{filter:'blur(0px)',scale:1,duration:.8,ease:'power2.out',scrollTrigger:{trigger:slide,start:'top 75%',end:'top 35%',scrub:true}});
+      });
+
+      ScrollTrigger.create({trigger:'#s1',start:'top 70%',once:true,onEnter:()=>statEls.forEach(countUp)});
+
+      activateWorkflow(0);
+      workflowScrollTrigger=ScrollTrigger.create({
+        trigger:'#s4',
+        start:'top top',
+        end:()=>'+='+(window.innerHeight*2.4),
+        pin:true,
+        scrub:true,
+        anticipatePin:1,
+        onEnter:()=>setProgress(3),
+        onEnterBack:()=>setProgress(3),
+        onUpdate:self=>{
+          const index=Math.min(workflowSteps.length-1, Math.floor(self.progress*workflowSteps.length));
+          activateWorkflow(index);
+        }
+      });
+    }else{
+      setProgress(0);
+      document.querySelectorAll('.reveal').forEach(el=>{el.style.opacity=1;el.style.transform='none'});
+      activateWorkflow(0);
+      workflowSteps.forEach((s,i)=>s.classList.toggle('active',i===0));
+      statEls.forEach(countUp);
+    }
+  </script>
+</body>
+</html>

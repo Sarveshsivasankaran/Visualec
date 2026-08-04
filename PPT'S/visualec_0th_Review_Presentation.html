@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visualec — Title, Problem Statement, Abstract &amp; Objective</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;650;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <style>
+    :root{
+      --bg:#06101f; --bg2:#091a31; --text:#f4fbff; --muted:#a8bed4;
+      --cyan:#38e8ff; --blue:#4f8dff; --green:#59ff9b; --amber:#ffd166;
+      --card:rgba(255,255,255,.08); --line:rgba(255,255,255,.16); --shadow:0 28px 80px rgba(0,0,0,.42);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 15% 15%,rgba(56,232,255,.22),transparent 33%),radial-gradient(circle at 85% 72%,rgba(89,255,155,.12),transparent 34%),linear-gradient(135deg,#06101f,#091a31 55%,#030812)}
+    body:after{content:"";position:fixed;inset:0;z-index:-2;opacity:.13;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);background-size:46px 46px;animation:grid 16s linear infinite;mask-image:radial-gradient(circle at center,#000,transparent 76%)}
+    @keyframes grid{to{background-position:46px 46px}}
+    .slide{min-height:100vh;padding:52px 70px 64px;display:grid;grid-template-rows:auto 1fr;gap:32px;position:relative;overflow:hidden;scroll-snap-align:start}
+    .slide>div:not(.topbar){align-self:center}
+    main{scroll-snap-type:y proximity}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:24px;z-index:5}.brand{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.14em;font-weight:900}.mark{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--cyan),var(--green));color:#03101c;display:grid;place-items:center;font-weight:950;box-shadow:0 0 28px rgba(56,232,255,.35)}.progress{width:260px;height:8px;border-radius:999px;background:rgba(255,255,255,.11);overflow:hidden}.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--green));border-radius:999px}
+    h1,h2,h3,p{margin:0} h1{font-size:clamp(38px,5.6vw,72px);line-height:1.08;letter-spacing:-.03em} h2{font-size:clamp(26px,3.4vw,44px);line-height:1.22;letter-spacing:-.02em} h3{font-size:19px;line-height:1.3;letter-spacing:-.01em} p,li{font-size:clamp(15px,1.2vw,18px);line-height:1.6;color:var(--muted)}
+    .eyebrow{font-size:12px;font-weight:950;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px}.gradient{background:linear-gradient(90deg,#fff,var(--cyan),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}.subtitle{margin-top:24px;max-width:700px;color:#c2d8ec;font-size:clamp(16px,1.35vw,20px);line-height:1.65}
+    .hero,.two{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:56px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:var(--shadow);backdrop-filter:blur(16px)}.card strong{color:var(--text)}.pill{display:inline-flex;padding:10px 14px;border-radius:999px;background:rgba(56,232,255,.09);border:1px solid rgba(56,232,255,.28);font-weight:950;text-transform:uppercase;letter-spacing:.08em;color:#e8fcff;font-size:11px}.list{display:grid;gap:14px;margin-top:22px}.list div{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:15px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.10);color:#c5d6e7;font-size:16px;line-height:1.5}.dot{width:9px;height:9px;flex:0 0 auto;margin-top:8px;border-radius:50%;background:var(--green);box-shadow:0 0 18px rgba(89,255,155,.8)}
+    .room{position:relative;height:440px;border-radius:34px;overflow:hidden;border:1px solid rgba(255,255,255,.15);background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.04));box-shadow:var(--shadow)}.room:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.11) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.11) 1px,transparent 1px);background-size:36px 36px;opacity:.18}.zone{position:absolute;top:84px;bottom:40px;border-radius:24px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.045);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;font-weight:950;font-size:24px}.z1{left:30px;width:calc(33.33% - 42px)}.z2{left:calc(33.33% + 14px);width:calc(33.33% - 42px)}.z3{right:30px;width:calc(33.33% - 42px)}.bulb{width:44px;height:44px;border-radius:50% 50% 44% 44%;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.24)}.bulb:after{content:"";display:block;width:20px;height:8px;border-radius:3px;background:rgba(255,255,255,.25);margin:41px auto 0}.person{position:absolute;bottom:76px;left:65px;width:42px;height:96px;z-index:4;animation:walk 8s infinite cubic-bezier(.45,.05,.55,.95)}.person:before{content:"";position:absolute;top:0;left:10px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 0 22px rgba(255,255,255,.35)}.person:after{content:"";position:absolute;top:29px;left:4px;width:34px;height:58px;border-radius:17px 17px 10px 10px;background:linear-gradient(180deg,var(--cyan),var(--blue))}@keyframes walk{0%,22%{left:65px}34%,56%{left:calc(50% - 21px)}68%,90%{left:calc(100% - 110px)}100%{left:65px}}.room .zone{animation:zonePulse 8s infinite}.room .z1{animation-delay:0s}.room .z2{animation-delay:2.72s}.room .z3{animation-delay:5.45s}.room .bulb{animation:bulbOn 8s infinite}.room .z1 .bulb{animation-delay:0s}.room .z2 .bulb{animation-delay:2.72s}.room .z3 .bulb{animation-delay:5.45s}@keyframes zonePulse{0%,24%{background:rgba(89,255,155,.15);border-color:rgba(89,255,155,.55);box-shadow:inset 0 0 42px rgba(89,255,155,.15)}25%,100%{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.18);box-shadow:none}}@keyframes bulbOn{0%,24%{background:var(--amber);box-shadow:0 0 42px rgba(255,209,102,.85),0 0 92px rgba(255,209,102,.3)}25%,100%{background:rgba(255,255,255,.18);box-shadow:none}}
+    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px;max-width:540px}
+    .stat-row .stat{padding:18px 14px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);text-align:center}
+    .stat-row .stat b{display:block;font-size:26px;font-weight:950;color:var(--cyan);letter-spacing:-.02em;line-height:1.2}
+    .stat-row .stat span{display:block;margin-top:6px;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:750;line-height:1.4}
+    .stack{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}
+    .stack .swatch{padding:26px 22px;border-radius:22px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);backdrop-filter:blur(16px);transition:transform .25s ease,border-color .25s ease}
+    .stack .swatch:hover{transform:translateY(-5px);border-color:rgba(56,232,255,.4)}
+    .stack .tag{font-size:11px;font-weight:950;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:12px;display:block}
+    .stack h3{font-size:17px;margin-bottom:10px;line-height:1.3}
+    .stack p{font-size:14px;line-height:1.55}
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:16px}
+    .kpi{padding:28px 24px;border-radius:24px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
+    .kpi b{font-size:clamp(26px,2.8vw,36px);font-weight:950;line-height:1.15;color:var(--green);letter-spacing:-.02em;display:block}
+    .kpi span{display:block;margin-top:12px;font-size:14.5px;line-height:1.45;color:var(--muted)}
+    .kpi small{display:block;margin-top:14px;font-size:12.5px;line-height:1.4;color:rgba(168,190,212,.7)}
+    .nav{position:fixed;right:20px;top:50%;transform:translateY(-50%);display:grid;gap:10px;z-index:20}.nav a{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.2)}.nav a.active{background:var(--green);box-shadow:0 0 18px rgba(89,255,155,.65)}.keys{position:fixed;left:28px;bottom:22px;color:rgba(255,255,255,.45);font-size:13px;z-index:20}.down{position:absolute;bottom:24px;right:74px;color:rgba(255,255,255,.5);font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+    .spotlight{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity .4s ease;background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(56,232,255,.10),rgba(89,255,155,.05) 38%,transparent 62%)}
+    body.has-mouse .spotlight{opacity:1}
+    a,button{outline-offset:3px}
+    a:focus-visible,button:focus-visible,.nav a:focus-visible{outline:2px solid var(--green);outline-offset:4px;border-radius:6px}
+    .skip-link{position:fixed;left:-999px;top:12px;z-index:50;background:var(--cyan);color:#03101c;font-weight:900;padding:10px 16px;border-radius:10px}
+    .skip-link:focus{left:12px}
+    @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}}
+    @media(max-width:950px){.slide{padding:32px 22px 58px;min-height:auto}.hero,.two{grid-template-columns:1fr}.stack,.kpis,.stat-row{grid-template-columns:repeat(2,1fr)}.progress{width:140px}.room{height:330px}.nav{display:none}.down{display:none}}
+    @media(max-width:560px){.stack,.kpis,.stat-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#s1">Skip to content</a>
+  <div class="spotlight" aria-hidden="true"></div>
+  <main>
+    <section class="slide" id="s1">
+      <div class="topbar"><div class="brand"><div class="mark">V</div>Visualec</div><div class="progress"><i></i></div></div>
+      <div class="hero">
+        <div>
+          <div class="eyebrow reveal">Project Title</div>
+          <h1 class="reveal"><span class="gradient">Visualec</span><br>AI-Powered Vision-Based Adaptive Grid Energy Management System</h1>
+          <p class="subtitle reveal">A small project that started from one annoying observation: rooms keep the lights on for people who aren't even in them anymore.</p>
+          <div style="margin-top:30px" class="reveal"><span class="pill">Computer Vision • ESP32-S3 • IoT • Real-Time Analytics</span></div>
+          <div class="stat-row reveal">
+            <div class="stat"><b data-count="3">0</b><span>Occupancy Zones</span></div>
+            <div class="stat"><b data-count="3">0</b><span>Relay Outputs</span></div>
+            <div class="stat"><b data-count="5">0</b><span>Operating Modes</span></div>
+          </div>
+        </div>
+        <div class="room reveal"><div class="zone z1"><div class="bulb"></div>Zone 1</div><div class="zone z2"><div class="bulb"></div>Zone 2</div><div class="zone z3"><div class="bulb"></div>Zone 3</div><div class="person"></div></div>
+      </div>
+      <div class="down">Scroll ↓</div>
+    </section>
+
+    <section class="slide" id="s2">
+      <div class="topbar"><div class="brand"><div class="mark">V</div>Problem Statement</div><div class="progress"><i></i></div></div>
+      <div class="two">
+        <div>
+          <div class="eyebrow reveal">PS · Problem Statement</div>
+          <h2 class="reveal">Most rooms don't actually know if anyone's in them.</h2>
+          <p class="subtitle reveal">Walk into most classrooms, offices, or labs and you'll notice the same thing: every light and fan in the room is on, even if only two or three people are actually sitting there. Switches are either flipped once at the start of the day and forgotten, or run on a timer that has no idea whether the room emptied out an hour ago. Nobody's being careless — it's just that keeping track of who's where, in real time, isn't something a person can realistically do on top of everything else.</p>
+        </div>
+        <div class="card reveal">
+          <div class="list">
+            <div><span class="dot"></span><span>A whole room gets lit up for whoever's occupying one corner of it</span></div>
+            <div><span class="dot"></span><span>Timers and manual switches don't know what's happening in the room right now</span></div>
+            <div><span class="dot"></span><span>Expecting someone to walk around switching things off zone by zone isn't realistic</span></div>
+            <div><span class="dot"></span><span>There's usually no easy way to even see how much of that usage was actually needed</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s3">
+      <div class="topbar"><div class="brand"><div class="mark">V</div>Abstract</div><div class="progress"><i></i></div></div>
+      <div>
+        <div class="eyebrow reveal">Abstract</div>
+        <h2 class="reveal">Teaching a camera to notice who's actually in the room.</h2>
+        <p class="subtitle reveal">Visualec is my attempt at cutting down the electricity that gets wasted in classrooms, offices, labs, and other shared spaces we all use every day. It works off a laptop's camera: the live feed is split into a few virtual zones, and each zone is tied to a real appliance — a light, a fan, a prototype bulb. A lightweight AI model watches the feed and figures out which zones actually have someone in them. From there it's simple — occupied zones get switched on, and once a zone has been empty for a bit, it switches back off on its own. I also built a dashboard so I (or anyone else) can watch it happen live, tweak the zones, and get a rough sense of how much energy it's actually saving.</p>
+        <div class="stack">
+          <div class="swatch reveal"><span class="tag">Sense</span><h3>Camera &amp; zones</h3><p>Runs on Python, OpenCV, and a YOLO-style detector — the laptop watches the feed and works out which zone each person is standing in.</p></div>
+          <div class="swatch reveal"><span class="tag">Act</span><h3>ESP32-S3 &amp; relays</h3><p>Whatever the laptop decides gets sent over Wi-Fi to an ESP32-S3, which flips the relays for whichever appliances actually need to turn on.</p></div>
+          <div class="swatch reveal"><span class="tag">Watch</span><h3>The dashboard</h3><p>A web page showing the live feed, which zones are occupied, relay status, and a running estimate of usage and savings — plus a manual override.</p></div>
+          <div class="swatch reveal"><span class="tag">Keep it steady</span><h3>Delays &amp; modes</h3><p>Small delays stop things flicking on and off if someone just walks through, with automatic, manual, hybrid, and emergency operating modes.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s4">
+      <div class="topbar"><div class="brand"><div class="mark">V</div>Objective</div><div class="progress"><i></i></div></div>
+      <div>
+        <div class="eyebrow reveal">Objective</div>
+        <h2 class="reveal">Let the room manage itself, so people don't have to.</h2>
+        <p class="subtitle reveal">What I'm really going for is something affordable, adaptive, and scalable — nothing exotic, just parts anyone could get their hands on. I don't want anyone to have to remember to switch anything off, or think about it at all. If the AI, the camera, and the microcontroller are doing their job, power gets used because someone's actually there — not because a clock said so, or because a switch was flipped that morning and never touched again.</p>
+        <div class="kpis">
+          <div class="kpi reveal"><b>Affordable</b><span>Just a laptop webcam, an ESP32-S3, and relay modules</span><small>Nothing here needs specialised or expensive hardware</small></div>
+          <div class="kpi reveal"><b>Adaptive</b><span>Follows people, not a clock</span><small>Zones switch on and off on their own as people come and go</small></div>
+          <div class="kpi reveal"><b>Scalable</b><span>Same idea, bigger setup</span><small>Room for more cameras, more rooms, and eventually building-wide analytics</small></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="nav" aria-label="Slide navigation"><a href="#s1"></a><a href="#s2"></a><a href="#s3"></a><a href="#s4"></a></nav>
+  <div class="keys">Scroll / ↑↓ keys</div>
+
+  <script>
+    const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if(!reduceMotion){
+      window.addEventListener('pointermove',e=>{
+        document.body.classList.add('has-mouse');
+        document.documentElement.style.setProperty('--mx',e.clientX+'px');
+        document.documentElement.style.setProperty('--my',e.clientY+'px');
+      },{passive:true});
+    }
+
+    function countUp(el){
+      const target=parseInt(el.dataset.count,10)||0;
+      if(reduceMotion||target===0){el.textContent=target;return}
+      let cur=0;
+      const step=Math.max(1,Math.round(target/24));
+      const id=setInterval(()=>{
+        cur=Math.min(target,cur+step);
+        el.textContent=cur;
+        if(cur>=target)clearInterval(id);
+      },28);
+    }
+    const statEls=[...document.querySelectorAll('.stat b[data-count]')];
+
+    const slides=[...document.querySelectorAll('.slide')], dots=[...document.querySelectorAll('.nav a')], bars=[...document.querySelectorAll('.progress i')];
+
+    function setProgress(i){
+      const pct=((i+1)/slides.length)*100;
+      bars.forEach(b=>b.style.width=pct+'%');
+      dots.forEach((d,idx)=>d.classList.toggle('active',idx===i));
+    }
+
+    function activeSlideIndex(){
+      const y=scrollY+innerHeight/2;
+      const idx=slides.findIndex(s=>s.offsetTop<=y&&s.offsetTop+s.offsetHeight>y);
+      return idx < 0 ? 0 : idx;
+    }
+
+    function go(i){
+      slides[Math.max(0,Math.min(slides.length-1,i))].scrollIntoView({behavior:'smooth'});
+    }
+
+    document.addEventListener('keydown',e=>{
+      const isDown=e.key==='ArrowDown'||e.key===' ';
+      const isUp=e.key==='ArrowUp';
+      const idx=activeSlideIndex();
+      if(isDown){e.preventDefault();go(idx+1)}
+      if(isUp){e.preventDefault();go(idx-1)}
+    });
+
+    if(window.gsap){
+      gsap.registerPlugin(ScrollTrigger);
+      slides.forEach((slide,i)=>{
+        ScrollTrigger.create({trigger:slide,start:'top center',end:'bottom center',onEnter:()=>setProgress(i),onEnterBack:()=>setProgress(i)});
+        gsap.fromTo(slide.querySelectorAll('.reveal'),{autoAlpha:0,y:30,scale:.985},{autoAlpha:1,y:0,scale:1,duration:.68,ease:'power3.out',stagger:.09,scrollTrigger:{trigger:slide,start:'top 67%'}});
+        gsap.fromTo(slide,{filter:'blur(5px)',scale:.985},{filter:'blur(0px)',scale:1,duration:.8,ease:'power2.out',scrollTrigger:{trigger:slide,start:'top 75%',end:'top 35%',scrub:true}});
+      });
+
+      ScrollTrigger.create({trigger:'#s1',start:'top 70%',once:true,onEnter:()=>statEls.forEach(countUp)});
+    }else{
+      setProgress(0);
+      document.querySelectorAll('.reveal').forEach(el=>{el.style.opacity=1;el.style.transform='none'});
+      statEls.forEach(countUp);
+    }
+  </script>
+</body>
+</html>

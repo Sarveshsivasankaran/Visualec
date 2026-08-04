@@ -1,0 +1,14 @@
+services:
+  backend:
+    build: ./backend
+    ports: ["8000:8000"]
+    environment:
+      DATABASE_URL: sqlite:////data/visualec.db
+      ESP32_BASE_URL: ${ESP32_BASE_URL:-http://visualec-esp32-s3.local}
+    volumes: ["visualec_data:/data"]
+  frontend:
+    build: ./frontend
+    ports: ["5173:80"]
+    depends_on: [backend]
+volumes:
+  visualec_data:
