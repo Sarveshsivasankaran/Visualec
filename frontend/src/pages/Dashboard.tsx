@@ -13,13 +13,13 @@ function ZoneCard({zone, state}:{zone:ZoneState;state:SystemState}) {
   async function setRelay(on:boolean) {
     if (!relay) return;
     setBusy(true);
-    try { await request(`/api/relays/${relay.id}/override`, {method:"POST",body:JSON.stringify({state:on,duration_seconds:900})}); }
+    try { await request(`/api/relays/${relay.id}/override`, {method:"POST",body:JSON.stringify({state:on})}); }
     finally { setBusy(false); }
   }
   return <article className={`zone-card ${zone.occupied?"occupied":""}`}>
     <div className="zone-head"><span className="zone-swatch" style={{background:zone.colour}}/><div><p>{zone.name}</p><strong>{zone.occupied?"Occupied":"Vacant"}</strong></div><span className="people-count"><Users size={15}/>{zone.people_count}</span></div>
     <div className="zone-stats"><span><Clock3 size={14}/> {formatDuration(zone.occupancy_duration_seconds)}</span><span><Radio size={14}/> {relay?`Relay ${relay.id}`:"Unmapped"}</span></div>
-    <div className="appliance-row"><div><span className={`power-icon ${relay?.state==="on"?"on":""}`}><Power size={17}/></span><div><strong>Prototype load</strong><small>{state.esp32.connected?(relay?.state==="on"?"Powered":"Standby"):"Controller offline"}</small></div></div><div className="segmented"><button disabled={busy||!relay||!state.esp32.connected} className={relay?.state==="on"?"selected":""} onClick={()=>setRelay(true)}>On</button><button disabled={busy||!relay||!state.esp32.connected} className={relay?.state==="off"?"selected":""} onClick={()=>setRelay(false)}>Off</button></div></div>
+    <div className="appliance-row"><div><span className={`power-icon ${relay?.state==="on"?"on":""}`}><Power size={17}/></span><div><strong>Prototype load</strong><small>{!state.esp32.connected?"Controller offline":relay?.manual_override?`Manual · auto in ${Math.ceil(relay.manual_override_remaining_seconds??0)}s`:relay?.state==="on"?"Powered · automatic":"Standby · automatic"}</small></div></div><div className="segmented"><button disabled={busy||!relay||!state.esp32.connected} className={relay?.state==="on"?"selected":""} onClick={()=>setRelay(true)}>On</button><button disabled={busy||!relay||!state.esp32.connected} className={relay?.state==="off"?"selected":""} onClick={()=>setRelay(false)}>Off</button></div></div>
   </article>;
 }
 

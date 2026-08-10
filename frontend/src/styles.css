@@ -12,3 +12,27 @@
 .camera-panel .panel-heading>div:first-child{flex-direction:row;align-items:center}
 .camera-panel .live-dot{flex:0 0 auto;margin:0}
 .log-row{content-visibility:auto;contain-intrinsic-size:66px}
+
+/* Direct manipulation handles for Zone Studio. */
+.zone-shape{user-select:none;outline:0}
+.zone-shape:hover,.zone-shape.selected{z-index:3}
+.zone-shape:focus-visible{box-shadow:0 0 0 3px var(--cyan),0 0 22px #22d3ee66}
+.zone-shape .zone-shape-label{z-index:2;pointer-events:none}
+.zone-resize-handle{position:absolute;z-index:4;margin:0;padding:0;border:0;background:transparent;color:inherit;opacity:0;touch-action:none}
+.zone-shape:hover .zone-resize-handle,.zone-shape.selected .zone-resize-handle,.zone-resize-handle:focus-visible{opacity:1}
+.zone-resize-handle:focus-visible{outline:2px solid white;outline-offset:1px}
+.zone-resize-handle:after{content:"";position:absolute;background:currentColor;border:2px solid #07111f;box-shadow:0 0 0 1px #fff;border-radius:2px}
+.zone-resize-handle[data-handle="n"],.zone-resize-handle[data-handle="s"]{left:15px;right:15px;height:14px;cursor:ns-resize}
+.zone-resize-handle[data-handle="n"]{top:-8px}
+.zone-resize-handle[data-handle="s"]{bottom:-8px}
+.zone-resize-handle[data-handle="n"]:after,.zone-resize-handle[data-handle="s"]:after{width:24px;height:5px;left:50%;top:50%;transform:translate(-50%,-50%)}
+.zone-resize-handle[data-handle="e"],.zone-resize-handle[data-handle="w"]{top:15px;bottom:15px;width:14px;cursor:ew-resize}
+.zone-resize-handle[data-handle="e"]{right:-8px}
+.zone-resize-handle[data-handle="w"]{left:-8px}
+.zone-resize-handle[data-handle="e"]:after,.zone-resize-handle[data-handle="w"]:after{width:5px;height:24px;left:50%;top:50%;transform:translate(-50%,-50%)}
+.zone-resize-handle[data-handle="ne"],.zone-resize-handle[data-handle="nw"],.zone-resize-handle[data-handle="se"],.zone-resize-handle[data-handle="sw"]{width:18px;height:18px}
+.zone-resize-handle[data-handle="ne"]{right:-10px;top:-10px;cursor:nesw-resize}
+.zone-resize-handle[data-handle="nw"]{left:-10px;top:-10px;cursor:nwse-resize}
+.zone-resize-handle[data-handle="se"]{right:-10px;bottom:-10px;cursor:nwse-resize}
+.zone-resize-handle[data-handle="sw"]{left:-10px;bottom:-10px;cursor:nesw-resize}
+.zone-resize-handle[data-handle="ne"]:after,.zone-resize-handle[data-handle="nw"]:after,.zone-resize-handle[data-handle="se"]:after,.zone-resize-handle[data-handle="sw"]:after{width:9px;height:9px;left:50%;top:50%;transform:translate(-50%,-50%)}

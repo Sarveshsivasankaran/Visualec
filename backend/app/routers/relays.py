@@ -44,14 +44,47 @@ async def toggle(relay_id: int, request: Request, db: Session = Depends(get_db))
 
 @router.post("/{relay_id}/override")
 async def override(relay_id: int, payload: ManualOverride, request: Request, db: Session = Depends(get_db)) -> dict:
-    request.app.state.relay_service.set_override(relay_id, payload.state, payload.duration_seconds)
-    return await command(relay_id, payload.state, request, db)
+    occupancy = request.app.state.occupancy_service
+    duration = payload.duration_seconds
+    if duration is None:
+        duration = occupancy.deactivation_delay if payload.state else occupancy.activation_delay
+    relay_service = request.app.state.relay_service
+    runtime_state = request.app.state.runtime_state
+    previous_mode = runtime_state.mode
+    if not runtime_state.emergency:
+        runtime_state.mode = "hybrid"
+    relay_service.set_override(relay_id, payload.state, duration)
+    try:
+        result = await command(relay_id, payload.state, request, db)
+    except Exception:
+        runtime_state.manual_overrides.pop(relay_id, None)
+        runtime_state.mode = previous_mode
+        raise
+    runtime_state.record_event(
+        "override",
+        f"Relay {relay_id} manually turned {'on' if payload.state else 'off'}; Hybrid mode active and Automatic resumes in {duration:g}s",
+        source="dashboard",
+        status="temporary",
+        relay_id=relay_id,
+        state="on" if payload.state else "off",
+        duration_seconds=duration,
+    )
+    return {
+        **result,
+        "manual_override": True,
+        "override_duration_seconds": duration,
+        "mode": runtime_state.mode,
+    }
 
 
 @router.delete("/{relay_id}/override")
 def cancel_override(relay_id: int, request: Request) -> dict:
-    request.app.state.runtime_state.manual_overrides.pop(relay_id, None)
-    return {"success": True}
+    state = request.app.state.runtime_state
+    state.manual_overrides.pop(relay_id, None)
+    if state.mode == "hybrid" and not state.manual_overrides:
+        state.mode = "automatic"
+        state.record_event("mode", "Automatic control resumed", source="dashboard", status="automatic")
+    return {"success": True, "mode": state.mode}
 
 
 @router.post("/all-off")

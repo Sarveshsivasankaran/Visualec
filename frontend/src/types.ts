@@ -1,4 +1,4 @@
-export type Relay = { id: number; name: string; state: "on" | "off"; rated_wattage: number; manual_override?: boolean };
+export type Relay = { id: number; name: string; state: "on" | "off"; rated_wattage: number; manual_override?: boolean; manual_override_remaining_seconds?: number };
 export type ZoneState = { id: number; name: string; colour: string; occupied: boolean; people_count: number; occupancy_duration_seconds: number; relay_ids: number[]; auto_control_enabled: boolean };
 export type ZoneConfig = { id: number; name: string; colour: string; enabled: boolean; zone_type: "rectangle" | "polygon"; coordinates: {x:number;y:number}[]; relay_ids: number[]; auto_control_enabled: boolean };
 export type Energy = { current_power_watts: number; actual_energy_kwh: number; baseline_energy_kwh: number; energy_saved_kwh: number; cost_saved: number; relay_activations: number; zone_usage: {relay_id:number;name:string;runtime_seconds:number;energy_kwh:number}[] };

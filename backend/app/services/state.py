@@ -1,6 +1,7 @@
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from threading import RLock
+import time
 from typing import Any
 
 
@@ -95,13 +96,13 @@ class RuntimeState:
         self.record_event("system", message, status=level)
 
     def snapshot(self) -> dict[str, Any]:
-        now = datetime.now(timezone.utc).timestamp()
+        now_monotonic = time.monotonic()
         with self.lock:
             zones = []
             for zone in self.zones.values():
                 payload = asdict(zone)
                 payload["occupancy_duration_seconds"] = (
-                    max(0.0, now - zone.occupied_since) if zone.occupied and zone.occupied_since else 0.0
+                    max(0.0, now_monotonic - zone.occupied_since) if zone.occupied and zone.occupied_since else 0.0
                 )
                 zones.append(payload)
             return {
@@ -116,7 +117,11 @@ class RuntimeState:
                         "name": self.relay_names.get(relay_id, f"Relay {relay_id}"),
                         "state": "on" if state else "off",
                         "rated_wattage": self.relay_wattages.get(relay_id, 0),
-                        "manual_override": relay_id in self.manual_overrides,
+                        "manual_override": relay_id in self.manual_overrides and self.manual_overrides[relay_id][1] > now_monotonic,
+                        "manual_override_remaining_seconds": max(
+                            0.0,
+                            self.manual_overrides[relay_id][1] - now_monotonic,
+                        ) if relay_id in self.manual_overrides else 0.0,
                     }
                     for relay_id, state in sorted(self.relays.items())
                 ],

@@ -78,7 +78,11 @@ class VisualecRuntime:
                         db.add(OccupancyEvent(zone_id=transition.zone_id, previous_state=transition.previous, new_state=transition.current))
                     db.commit()
                     try:
-                        await self.relays.reconcile_automatic(db)
+                        await self.relays.reconcile_automatic(
+                            db,
+                            self.occupancy.activation_delay,
+                            self.occupancy.deactivation_delay,
+                        )
                     except Exception as exc:
                         self.state.alert("error", str(exc))
                     payload = self.state.snapshot()
@@ -125,7 +129,11 @@ class VisualecRuntime:
                         ))
                 db.commit()
                 try:
-                    await self.relays.reconcile_automatic(db)
+                    await self.relays.reconcile_automatic(
+                        db,
+                        self.occupancy.activation_delay,
+                        self.occupancy.deactivation_delay,
+                    )
                 except Exception as exc:
                     self.state.alert("error", str(exc))
                 payload = self.state.snapshot()

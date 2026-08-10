@@ -69,7 +69,9 @@ class DetectionSettings(BaseModel):
 
 class ManualOverride(BaseModel):
     state: bool
-    duration_seconds: int = Field(default=900, ge=1, le=86400)
+    # When omitted, ON yields to vacancy after the deactivation delay and
+    # OFF yields to occupancy after the activation delay.
+    duration_seconds: float | None = Field(default=None, ge=0, le=86400)
 
 
 class RelayTest(BaseModel):
