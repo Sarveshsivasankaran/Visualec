@@ -1,0 +1,1213 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/ofy9wn61",
+    "id": "ofy9wn61",
+    "slide": 3,
+    "layoutId": "/ppt/slideLayouts/slideLayout2.xml",
+    "layoutName": "MASTER",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "backgroundColor": "#0B1220",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1279.97,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Aptos Display"
+      },
+      "minorFont": {
+        "latinTypeface": "Aptos"
+      }
+    },
+    "typefaces": [
+      "Aptos",
+      "Aptos Display"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout2.xml",
+      "name": "MASTER",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "backgroundColor": "#0B1220",
+      "elements": [
+        {
+          "order": 1,
+          "kind": "shape",
+          "scope": "layout",
+          "aid": "template/layout//ppt/slideLayouts/slideLayout2.xml/2",
+          "id": "2",
+          "name": "Shape 0",
+          "bbox": [
+            57.6,
+            683.52,
+            1161.6,
+            0
+          ],
+          "geometry": "line",
+          "lineColor": "#1E293B",
+          "lineWidth": 1.33
+        },
+        {
+          "order": 2,
+          "kind": "shape",
+          "scope": "layout",
+          "aid": "template/layout//ppt/slideLayouts/slideLayout2.xml/3",
+          "id": "3",
+          "name": "Text 1",
+          "bbox": [
+            62.4,
+            689.28,
+            672,
+            17.28
+          ],
+          "geometry": "rect",
+          "text": "Visualec • ESP32-S3 Edge Vision Architecture",
+          "textPreview": "Visualec • ESP32-S3 Edge Vision Architecture",
+          "resolvedTextStyle": {
+            "anchor": 2,
+            "verticalAlignment": "middle",
+            "wrap": "square"
+          },
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "Visualec • ESP32-S3 Edge Vision Architecture",
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "Visualec • ESP32-S3 Edge Vision Architecture",
+                  "fontSize": 9.33,
+                  "color": "#94A3B8"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "kind": "shape",
+          "scope": "layout",
+          "aid": "template/layout//ppt/slideLayouts/slideLayout2.xml/25",
+          "id": "25",
+          "name": "Slide Number Placeholder 0",
+          "bbox": [
+            1171.2,
+            689.28,
+            83.99,
+            31.5
+          ],
+          "geometry": "rect",
+          "text": "1002",
+          "textPreview": "1002",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "1002",
+              "resolvedTextStyle": {
+                "alignment": "left"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "1002"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "type": "master",
+      "elements": [
+        {
+          "order": 1,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster1.xml/25",
+          "id": "25",
+          "name": "Slide Number Placeholder 0",
+          "bbox": [
+            1171.2,
+            689.28,
+            83.99,
+            31.5
+          ],
+          "geometry": "rect",
+          "text": "null",
+          "textPreview": "null",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "null",
+              "resolvedTextStyle": {
+                "alignment": "left"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "null"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cza94vmx",
+      "id": "2",
+      "name": "Text 0",
+      "bbox": [
+        62.4,
+        34.56,
+        1152,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Chosen architecture: Visualec-MAST",
+      "textPreview": "Chosen architecture: Visualec-MAST",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Chosen architecture: Visualec-MAST"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Chosen architecture: Visualec-MAST",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Chosen architecture: Visualec-MAST",
+              "fontSize": 37.33,
+              "typeface": "Aptos Display",
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d0jax03i",
+      "id": "3",
+      "name": "Text 1",
+      "bbox": [
+        65.28,
+        89.28,
+        1132.8,
+        30.72
+      ],
+      "geometry": "rect",
+      "text": "Motion-Adaptive Sparse-Temporal YOLO architecture for ESP32-S3.",
+      "textPreview": "Motion-Adaptive Sparse-Temporal YOLO architecture for ESP32-S3.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Motion-Adaptive Sparse-Temporal YOLO architecture for ESP32-S3."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Motion-Adaptive Sparse-Temporal YOLO architecture for ESP32-S3.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Motion-Adaptive Sparse-Temporal YOLO architecture for ESP32-S3.",
+              "fontSize": 14.67,
+              "color": "#94A3B8"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/298ryl4v",
+      "id": "4",
+      "name": "Shape 2",
+      "bbox": [
+        220.8,
+        238.08,
+        43.2,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#22D3EE",
+      "lineWidth": 1.87
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3ah8rqlg",
+      "id": "5",
+      "name": "Shape 3",
+      "bbox": [
+        432,
+        238.08,
+        43.2,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#22D3EE",
+      "lineWidth": 1.87
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/obq90bml",
+      "id": "6",
+      "name": "Shape 4",
+      "bbox": [
+        643.2,
+        238.08,
+        43.2,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#22D3EE",
+      "lineWidth": 1.87
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pcjqtg36",
+      "id": "7",
+      "name": "Shape 5",
+      "bbox": [
+        854.4,
+        238.08,
+        43.2,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#22D3EE",
+      "lineWidth": 1.87
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/m5cra54z",
+      "id": "8",
+      "name": "Shape 6",
+      "bbox": [
+        1065.6,
+        238.08,
+        24,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#22D3EE",
+      "lineWidth": 1.87
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/n6ls3alk",
+      "id": "9",
+      "name": "Text 7",
+      "bbox": [
+        62.4,
+        192,
+        168,
+        91.2
+      ],
+      "geometry": "roundRect",
+      "text": "Camera\nOV2640/OV5640",
+      "textPreview": "Camera | OV2640/OV5640",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "shrinkText",
+        "insets": {
+          "top": 0.11,
+          "right": 0.11,
+          "bottom": 0.11,
+          "left": 0.11
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Camera"
+          },
+          {
+            "index": 2,
+            "text": "OV2640/OV5640"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Camera",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Camera",
+              "fontSize": 17.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "OV2640/OV5640",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "OV2640/OV5640",
+              "fontSize": 17.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#0F172A",
+      "lineColor": "#38BDF8",
+      "lineWidth": 1.47
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/n2l4fq98",
+      "id": "10",
+      "name": "Text 8",
+      "bbox": [
+        273.6,
+        192,
+        168,
+        91.2
+      ],
+      "geometry": "roundRect",
+      "text": "Motion map\nframe diff",
+      "textPreview": "Motion map | frame diff",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "shrinkText",
+        "insets": {
+          "top": 0.11,
+          "right": 0.11,
+          "bottom": 0.11,
+          "left": 0.11
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Motion map"
+          },
+          {
+            "index": 2,
+            "text": "frame diff"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Motion map",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Motion map",
+              "fontSize": 17.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "frame diff",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "frame diff",
+              "fontSize": 17.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#0F172A",
+      "lineColor": "#F59E0B",
+      "lineWidth": 1.47
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/m1c3mlsn",
+      "id": "11",
+      "name": "Text 9",
+      "bbox": [
+        484.8,
+        192,
+        168,
+        91.2
+      ],
+      "geometry": "roundRect",
+      "text": "ROI crop\nresize",
+      "textPreview": "ROI crop | resize",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "shrinkText",
+        "insets": {
+          "top": 0.11,
+          "right": 0.11,
+          "bottom": 0.11,
+          "left": 0.11
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "ROI crop"
+          },
+          {
+            "index": 2,
+            "text": "resize"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "ROI crop",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "ROI crop",
+              "fontSize": 17.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "resize",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "resize",
+              "fontSize": 17.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#0F172A",
+      "lineColor": "#A78BFA",
+      "lineWidth": 1.47
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/943mhgre",
+      "id": "12",
+      "name": "Text 10",
+      "bbox": [
+        696,
+        192,
+        168,
+        91.2
+      ],
+      "geometry": "roundRect",
+      "text": "Visualec-Pico\nINT8 detector",
+      "textPreview": "Visualec-Pico | INT8 detector",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "shrinkText",
+        "insets": {
+          "top": 0.11,
+          "right": 0.11,
+          "bottom": 0.11,
+          "left": 0.11
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Visualec-Pico"
+          },
+          {
+            "index": 2,
+            "text": "INT8 detector"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Visualec-Pico",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Visualec-Pico",
+              "fontSize": 17.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "INT8 detector",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "INT8 detector",
+              "fontSize": 17.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#0F172A",
+      "lineColor": "#34D399",
+      "lineWidth": 1.47
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/83ulovat",
+      "id": "13",
+      "name": "Text 11",
+      "bbox": [
+        907.2,
+        192,
+        168,
+        91.2
+      ],
+      "geometry": "roundRect",
+      "text": "Tracker\nIoU/Kalman",
+      "textPreview": "Tracker | IoU/Kalman",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "shrinkText",
+        "insets": {
+          "top": 0.11,
+          "right": 0.11,
+          "bottom": 0.11,
+          "left": 0.11
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tracker"
+          },
+          {
+            "index": 2,
+            "text": "IoU/Kalman"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tracker",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tracker",
+              "fontSize": 17.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "IoU/Kalman",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "IoU/Kalman",
+              "fontSize": 17.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#0F172A",
+      "lineColor": "#22D3EE",
+      "lineWidth": 1.47
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/v6l4jq94",
+      "id": "14",
+      "name": "Text 12",
+      "bbox": [
+        1099.2,
+        192,
+        168,
+        91.2
+      ],
+      "geometry": "roundRect",
+      "text": "Zone relays\nhysteresis",
+      "textPreview": "Zone relays | hysteresis",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "shrinkText",
+        "insets": {
+          "top": 0.11,
+          "right": 0.11,
+          "bottom": 0.11,
+          "left": 0.11
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Zone relays"
+          },
+          {
+            "index": 2,
+            "text": "hysteresis"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Zone relays",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Zone relays",
+              "fontSize": 17.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "hysteresis",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "hysteresis",
+              "fontSize": 17.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#0F172A",
+      "lineColor": "#FB7185",
+      "lineWidth": 1.47
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a5c3ql8z",
+      "id": "15",
+      "name": "Text 13",
+      "bbox": [
+        74.88,
+        360,
+        148.8,
+        43.2
+      ],
+      "geometry": "roundRect",
+      "text": "Core idea",
+      "textPreview": "Core idea",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "shrinkText",
+        "insets": {
+          "top": 0.11,
+          "right": 0.11,
+          "bottom": 0.11,
+          "left": 0.11
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Core idea"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Core idea",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Core idea",
+              "fontSize": 18.67,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#111827",
+      "lineColor": "#22D3EE",
+      "lineWidth": 1.47
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x8nml0ra",
+      "id": "16",
+      "name": "Text 14",
+      "bbox": [
+        244.8,
+        357.12,
+        926.4,
+        81.6
+      ],
+      "geometry": "rect",
+      "text": "Run the camera pipeline at 24 FPS, but run the tiny detector sparsely. Between detector frames, maintain boxes using cheap temporal prediction and zone logic.",
+      "textPreview": "Run the camera pipeline at 24 FPS, but run the tiny detector sparsely. Between detector frames, maintain boxes using cheap temporal predi...",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "shrinkText",
+        "insets": {
+          "top": 0.03,
+          "right": 0.03,
+          "bottom": 0.03,
+          "left": 0.03
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Run the camera pipeline at 24 FPS, but run the tiny detector sparsely. Between detector frames,"
+          },
+          {
+            "index": 2,
+            "text": "maintain boxes using cheap temporal prediction and zone logic."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Run the camera pipeline at 24 FPS, but run the tiny detector sparsely. Between detector frames, maintain boxes using cheap temporal prediction and zone logic.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Run the camera pipeline at 24 FPS, but run the tiny detector sparsely. Between detector frames, maintain boxes using cheap temporal prediction and zone logic.",
+              "fontSize": 21.33,
+              "color": "#CBD5E1"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/w7ulsvqp",
+      "id": "17",
+      "name": "Text 15",
+      "bbox": [
+        211.2,
+        491.52,
+        297.6,
+        55.68
+      ],
+      "geometry": "roundRect",
+      "text": "D T T D T T D T T",
+      "textPreview": "D T T D T T D T T",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "shrinkText",
+        "insets": {
+          "top": 0.11,
+          "right": 0.11,
+          "bottom": 0.11,
+          "left": 0.11
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "D T T D T T D T T"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "D T T D T T D T T",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "D T T D T T D T T",
+              "fontSize": 26.67,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#0B2A31",
+      "lineColor": "#22D3EE",
+      "lineWidth": 1.47
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ja54na9g",
+      "id": "18",
+      "name": "Text 16",
+      "bbox": [
+        537.6,
+        487.68,
+        556.8,
+        72
+      ],
+      "geometry": "rect",
+      "text": "D = detector frame, T = tracking-only frame. This preserves fast zone updates without forcing neural inference on every frame.",
+      "textPreview": "D = detector frame, T = tracking-only frame. This preserves fast zone updates without forcing neural inference on every frame.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "shrinkText",
+        "insets": {
+          "top": 0.03,
+          "right": 0.03,
+          "bottom": 0.03,
+          "left": 0.03
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "D = detector frame, T = tracking-only frame. This preserves fast"
+          },
+          {
+            "index": 2,
+            "text": "zone updates without forcing neural inference on every frame."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "D = detector frame, T = tracking-only frame. This preserves fast zone updates without forcing neural inference on every frame.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "D = detector frame, T = tracking-only frame. This preserves fast zone updates without forcing neural inference on every frame.",
+              "fontSize": 20,
+              "color": "#CBD5E1"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/re9g7yxo",
+      "id": "25",
+      "name": "Slide Number Placeholder 0",
+      "bbox": [
+        1171.2,
+        689.28,
+        83.99,
+        31.5
+      ],
+      "geometry": "rect",
+      "text": "3",
+      "textPreview": "3",
+      "resolvedFontSize": 9.33,
+      "resolvedTextStyle": {
+        "fontSize": 9.33,
+        "typeface": "Aptos",
+        "color": "#64748B",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "3"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "3",
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "3"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    }
+  ],
+  "composeRuns": []
+}

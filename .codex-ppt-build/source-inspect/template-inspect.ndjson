@@ -1,0 +1,225 @@
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"","type":"master","placeholders":[{"name":"slideNumber","type":"slideNumber","textPreview":"null"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"DEFAULT"}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout2.xml","name":"MASTER","placeholders":[{"name":"slideNumber","type":"slideNumber","textPreview":"1002"}]}
+{"kind":"slide","id":"sl/y90nupkv","slide":1,"title":"VISUALEC","textShapes":12}
+{"kind":"textbox","id":"sh/547294r6","slide":1,"name":"Text 0","text":"VISUALEC","textPreview":"VISUALEC","textChars":8,"textLines":1,"bbox":[65.28,81.6,480,36.48]}
+{"kind":"textbox","id":"sh/k3yl0zql","slide":1,"name":"Text 1","text":"ESP32-S3 Edge Vision Architecture","textPreview":"ESP32-S3 Edge Vision Architecture","textChars":33,"textLines":1,"bbox":[65.28,130.56,1104,69.12]}
+{"kind":"textbox","id":"sh/7qp4be9c","slide":1,"name":"Text 2","text":"Best implementation path for 24 FPS-equivalent zone occupancy using a YOLOv8n teacher, tiny INT8 student detector, motion-adaptive inference, tracking and relay-safe control.","textPreview":"Best implementation path for 24 FPS-equivalent zone occupancy using a YOLOv8n teacher, tiny INT8 student detector, motion-adaptive infere...","textChars":174,"textLines":1,"bbox":[67.2,216,940.8,76.8]}
+{"kind":"textbox","id":"sh/65g3298r","slide":1,"name":"Text 3","text":"Chosen Architecture: Visualec-MAST","textPreview":"Chosen Architecture: Visualec-MAST","textChars":34,"textLines":1,"bbox":[69.12,321.6,244.8,26.88]}
+{"kind":"textbox","id":"sh/ts7md4r2","slide":1,"name":"Text 4","text":"Target: classroom / zone based power control","textPreview":"Target: classroom / zone based power control","textChars":44,"textLines":1,"bbox":[331.2,321.6,307.2,26.88]}
+{"kind":"textbox","id":"sh/sryl4zqx","slide":1,"name":"Text 5","text":"Board: ESP32-S3 N16R8 class","textPreview":"Board: ESP32-S3 N16R8 class","textChars":27,"textLines":1,"bbox":[657.6,321.6,220.8,26.88]}
+{"kind":"textbox","id":"sh/fu94fe98","slide":1,"name":"Text 6","text":"Camera\n24 FPS capture","textPreview":"Camera | 24 FPS capture","textChars":21,"textLines":2,"bbox":[81.6,451.2,192,81.6]}
+{"kind":"shape","id":"sh/utg3698n","slide":1,"name":"Shape 7","bbox":[283.2,491.52,105.6,0]}
+{"kind":"textbox","id":"sh/wn6dc7eh","slide":1,"name":"Text 8","text":"Tiny Detector\n6–12 FPS","textPreview":"Tiny Detector | 6–12 FPS","textChars":22,"textLines":2,"bbox":[395.52,451.2,192,81.6]}
+{"kind":"shape","id":"sh/hofulsf2","slide":1,"name":"Shape 9","bbox":[597.12,491.52,108.48,0]}
+{"kind":"textbox","id":"sh/ul4vaxgb","slide":1,"name":"Text 10","text":"Tracker + Zones\n24 FPS output","textPreview":"Tracker + Zones | 24 FPS output","textChars":29,"textLines":2,"bbox":[712.32,451.2,211.2,81.6]}
+{"kind":"shape","id":"sh/vmdcj2xw","slide":1,"name":"Shape 11","bbox":[933.12,491.52,108.48,0]}
+{"kind":"textbox","id":"sh/4r6dg7et","slide":1,"name":"Text 12","text":"Relay Control\nno chatter","textPreview":"Relay Control | no chatter","textChars":24,"textLines":2,"bbox":[1048.32,451.2,177.6,81.6]}
+{"kind":"textbox","id":"sh/5sfepcfe","slide":1,"name":"Text 13","text":"Prepared for Sarvesh Sivasankaran • Rajalakshmi Engineering College","textPreview":"Prepared for Sarvesh Sivasankaran • Rajalakshmi Engineering College","textChars":67,"textLines":1,"bbox":[69.12,602.88,720,26.88]}
+{"kind":"textbox","id":"sh/ozmd8r65","slide":1,"name":"Slide Number Placeholder 0","placeholder":"slideNumber","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[1171.2,689.28,83.99,31.5]}
+{"kind":"notes","id":"nt/y90nupkv","slide":1,"text":""}
+{"kind":"slide","id":"sl/hwbqtkby","slide":2,"title":"Why stock YOLOv8n is not the right target","textShapes":10}
+{"kind":"textbox","id":"sh/9072xkry","slide":2,"name":"Text 0","text":"Why stock YOLOv8n is not the right target","textPreview":"Why stock YOLOv8n is not the right target","textChars":41,"textLines":1,"bbox":[62.4,34.56,1152,48]}
+{"kind":"textbox","id":"sh/ozy1ofad","slide":2,"name":"Text 1","text":"24 FPS neural inference on ESP32-S3 is not realistic; 24 FPS system responsiveness is.","textPreview":"24 FPS neural inference on ESP32-S3 is not realistic; 24 FPS system responsiveness is.","textChars":86,"textLines":1,"bbox":[65.28,89.28,1132.8,30.72]}
+{"kind":"textbox","id":"sh/b29kza94","slide":2,"name":"Text 2","text":"YOLOv8n\n~3.2M params\n80 COCO classes","textPreview":"YOLOv8n | ~3.2M params | 80 COCO classes","textChars":36,"textLines":3,"bbox":[76.8,172.8,264,129.6]}
+{"kind":"shape","id":"sh/a10jqpsj","slide":2,"name":"Shape 3","bbox":[355.2,237.12,91.2,0]}
+{"kind":"textbox","id":"sh/x4r21kru","slide":2,"name":"Text 4","text":"Too much compute\nfor ESP32-S3\nreal-time inference","textPreview":"Too much compute | for ESP32-S3 | real-time inference","textChars":49,"textLines":3,"bbox":[456,172.8,278.4,129.6]}
+{"kind":"shape","id":"sh/w3i1sfa9","slide":2,"name":"Shape 5","bbox":[748.8,237.12,91.2,0]}
+{"kind":"textbox","id":"sh/r65knqtk","slide":2,"name":"Text 6","text":"Reframe goal:\n24 FPS zone\noccupancy output","textPreview":"Reframe goal: | 24 FPS zone | occupancy output","textChars":42,"textLines":3,"bbox":[849.6,172.8,292.8,129.6]}
+{"kind":"textbox","id":"sh/q5wjelsz","slide":2,"name":"Text 7","text":"The ESP32-S3 is a dual-core LX7 MCU at up to 240 MHz with limited internal SRAM. Current Espressif detector benchmarks show tiny custom detectors are possible, but still below 24 neural inferences/sec on S3.","textPreview":"The ESP32-S3 is a dual-core LX7 MCU at up to 240 MHz with limited internal SRAM. Current Espressif detector benchmarks show tiny custom d...","textChars":207,"textLines":1,"bbox":[78.72,355.2,513.6,139.2]}
+{"kind":"textbox","id":"sh/ove9o7yd","slide":2,"name":"Text 8","text":"Best rule: detector does not need to run on every frame","textPreview":"Best rule: detector does not need to run on every frame","textChars":55,"textLines":1,"bbox":[645.12,357.12,532.8,59.52]}
+{"kind":"textbox","id":"sh/9wnqhczy","slide":2,"name":"Text 9","text":"Camera + motion + tracker can update every frame. The neural model only rechecks when motion or timeout demands it.","textPreview":"Camera + motion + tracker can update every frame. The neural model only rechecks when motion or timeout demands it.","textChars":115,"textLines":1,"bbox":[648,439.68,499.2,86.4]}
+{"kind":"textbox","id":"sh/mtwrmxg7","slide":2,"name":"Text 10","text":"Sources: Espressif ESP32-S3 product page; Espressif ESP-Detection benchmark; ESP-DL docs.","textPreview":"Sources: Espressif ESP32-S3 product page; Espressif ESP-Detection benchmark; ESP-DL docs.","textChars":89,"textLines":1,"bbox":[65.28,655.68,1142.4,22.08]}
+{"kind":"textbox","id":"sh/gbmxszmt","slide":2,"name":"Slide Number Placeholder 0","placeholder":"slideNumber","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[1171.2,689.28,83.99,31.5]}
+{"kind":"notes","id":"nt/hwbqtkby","slide":2,"text":""}
+{"kind":"slide","id":"sl/ofy9wn61","slide":3,"title":"Chosen architecture: Visualec-MAST","textShapes":13}
+{"kind":"textbox","id":"sh/cza94vmx","slide":3,"name":"Text 0","text":"Chosen architecture: Visualec-MAST","textPreview":"Chosen architecture: Visualec-MAST","textChars":34,"textLines":1,"bbox":[62.4,34.56,1152,48]}
+{"kind":"textbox","id":"sh/d0jax03i","slide":3,"name":"Text 1","text":"Motion-Adaptive Sparse-Temporal YOLO architecture for ESP32-S3.","textPreview":"Motion-Adaptive Sparse-Temporal YOLO architecture for ESP32-S3.","textChars":63,"textLines":1,"bbox":[65.28,89.28,1132.8,30.72]}
+{"kind":"shape","id":"sh/298ryl4v","slide":3,"name":"Shape 2","bbox":[220.8,238.08,43.2,0]}
+{"kind":"shape","id":"sh/3ah8rqlg","slide":3,"name":"Shape 3","bbox":[432,238.08,43.2,0]}
+{"kind":"shape","id":"sh/obq90bml","slide":3,"name":"Shape 4","bbox":[643.2,238.08,43.2,0]}
+{"kind":"shape","id":"sh/pcjqtg36","slide":3,"name":"Shape 5","bbox":[854.4,238.08,43.2,0]}
+{"kind":"shape","id":"sh/m5cra54z","slide":3,"name":"Shape 6","bbox":[1065.6,238.08,24,0]}
+{"kind":"textbox","id":"sh/n6ls3alk","slide":3,"name":"Text 7","text":"Camera\nOV2640/OV5640","textPreview":"Camera | OV2640/OV5640","textChars":20,"textLines":2,"bbox":[62.4,192,168,91.2]}
+{"kind":"textbox","id":"sh/n2l4fq98","slide":3,"name":"Text 8","text":"Motion map\nframe diff","textPreview":"Motion map | frame diff","textChars":21,"textLines":2,"bbox":[273.6,192,168,91.2]}
+{"kind":"textbox","id":"sh/m1c3mlsn","slide":3,"name":"Text 9","text":"ROI crop\nresize","textPreview":"ROI crop | resize","textChars":15,"textLines":2,"bbox":[484.8,192,168,91.2]}
+{"kind":"textbox","id":"sh/943mhgre","slide":3,"name":"Text 10","text":"Visualec-Pico\nINT8 detector","textPreview":"Visualec-Pico | INT8 detector","textChars":27,"textLines":2,"bbox":[696,192,168,91.2]}
+{"kind":"textbox","id":"sh/83ulovat","slide":3,"name":"Text 11","text":"Tracker\nIoU/Kalman","textPreview":"Tracker | IoU/Kalman","textChars":18,"textLines":2,"bbox":[907.2,192,168,91.2]}
+{"kind":"textbox","id":"sh/v6l4jq94","slide":3,"name":"Text 12","text":"Zone relays\nhysteresis","textPreview":"Zone relays | hysteresis","textChars":22,"textLines":2,"bbox":[1099.2,192,168,91.2]}
+{"kind":"textbox","id":"sh/a5c3ql8z","slide":3,"name":"Text 13","text":"Core idea","textPreview":"Core idea","textChars":9,"textLines":1,"bbox":[74.88,360,148.8,43.2]}
+{"kind":"textbox","id":"sh/x8nml0ra","slide":3,"name":"Text 14","text":"Run the camera pipeline at 24 FPS, but run the tiny detector sparsely. Between detector frames, maintain boxes using cheap temporal prediction and zone logic.","textPreview":"Run the camera pipeline at 24 FPS, but run the tiny detector sparsely. Between detector frames, maintain boxes using cheap temporal predi...","textChars":158,"textLines":1,"bbox":[244.8,357.12,926.4,81.6]}
+{"kind":"textbox","id":"sh/w7ulsvqp","slide":3,"name":"Text 15","text":"D T T D T T D T T","textPreview":"D T T D T T D T T","textChars":17,"textLines":1,"bbox":[211.2,491.52,297.6,55.68]}
+{"kind":"textbox","id":"sh/ja54na9g","slide":3,"name":"Text 16","text":"D = detector frame, T = tracking-only frame. This preserves fast zone updates without forcing neural inference on every frame.","textPreview":"D = detector frame, T = tracking-only frame. This preserves fast zone updates without forcing neural inference on every frame.","textChars":126,"textLines":1,"bbox":[537.6,487.68,556.8,72]}
+{"kind":"textbox","id":"sh/re9g7yxo","slide":3,"name":"Slide Number Placeholder 0","placeholder":"slideNumber","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[1171.2,689.28,83.99,31.5]}
+{"kind":"notes","id":"nt/ofy9wn61","slide":3,"text":""}
+{"kind":"slide","id":"sl/jyx0ra1s","slide":4,"title":"Model strategy: YOLOv8n becomes the teacher","textShapes":10}
+{"kind":"textbox","id":"sh/1cj2d8b6","slide":4,"name":"Text 0","text":"Model strategy: YOLOv8n becomes the teacher","textPreview":"Model strategy: YOLOv8n becomes the teacher","textChars":43,"textLines":1,"bbox":[62.4,34.56,1152,48]}
+{"kind":"textbox","id":"sh/0ba143al","slide":4,"name":"Text 1","text":"Do not deploy full YOLOv8n. Distill it into a one-class embedded detector.","textPreview":"Do not deploy full YOLOv8n. Distill it into a one-class embedded detector.","textChars":74,"textLines":1,"bbox":[65.28,89.28,1132.8,30.72]}
+{"kind":"textbox","id":"sh/rm1k7yt4","slide":4,"name":"Text 2","text":"YOLOv8n Teacher\nPC/GPU training only\nStrong person labels","textPreview":"YOLOv8n Teacher | PC/GPU training only | Strong person labels","textChars":57,"textLines":3,"bbox":[86.4,187.2,268.8,110.4]}
+{"kind":"shape","id":"sh/ql8jytsj","slide":4,"name":"Shape 3","bbox":[369.6,241.92,81.6,0]}
+{"kind":"textbox","id":"sh/doj29oba","slide":4,"name":"Text 4","text":"Knowledge Distillation\nboxes + confidence\nfeature imitation","textPreview":"Knowledge Distillation | boxes + confidence | feature imitation","textChars":59,"textLines":3,"bbox":[462.72,187.2,307.2,110.4]}
+{"kind":"shape","id":"sh/sna103ap","slide":4,"name":"Shape 5","bbox":[782.4,241.92,81.6,0]}
+{"kind":"textbox","id":"sh/3ihk3et8","slide":4,"name":"Text 6","text":"Visualec-Pico Student\n1 class: person\n150K–300K params","textPreview":"Visualec-Pico Student | 1 class: person | 150K–300K params","textChars":54,"textLines":3,"bbox":[875.52,187.2,297.6,110.4]}
+{"kind":"textbox","id":"sh/ih8ju9sn","slide":4,"name":"Text 7","text":"Loss design","textPreview":"Loss design","textChars":11,"textLines":1,"bbox":[91.2,340.8,201.6,30.72]}
+{"kind":"textbox","id":"sh/kbm987y5","slide":4,"name":"Text 8","text":"L = bbox loss + objectness loss + feature distillation + quantization-aware fine tuning","textPreview":"L = bbox loss + objectness loss + feature distillation + quantization-aware fine tuning","textChars":87,"textLines":1,"bbox":[288,388.8,844.8,43.2]}
+{"kind":"textbox","id":"sh/5cva1cfq","slide":4,"name":"Text 9","text":"Why it works for Visualec","textPreview":"Why it works for Visualec","textChars":25,"textLines":1,"bbox":[91.2,480,240,43.2]}
+{"kind":"textbox","id":"sh/i94r6xgz","slide":4,"name":"Text 10","text":"The project only needs human occupancy and zone location. Removing 79 irrelevant COCO classes and using a small student model is the biggest speed gain.","textPreview":"The project only needs human occupancy and zone location. Removing 79 irrelevant COCO classes and using a small student model is the bigg...","textChars":152,"textLines":1,"bbox":[350.4,472.32,796.8,72]}
+{"kind":"textbox","id":"sh/gv29g7q5","slide":4,"name":"Slide Number Placeholder 0","placeholder":"slideNumber","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[1171.2,689.28,83.99,31.5]}
+{"kind":"notes","id":"nt/jyx0ra1s","slide":4,"text":""}
+{"kind":"slide","id":"sl/i107q5of","slide":5,"title":"Tiny detector architecture","textShapes":18}
+{"kind":"textbox","id":"sh/dgbulwnm","slide":5,"name":"Text 0","text":"Tiny detector architecture","textPreview":"Tiny detector architecture","textChars":26,"textLines":1,"bbox":[62.4,34.56,1152,48]}
+{"kind":"textbox","id":"sh/cf2tcr61","slide":5,"name":"Text 1","text":"Depthwise-separable blocks + small anchor-free head.","textPreview":"Depthwise-separable blocks + small anchor-free head.","textChars":52,"textLines":1,"bbox":[65.28,89.28,1132.8,30.72]}
+{"kind":"shape","id":"sh/z2tcnm5s","slide":5,"name":"Shape 2","bbox":[196.8,209.28,38.4,0]}
+{"kind":"shape","id":"sh/yhkbe1o7","slide":5,"name":"Shape 3","bbox":[364.8,209.28,24,0]}
+{"kind":"shape","id":"sh/l4bupwny","slide":5,"name":"Shape 4","bbox":[518.4,209.28,28.8,0]}
+{"kind":"shape","id":"sh/032tgr6d","slide":5,"name":"Shape 5","bbox":[676.8,209.28,28.8,0]}
+{"kind":"shape","id":"sh/n6dcr65o","slide":5,"name":"Shape 6","bbox":[835.2,209.28,24,0]}
+{"kind":"shape","id":"sh/m5kbi1oj","slide":5,"name":"Shape 7","bbox":[988.8,209.28,24,0]}
+{"kind":"textbox","id":"sh/w32dkbuh","slide":5,"name":"Text 8","text":"Input\n160×160","textPreview":"Input | 160×160","textChars":13,"textLines":2,"bbox":[76.8,168,129.6,81.6]}
+{"kind":"textbox","id":"sh/x4vedgvm","slide":5,"name":"Text 9","text":"Conv\nstride 2","textPreview":"Conv | stride 2","textChars":13,"textLines":2,"bbox":[244.8,168,129.6,81.6]}
+{"kind":"textbox","id":"sh/ahkvi1cb","slide":5,"name":"Text 10","text":"DSConv\nblock 1","textPreview":"DSConv | block 1","textChars":14,"textLines":2,"bbox":[398.4,168,129.6,81.6]}
+{"kind":"textbox","id":"sh/v2twb6dw","slide":5,"name":"Text 11","text":"DSConv\nblock 2","textPreview":"DSConv | block 2","textChars":14,"textLines":2,"bbox":[556.8,168,129.6,81.6]}
+{"kind":"textbox","id":"sh/k7mxovud","slide":5,"name":"Text 12","text":"DSConv\nblock 3","textPreview":"DSConv | block 3","textChars":14,"textLines":2,"bbox":[715.2,168,129.6,81.6]}
+{"kind":"textbox","id":"sh/58vehgvy","slide":5,"name":"Text 13","text":"Tiny FPN","textPreview":"Tiny FPN","textChars":8,"textLines":1,"bbox":[868.8,168,129.6,81.6]}
+{"kind":"textbox","id":"sh/i54fmlc7","slide":5,"name":"Text 14","text":"1-class\nhead","textPreview":"1-class | head","textChars":12,"textLines":2,"bbox":[1022.4,168,129.6,81.6]}
+{"kind":"textbox","id":"sh/j6dwfqds","slide":5,"name":"Text 15","text":"Use depthwise-separable convolution because it reduces convolution cost dramatically compared with full 3×3 convolutions. This is the architecture pattern most aligned with MCU deployment.","textPreview":"Use depthwise-separable convolution because it reduces convolution cost dramatically compared with full 3×3 convolutions. This is the arc...","textChars":188,"textLines":1,"bbox":[86.4,318.72,1094.4,67.2]}
+{"kind":"textbox","id":"sh/sb6xsvu9","slide":5,"name":"Text 16","text":"Target design budget","textPreview":"Target design budget","textChars":20,"textLines":1,"bbox":[115.2,436.8,240,43.2]}
+{"kind":"textbox","id":"sh/tcfel0vu","slide":5,"name":"Text 17","text":"Input\n128–192 px","textPreview":"Input | 128–192 px","textChars":16,"textLines":2,"bbox":[115.2,504,148.8,74.88]}
+{"kind":"textbox","id":"sh/hgrmpwj2","slide":5,"name":"Text 18","text":"Params\n150K–300K","textPreview":"Params | 150K–300K","textChars":16,"textLines":2,"bbox":[295.68,504,148.8,74.88]}
+{"kind":"textbox","id":"sh/gfi5grih","slide":5,"name":"Text 19","text":"Precision\nINT8","textPreview":"Precision | INT8","textChars":14,"textLines":2,"bbox":[476.16,504,148.8,74.88]}
+{"kind":"textbox","id":"sh/fe94nm1w","slide":5,"name":"Text 20","text":"Classes\n1 person","textPreview":"Classes | 1 person","textChars":16,"textLines":2,"bbox":[656.64,504,148.8,74.88]}
+{"kind":"textbox","id":"sh/ud0ne10b","slide":5,"name":"Text 21","text":"Heads\n1–2 scales","textPreview":"Heads | 1–2 scales","textChars":16,"textLines":2,"bbox":[837.12,504,148.8,74.88]}
+{"kind":"textbox","id":"sh/pkr6tgjy","slide":5,"name":"Text 22","text":"Model\n≤300 KB","textPreview":"Model | ≤300 KB","textChars":13,"textLines":2,"bbox":[1017.6,504,148.8,74.88]}
+{"kind":"textbox","id":"sh/4ji5kbid","slide":5,"name":"Slide Number Placeholder 0","placeholder":"slideNumber","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[1171.2,689.28,83.99,31.5]}
+{"kind":"notes","id":"nt/i107q5of","slide":5,"text":""}
+{"kind":"slide","id":"sl/x8f69ofe","slide":6,"title":"Runtime pipeline on ESP32-S3","textShapes":12}
+{"kind":"textbox","id":"sh/yhg7epsj","slide":6,"name":"Text 0","text":"Runtime pipeline on ESP32-S3","textPreview":"Runtime pipeline on ESP32-S3","textChars":28,"textLines":1,"bbox":[62.4,34.56,1152,48]}
+{"kind":"textbox","id":"sh/zi98nu94","slide":6,"name":"Text 1","text":"Build a pipelined system, not a single blocking inference loop.","textPreview":"Build a pipelined system, not a single blocking inference loop.","textChars":63,"textLines":1,"bbox":[65.28,89.28,1132.8,30.72]}
+{"kind":"textbox","id":"sh/87ipkzal","slide":6,"name":"Text 2","text":"Core 0\nCamera + DMA\npreprocess + motion","textPreview":"Core 0 | Camera + DMA | preprocess + motion","textChars":39,"textLines":3,"bbox":[105.6,158.4,288,120]}
+{"kind":"textbox","id":"sh/98rqt4r6","slide":6,"name":"Text 3","text":"Frame queue\ndouble buffer","textPreview":"Frame queue | double buffer","textChars":25,"textLines":2,"bbox":[494.4,174.72,206.4,84.48]}
+{"kind":"textbox","id":"sh/ml07i9sv","slide":6,"name":"Text 4","text":"Core 1\nESP-DL inference\ntracking + zones","textPreview":"Core 1 | ESP-DL inference | tracking + zones","textChars":40,"textLines":3,"bbox":[801.6,158.4,288,120]}
+{"kind":"shape","id":"sh/7m98ru9g","slide":6,"name":"Shape 5","bbox":[410.88,217.92,71.04,0]}
+{"kind":"shape","id":"sh/oryp8fah","slide":6,"name":"Shape 6","bbox":[715.2,217.92,72,0]}
+{"kind":"textbox","id":"sh/pc76hkr2","slide":6,"name":"Text 7","text":"Frame N+1 captured while Frame N is processed","textPreview":"Frame N+1 captured while Frame N is processed","textChars":45,"textLines":1,"bbox":[211.2,340.8,854.4,55.68]}
+{"kind":"textbox","id":"sh/h4bupgn6","slide":6,"name":"Text 8","text":"Memory placement","textPreview":"Memory placement","textChars":16,"textLines":1,"bbox":[120,441.6,192,26.88]}
+{"kind":"textbox","id":"sh/w32twb6l","slide":6,"name":"Text 9","text":"Internal SRAM: hot buffers + operator workspace\nPSRAM: frame buffers + model tensors\nFlash: .espdl model + calibration constants","textPreview":"Internal SRAM: hot buffers + operator workspace | PSRAM: frame buffers + model tensors | Flash: .espdl model + calibration constants","textChars":128,"textLines":3,"bbox":[120,481.92,499.2,86.4]}
+{"kind":"textbox","id":"sh/v2tcn650","slide":6,"name":"Text 10","text":"ESP-DL path","textPreview":"ESP-DL path","textChars":11,"textLines":1,"bbox":[686.4,441.6,192,26.88]}
+{"kind":"textbox","id":"sh/u1kbu1ov","slide":6,"name":"Text 11","text":"PyTorch → ONNX → ESP-PPQ INT8 → .espdl → ESP-DL runtime\nUse dual-core Conv2D/DepthwiseConv2D scheduling where supported.","textPreview":"PyTorch → ONNX → ESP-PPQ INT8 → .espdl → ESP-DL runtime | Use dual-core Conv2D/DepthwiseConv2D scheduling where supported.","textChars":120,"textLines":2,"bbox":[686.4,481.92,499.2,86.4]}
+{"kind":"textbox","id":"sh/5svutgni","slide":6,"name":"Text 12","text":"Sources: ESP-DL docs and releases: ESP-PPQ quantization, static memory planner, dual-core Conv2D/DepthwiseConv2D scheduling.","textPreview":"Sources: ESP-DL docs and releases: ESP-PPQ quantization, static memory planner, dual-core Conv2D/DepthwiseConv2D scheduling.","textChars":124,"textLines":1,"bbox":[65.28,655.68,1142.4,22.08]}
+{"kind":"textbox","id":"sh/lg76d8zy","slide":6,"name":"Slide Number Placeholder 0","placeholder":"slideNumber","text":"6","textPreview":"6","textChars":1,"textLines":1,"bbox":[1171.2,689.28,83.99,31.5]}
+{"kind":"notes","id":"nt/x8f69ofe","slide":6,"text":""}
+{"kind":"slide","id":"sl/gnmp4jqx","slide":7,"title":"Motion-adaptive sparse inference algorithm","textShapes":16}
+{"kind":"textbox","id":"sh/cb2tkvap","slide":7,"name":"Text 0","text":"Motion-adaptive sparse inference algorithm","textPreview":"Motion-adaptive sparse inference algorithm","textChars":42,"textLines":1,"bbox":[62.4,34.56,1152,48]}
+{"kind":"textbox","id":"sh/dcbud0ra","slide":7,"name":"Text 1","text":"The neural detector runs only when the scene demands it.","textPreview":"The neural detector runs only when the scene demands it.","textChars":56,"textLines":1,"bbox":[65.28,89.28,1132.8,30.72]}
+{"kind":"textbox","id":"sh/ydkbm5sv","slide":7,"name":"Text 2","text":"Frame difference\nDₜ = |gray(Fₜ)-gray(Fₜ₋₁)|","textPreview":"Frame difference | Dₜ = |gray(Fₜ)-gray(Fₜ₋₁)|","textChars":43,"textLines":2,"bbox":[86.4,163.2,307.2,81.6]}
+{"kind":"shape","id":"sh/zedcfa9g","slide":7,"name":"Shape 3","bbox":[408,203.52,72,0]}
+{"kind":"textbox","id":"sh/kzmdova1","slide":7,"name":"Text 4","text":"Motion score\nMₜ = changed_pixels / total","textPreview":"Motion score | Mₜ = changed_pixels / total","textChars":40,"textLines":2,"bbox":[489.6,163.2,307.2,81.6]}
+{"kind":"shape","id":"sh/l0vuh0rm","slide":7,"name":"Shape 5","bbox":[811.2,203.52,72,0]}
+{"kind":"textbox","id":"sh/eh0ba1sr","slide":7,"name":"Text 6","text":"Detector cadence\nadjusted dynamically","textPreview":"Detector cadence | adjusted dynamically","textChars":37,"textLines":2,"bbox":[892.8,163.2,288,81.6]}
+{"kind":"textbox","id":"sh/fi9c369c","slide":7,"name":"Text 7","text":"High motion","textPreview":"High motion","textChars":11,"textLines":1,"bbox":[110.4,312,211.2,44.16]}
+{"kind":"textbox","id":"sh/baxkjqlk","slide":7,"name":"Text 8","text":"run detector every 2 frames","textPreview":"run detector every 2 frames","textChars":27,"textLines":1,"bbox":[350.4,314.88,316.8,28.8]}
+{"kind":"textbox","id":"sh/a9ojq5kz","slide":7,"name":"Text 9","text":"≈12 detector FPS","textPreview":"≈12 detector FPS","textChars":16,"textLines":1,"bbox":[796.8,314.88,268.8,28.8]}
+{"kind":"textbox","id":"sh/xcz2l03q","slide":7,"name":"Text 10","text":"Medium motion","textPreview":"Medium motion","textChars":13,"textLines":1,"bbox":[110.4,388.8,211.2,44.16]}
+{"kind":"textbox","id":"sh/cbq1sv25","slide":7,"name":"Text 11","text":"run detector every 3 frames","textPreview":"run detector every 3 frames","textChars":27,"textLines":1,"bbox":[350.4,391.68,316.8,28.8]}
+{"kind":"textbox","id":"sh/n6x0fqlo","slide":7,"name":"Text 12","text":"≈8 detector FPS","textPreview":"≈8 detector FPS","textChars":15,"textLines":1,"bbox":[796.8,391.68,268.8,28.8]}
+{"kind":"textbox","id":"sh/25ojml43","slide":7,"name":"Text 13","text":"Low/no motion","textPreview":"Low/no motion","textChars":13,"textLines":1,"bbox":[110.4,465.6,211.2,44.16]}
+{"kind":"textbox","id":"sh/p8fih03e","slide":7,"name":"Text 14","text":"run detector every 6 frames","textPreview":"run detector every 6 frames","textChars":27,"textLines":1,"bbox":[350.4,468.48,316.8,28.8]}
+{"kind":"textbox","id":"sh/o761ov2t","slide":7,"name":"Text 15","text":"≈4 detector FPS","textPreview":"≈4 detector FPS","textChars":15,"textLines":1,"bbox":[796.8,468.48,268.8,28.8]}
+{"kind":"textbox","id":"sh/f2d0b6lc","slide":7,"name":"Text 16","text":"Result: 24 FPS camera and zone updates without 24 FPS neural inference","textPreview":"Result: 24 FPS camera and zone updates without 24 FPS neural inference","textChars":70,"textLines":1,"bbox":[105.6,576,1056,51.84]}
+{"kind":"textbox","id":"sh/r2dkrq5g","slide":7,"name":"Slide Number Placeholder 0","placeholder":"slideNumber","text":"7","textPreview":"7","textChars":1,"textLines":1,"bbox":[1171.2,689.28,83.99,31.5]}
+{"kind":"notes","id":"nt/gnmp4jqx","slide":7,"text":""}
+{"kind":"slide","id":"sl/fu1gfa1s","slide":8,"title":"Tracking and zone logic","textShapes":11}
+{"kind":"textbox","id":"sh/18byd4zy","slide":8,"name":"Text 0","text":"Tracking and zone logic","textPreview":"Tracking and zone logic","textChars":23,"textLines":1,"bbox":[62.4,34.56,1152,48]}
+{"kind":"textbox","id":"sh/g72x4zyd","slide":8,"name":"Text 1","text":"Visualec cares about occupied zones, not long-term person identity.","textPreview":"Visualec cares about occupied zones, not long-term person identity.","textChars":67,"textLines":1,"bbox":[65.28,89.28,1132.8,30.72]}
+{"kind":"textbox","id":"sh/ri9g7uhw","slide":8,"name":"Text 2","text":"Detector box\n[x₁,y₁,x₂,y₂]","textPreview":"Detector box | [x₁,y₁,x₂,y₂]","textChars":26,"textLines":2,"bbox":[105.6,144,216,72]}
+{"kind":"shape","id":"sh/6h0fypgb","slide":8,"name":"Shape 3","bbox":[340.8,180.48,67.2,0]}
+{"kind":"textbox","id":"sh/tkby9kzm","slide":8,"name":"Text 4","text":"Bottom-center\n((x₁+x₂)/2, y₂)","textPreview":"Bottom-center | ((x₁+x₂)/2, y₂)","textChars":29,"textLines":2,"bbox":[417.6,144,230.4,72]}
+{"kind":"shape","id":"sh/sjix0zy1","slide":8,"name":"Shape 5","bbox":[667.2,180.48,67.2,0]}
+{"kind":"textbox","id":"sh/je9g3ahk","slide":8,"name":"Text 6","text":"Polygon lookup\nZone 1/2/3","textPreview":"Polygon lookup | Zone 1/2/3","textChars":25,"textLines":2,"bbox":[744,144,211.2,72]}
+{"kind":"shape","id":"sh/id0fu50z","slide":8,"name":"Shape 7","bbox":[974.4,180.48,67.2,0]}
+{"kind":"textbox","id":"sh/o7ydoret","slide":8,"name":"Text 8","text":"Relay decision\nON/OFF","textPreview":"Relay decision | ON/OFF","textChars":21,"textLines":2,"bbox":[1051.2,144,139.2,72]}
+{"kind":"shape","id":"sh/98rehwve","slide":8,"name":"Shape 9","bbox":[100.8,297.6,1046.4,129.6]}
+{"kind":"shape","id":"sh/m5gvmhwn","slide":8,"name":"Shape 10","bbox":[449.28,297.6,0,129.6]}
+{"kind":"shape","id":"sh/n6pwfmd8","slide":8,"name":"Shape 11","bbox":[797.76,297.6,0,129.6]}
+{"kind":"textbox","id":"sh/0jydkreh","slide":8,"name":"Text 12","text":"ZONE 1","textPreview":"ZONE 1","textChars":6,"textLines":1,"bbox":[105.6,345.6,326.4,24]}
+{"kind":"textbox","id":"sh/1k7edwv2","slide":8,"name":"Text 13","text":"ZONE 2","textPreview":"ZONE 2","textChars":6,"textLines":1,"bbox":[453.12,345.6,331.2,24]}
+{"kind":"textbox","id":"sh/ehgvihwr","slide":8,"name":"Text 14","text":"ZONE 3","textPreview":"ZONE 3","textChars":6,"textLines":1,"bbox":[802.56,345.6,331.2,24]}
+{"kind":"shape","id":"sh/zipwbmdc","slide":8,"name":"Shape 15","bbox":[235.2,384,32.64,32.64]}
+{"kind":"shape","id":"sh/kfixwbe1","slide":8,"name":"Shape 16","bbox":[921.6,384,32.64,32.64]}
+{"kind":"textbox","id":"sh/lgbepgvm","slide":8,"name":"Text 17","text":"Use IoU + constant velocity or a small Kalman filter. Add relay hysteresis: ON immediately; OFF only after the zone is empty for 5–10 seconds.","textPreview":"Use IoU + constant velocity or a small Kalman filter. Add relay hysteresis: ON immediately; OFF only after the zone is empty for 5–10 sec...","textChars":142,"textLines":1,"bbox":[105.6,499.2,1046.4,76.8]}
+{"kind":"textbox","id":"sh/kredcr6t","slide":8,"name":"Slide Number Placeholder 0","placeholder":"slideNumber","text":"8","textPreview":"8","textChars":1,"textLines":1,"bbox":[1171.2,689.28,83.99,31.5]}
+{"kind":"notes","id":"nt/fu1gfa1s","slide":8,"text":""}
+{"kind":"slide","id":"sl/udsvah03","slide":9,"title":"Implementation roadmap","textShapes":23}
+{"kind":"textbox","id":"sh/1cfmhgne","slide":9,"name":"Text 0","text":"Implementation roadmap","textPreview":"Implementation roadmap","textChars":22,"textLines":1,"bbox":[62.4,34.56,1152,48]}
+{"kind":"textbox","id":"sh/0b65obm9","slide":9,"name":"Text 1","text":"From dataset to ESP32-S3 firmware.","textPreview":"From dataset to ESP32-S3 firmware.","textChars":34,"textLines":1,"bbox":[65.28,89.28,1132.8,30.72]}
+{"kind":"textbox","id":"sh/nex4jq5k","slide":9,"name":"Text 2","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[76.8,158.4,52.8,52.8]}
+{"kind":"textbox","id":"sh/mdonql4z","slide":9,"name":"Text 3","text":"Collect data","textPreview":"Collect data","textChars":12,"textLines":1,"bbox":[145.92,156.48,278.4,28.8]}
+{"kind":"textbox","id":"sh/9gzml0nq","slide":9,"name":"Text 4","text":"classroom angles, empty/occupied zones","textPreview":"classroom angles, empty/occupied zones","textChars":38,"textLines":1,"bbox":[145.92,198.72,268.8,43.2]}
+{"kind":"textbox","id":"sh/ofq5svm5","slide":9,"name":"Text 5","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[465.6,158.4,52.8,52.8]}
+{"kind":"textbox","id":"sh/bih4na5w","slide":9,"name":"Text 6","text":"Train teacher","textPreview":"Train teacher","textChars":13,"textLines":1,"bbox":[534.72,156.48,278.4,28.8]}
+{"kind":"textbox","id":"sh/ah8nu54b","slide":9,"name":"Text 7","text":"YOLOv8n person detector on PC","textPreview":"YOLOv8n person detector on PC","textChars":29,"textLines":1,"bbox":[534.72,198.72,268.8,43.2]}
+{"kind":"textbox","id":"sh/oza1gfyh","slide":9,"name":"Text 8","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[854.4,158.4,52.8,52.8]}
+{"kind":"textbox","id":"sh/p0ji9kf2","slide":9,"name":"Text 9","text":"Distill student","textPreview":"Distill student","textChars":15,"textLines":1,"bbox":[923.52,156.48,278.4,28.8]}
+{"kind":"textbox","id":"sh/2xsjepgb","slide":9,"name":"Text 10","text":"Visualec-Pico, one-class detector","textPreview":"Visualec-Pico, one-class detector","textChars":33,"textLines":1,"bbox":[923.52,198.72,268.8,43.2]}
+{"kind":"textbox","id":"sh/3y107axw","slide":9,"name":"Text 11","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[76.8,350.4,52.8,52.8]}
+{"kind":"textbox","id":"sh/cnu1kzyd","slide":9,"name":"Text 12","text":"QAT INT8","textPreview":"QAT INT8","textChars":8,"textLines":1,"bbox":[145.92,348.48,278.4,28.8]}
+{"kind":"textbox","id":"sh/do3id4fy","slide":9,"name":"Text 13","text":"quantization-aware fine tuning","textPreview":"quantization-aware fine tuning","textChars":30,"textLines":1,"bbox":[145.92,390.72,268.8,43.2]}
+{"kind":"textbox","id":"sh/qlcjipgn","slide":9,"name":"Text 14","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[465.6,350.4,52.8,52.8]}
+{"kind":"textbox","id":"sh/bml0buxs","slide":9,"name":"Text 15","text":"Export","textPreview":"Export","textChars":6,"textLines":1,"bbox":[534.72,348.48,278.4,28.8]}
+{"kind":"textbox","id":"sh/0ru1ozyp","slide":9,"name":"Text 16","text":"ONNX → ESP-PPQ → .espdl","textPreview":"ONNX → ESP-PPQ → .espdl","textChars":23,"textLines":1,"bbox":[534.72,390.72,268.8,43.2]}
+{"kind":"textbox","id":"sh/lsn2h4fa","slide":9,"name":"Text 17","text":"6","textPreview":"6","textChars":1,"textLines":1,"bbox":[854.4,350.4,52.8,52.8]}
+{"kind":"textbox","id":"sh/98ji147e","slide":9,"name":"Text 18","text":"Deploy","textPreview":"Deploy","textChars":6,"textLines":1,"bbox":[923.52,348.48,278.4,28.8]}
+{"kind":"textbox","id":"sh/87a18zqt","slide":9,"name":"Text 19","text":"ESP-DL + motion/tracker/relay firmware","textPreview":"ESP-DL + motion/tracker/relay firmware","textChars":38,"textLines":1,"bbox":[923.52,390.72,268.8,43.2]}
+{"kind":"textbox","id":"sh/76h0zup8","slide":9,"name":"Text 20","text":"Minimum demo success metric","textPreview":"Minimum demo success metric","textChars":27,"textLines":1,"bbox":[100.8,576,307.2,46.08]}
+{"kind":"textbox","id":"sh/ml8j6p8n","slide":9,"name":"Text 21","text":"People entering/leaving zones must switch the right relays reliably, even if raw detector FPS is below camera FPS.","textPreview":"People entering/leaving zones must switch the right relays reliably, even if raw detector FPS is below camera FPS.","textChars":114,"textLines":1,"bbox":[427.2,571.2,729.6,43.2]}
+{"kind":"textbox","id":"sh/wba1cjqp","slide":9,"name":"Slide Number Placeholder 0","placeholder":"slideNumber","text":"9","textPreview":"9","textChars":1,"textLines":1,"bbox":[1171.2,689.28,83.99,31.5]}
+{"kind":"notes","id":"nt/udsvah03","slide":9,"text":""}
+{"kind":"slide","id":"sl/m90b6t0r","slide":10,"title":"Firmware architecture","textShapes":10}
+{"kind":"textbox","id":"sh/xc3mho32","slide":10,"name":"Text 0","text":"Firmware architecture","textPreview":"Firmware architecture","textChars":21,"textLines":1,"bbox":[62.4,34.56,1152,48]}
+{"kind":"textbox","id":"sh/cbu58j2h","slide":10,"name":"Text 1","text":"Modular code structure for reliable implementation.","textPreview":"Modular code structure for reliable implementation.","textChars":51,"textLines":1,"bbox":[65.28,89.28,1132.8,30.72]}
+{"kind":"textbox","id":"sh/zelojyl8","slide":10,"name":"Text 2","text":"camera_task.cpp\ncapture, frame buffers, grayscale","textPreview":"camera_task.cpp | capture, frame buffers, grayscale","textChars":49,"textLines":2,"bbox":[96,139.2,504,74.88]}
+{"kind":"textbox","id":"sh/ydcnatkn","slide":10,"name":"Text 3","text":"motion_task.cpp\nframe diff, ROI proposal","textPreview":"motion_task.cpp | frame diff, ROI proposal","textChars":40,"textLines":2,"bbox":[681.6,139.2,504,74.88]}
+{"kind":"textbox","id":"sh/l036l83y","slide":10,"name":"Text 4","text":"vision_model.cpp\nESP-DL model load + invoke","textPreview":"vision_model.cpp | ESP-DL model load + invoke","textChars":43,"textLines":2,"bbox":[96,268.8,504,74.88]}
+{"kind":"textbox","id":"sh/kzu5c32t","slide":10,"name":"Text 5","text":"tracker.cpp\nIoU/Kalman tracking","textPreview":"tracker.cpp | IoU/Kalman tracking","textChars":31,"textLines":2,"bbox":[681.6,268.8,504,74.88]}
+{"kind":"textbox","id":"sh/725onyl4","slide":10,"name":"Text 6","text":"zone_mapper.cpp\npolygon lookup, occupancy map","textPreview":"zone_mapper.cpp | polygon lookup, occupancy map","textChars":45,"textLines":2,"bbox":[96,398.4,504,74.88]}
+{"kind":"textbox","id":"sh/m1cnetkj","slide":10,"name":"Text 7","text":"relay_controller.cpp\nhysteresis, GPIO safety","textPreview":"relay_controller.cpp | hysteresis, GPIO safety","textChars":44,"textLines":2,"bbox":[681.6,398.4,504,74.88]}
+{"kind":"textbox","id":"sh/s7yt4b21","slide":10,"name":"Text 8","text":"Use FreeRTOS queues between camera, motion, inference and relay modules. Keep relay control independent from inference so electrical output remains stable during model delays.","textPreview":"Use FreeRTOS queues between camera, motion, inference and relay modules. Keep relay control independent from inference so electrical outp...","textChars":175,"textLines":1,"bbox":[100.8,556.8,1075.2,67.2]}
+{"kind":"textbox","id":"sh/kjytkvup","slide":10,"name":"Slide Number Placeholder 0","placeholder":"slideNumber","text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1171.2,689.28,83.99,31.5]}
+{"kind":"notes","id":"nt/m90b6t0r","slide":10,"text":""}
+{"kind":"slide","id":"sl/jetc3ut0","slide":11,"title":"Expected targets and validation","textShapes":25}
+{"kind":"textbox","id":"sh/xcryxg7y","slide":11,"name":"Text 0","text":"Expected targets and validation","textPreview":"Expected targets and validation","textChars":31,"textLines":1,"bbox":[62.4,34.56,1152,48]}
+{"kind":"textbox","id":"sh/wbih4b6d","slide":11,"name":"Text 1","text":"Measure the system like an embedded product, not only as a model.","textPreview":"Measure the system like an embedded product, not only as a model.","textChars":65,"textLines":1,"bbox":[65.28,89.28,1132.8,30.72]}
+{"kind":"textbox","id":"sh/n69grmpw","slide":11,"name":"Text 2","text":"Metric","textPreview":"Metric","textChars":6,"textLines":1,"bbox":[148.8,148.8,288,46.08]}
+{"kind":"textbox","id":"sh/250zy18b","slide":11,"name":"Text 3","text":"Target","textPreview":"Target","textChars":6,"textLines":1,"bbox":[436.8,148.8,288,46.08]}
+{"kind":"textbox","id":"sh/98rytw72","slide":11,"name":"Text 4","text":"Reason","textPreview":"Reason","textChars":6,"textLines":1,"bbox":[724.8,148.8,441.6,46.08]}
+{"kind":"textbox","id":"sh/o7ih0r6h","slide":11,"name":"Text 5","text":"Camera capture","textPreview":"Camera capture","textChars":14,"textLines":1,"bbox":[148.8,194.88,288,46.08]}
+{"kind":"textbox","id":"sh/72t03qp0","slide":11,"name":"Text 6","text":"24–30 FPS","textPreview":"24–30 FPS","textChars":9,"textLines":1,"bbox":[436.8,194.88,288,46.08]}
+{"kind":"textbox","id":"sh/61kzalof","slide":11,"name":"Text 7","text":"smooth sensing input","textPreview":"smooth sensing input","textChars":20,"textLines":1,"bbox":[724.8,194.88,441.6,46.08]}
+{"kind":"textbox","id":"sh/ofqtgnyt","slide":11,"name":"Text 8","text":"Tiny detector","textPreview":"Tiny detector","textChars":13,"textLines":1,"bbox":[148.8,240.96,288,46.08]}
+{"kind":"textbox","id":"sh/9gza9sze","slide":11,"name":"Text 9","text":"6–12 FPS","textPreview":"6–12 FPS","textChars":8,"textLines":1,"bbox":[436.8,240.96,288,46.08]}
+{"kind":"textbox","id":"sh/mdobedg3","slide":11,"name":"Text 10","text":"ESP32-S3 realistic range","textPreview":"ESP32-S3 realistic range","textChars":24,"textLines":1,"bbox":[724.8,240.96,441.6,46.08]}
+{"kind":"textbox","id":"sh/nehs7iho","slide":11,"name":"Text 11","text":"Tracking/zone output","textPreview":"Tracking/zone output","textChars":20,"textLines":1,"bbox":[148.8,287.04,288,46.08]}
+{"kind":"textbox","id":"sh/0b6tc3yx","slide":11,"name":"Text 12","text":"24 FPS","textPreview":"24 FPS","textChars":6,"textLines":1,"bbox":[436.8,287.04,288,46.08]}
+{"kind":"textbox","id":"sh/1cfa58zi","slide":11,"name":"Text 13","text":"perceived real-time response","textPreview":"perceived real-time response","textChars":28,"textLines":1,"bbox":[724.8,287.04,441.6,46.08]}
+{"kind":"textbox","id":"sh/epobatgr","slide":11,"name":"Text 14","text":"Relay delay","textPreview":"Relay delay","textChars":11,"textLines":1,"bbox":[148.8,333.12,288,46.08]}
+{"kind":"textbox","id":"sh/zaxs3yhc","slide":11,"name":"Text 15","text":"<300 ms ON","textPreview":"<300 ms ON","textChars":10,"textLines":1,"bbox":[436.8,333.12,288,46.08]}
+{"kind":"textbox","id":"sh/cn6t83y1","slide":11,"name":"Text 16","text":"responsive lights/fans","textPreview":"responsive lights/fans","textChars":22,"textLines":1,"bbox":[724.8,333.12,441.6,46.08]}
+{"kind":"textbox","id":"sh/dofa18z6","slide":11,"name":"Text 17","text":"False OFF","textPreview":"False OFF","textChars":9,"textLines":1,"bbox":[148.8,379.2,288,46.08]}
+{"kind":"textbox","id":"sh/tsnip0ny","slide":11,"name":"Text 18","text":"near zero","textPreview":"near zero","textChars":9,"textLines":1,"bbox":[436.8,379.2,288,46.08]}
+{"kind":"textbox","id":"sh/87ehgv6d","slide":11,"name":"Text 19","text":"hysteresis protects comfort","textPreview":"hysteresis protects comfort","textChars":27,"textLines":1,"bbox":[724.8,379.2,441.6,46.08]}
+{"kind":"textbox","id":"sh/7650nq5s","slide":11,"name":"Text 20","text":"Model size","textPreview":"Model size","textChars":10,"textLines":1,"bbox":[148.8,425.28,288,46.08]}
+{"kind":"textbox","id":"sh/65wzelo7","slide":11,"name":"Text 21","text":"≤300 KB","textPreview":"≤300 KB","textChars":7,"textLines":1,"bbox":[436.8,425.28,288,46.08]}
+{"kind":"textbox","id":"sh/l43ilgn2","slide":11,"name":"Text 22","text":"fits memory comfortably","textPreview":"fits memory comfortably","textChars":23,"textLines":1,"bbox":[724.8,425.28,441.6,46.08]}
+{"kind":"textbox","id":"sh/k3uhcb6h","slide":11,"name":"Text 23","text":"Benchmark reference: ESPDet-Pico reports >7 FPS on ESP32-S3 at 224×224 including pre/post-processing.","textPreview":"Benchmark reference: ESPDet-Pico reports >7 FPS on ESP32-S3 at 224×224 including pre/post-processing.","textChars":101,"textLines":1,"bbox":[65.28,655.68,1142.4,22.08]}
+{"kind":"textbox","id":"sh/j2lgjq5w","slide":11,"name":"Slide Number Placeholder 0","placeholder":"slideNumber","text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1171.2,689.28,83.99,31.5]}
+{"kind":"notes","id":"nt/jetc3ut0","slide":11,"text":""}
+{"kind":"slide","id":"sl/8f2psfyx","slide":12,"title":"Final architecture decision","textShapes":8}
+{"kind":"textbox","id":"sh/1gbm9s3a","slide":12,"name":"Text 0","text":"Final architecture decision","textPreview":"Final architecture decision","textChars":27,"textLines":1,"bbox":[62.4,34.56,1152,48]}
+{"kind":"textbox","id":"sh/0f2lgnmp","slide":12,"name":"Text 1","text":"Best path for Visualec on ESP32-S3.","textPreview":"Best path for Visualec on ESP32-S3.","textChars":35,"textLines":1,"bbox":[65.28,89.28,1132.8,30.72]}
+{"kind":"textbox","id":"sh/ra943il8","slide":12,"name":"Text 2","text":"Selected: Visualec-MAST","textPreview":"Selected: Visualec-MAST","textChars":23,"textLines":1,"bbox":[91.2,144,288,55.68]}
+{"kind":"textbox","id":"sh/q903ad4n","slide":12,"name":"Text 3","text":"YOLOv8n teacher → distilled Visualec-Pico student → INT8 ESP-DL runtime → motion-adaptive sparse inference → IoU/Kalman tracking → zone polygon mapping → relay hysteresis.","textPreview":"YOLOv8n teacher → distilled Visualec-Pico student → INT8 ESP-DL runtime → motion-adaptive sparse inference → IoU/Kalman tracking → zone p...","textChars":171,"textLines":1,"bbox":[100.8,230.4,1065.6,81.6]}
+{"kind":"textbox","id":"sh/dcbm583y","slide":12,"name":"Text 4","text":"Why this is best","textPreview":"Why this is best","textChars":16,"textLines":1,"bbox":[96,391.68,206.4,43.2]}
+{"kind":"textbox","id":"sh/sb2lcnmd","slide":12,"name":"Text 5","text":"It matches the real hardware limits, gives 24 FPS-equivalent zone responsiveness, removes unnecessary classes, and turns the project into a defensible embedded AI architecture rather than a weak claim of full YOLOv8n at 24 FPS.","textPreview":"It matches the real hardware limits, gives 24 FPS-equivalent zone responsiveness, removes unnecessary classes, and turns the project into...","textChars":227,"textLines":1,"bbox":[326.4,384,816,72]}
+{"kind":"textbox","id":"sh/b6d4f2lc","slide":12,"name":"Text 6","text":"Sources: Espressif ESP32-S3 product page; Espressif ESP-DL GitHub/docs/releases; Espressif ESP-Detection benchmark; ESP-DL YOLO deployment guide.","textPreview":"Sources: Espressif ESP32-S3 product page; Espressif ESP-DL GitHub/docs/releases; Espressif ESP-Detection benchmark; ESP-DL YOLO deploymen...","textChars":145,"textLines":1,"bbox":[100.8,593.28,1075.2,43.2]}
+{"kind":"textbox","id":"sh/sfi58ryd","slide":12,"name":"Slide Number Placeholder 0","placeholder":"slideNumber","text":"12","textPreview":"12","textChars":2,"textLines":1,"bbox":[1171.2,689.28,83.99,31.5]}
+{"kind":"notes","id":"nt/8f2psfyx","slide":12,"text":""}

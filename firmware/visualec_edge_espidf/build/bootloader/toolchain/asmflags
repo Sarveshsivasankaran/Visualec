@@ -1,0 +1,5 @@
+"-specs=D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/specs/picolibc.specs"
+-mlongcalls
+-fno-builtin-memcpy
+-fno-builtin-memset
+-fno-builtin-bzero

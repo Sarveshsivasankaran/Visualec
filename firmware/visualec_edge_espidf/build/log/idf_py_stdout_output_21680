@@ -1,0 +1,425 @@
+Command: D:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe D:\esp\v6.0.2\esp-idf\tools/idf_monitor.py -p COM6 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\Program files\Visualec\firmware\visualec_edge_espidf\build\visualec_edge.elf D:\Program files\Visualec\firmware\visualec_edge_espidf\build\bootloader\bootloader.elf --force-color -m 'D:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe' 'D:\esp\v6.0.2\esp-idf\tools\idf.py' '-p' 'COM6'
+[0;32mI (99) boot:  6 storage          Unknown data     01 82 00820000ESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x38 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403cdb11
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1664
+load:0x403c8700,len:0xf38
+load:0x403cb700,len:0x31e8
+entry 0x403c8930
+[0;32mI (24) boot: ESP-IDF v6.0.2 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Sep  6 2026 02:14:18[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (31) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (39) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (43) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (47) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (54) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (60) boot:  0 nvs              WiFi data        01 02 0000a000 00006000[0m
+[0;32mI (67) boot:  1 otadata          OTA data         01 00 00010000 00002000[0m
+[0;32mI (73) boot:  2 phy_init         RF data          01 01 00012000 00001000[0m
+[0;32mI (80) boot:  3 ota_0            OTA app          00 10 00020000 00300000[0m
+[0;32mI (86) boot:  4 ota_1            OTA app          00 11 00320000 00300000[0m
+[0;32mI (93) boot:  5 pedestrian_det   Unknown data     01 82 00620000 00200000[0m
+[0;32mI (99) boot:  6 storage          Unknown data     01 82 00820000 007e0000[0m
+[0;32mI (106) boot: End of partition table[0m
+[0;32mI (110) esp_image: segment 0: paddr=00020020 vaddr=3c260020 size=451e4h (283108) map[0m
+[0;32mI (161) esp_image: segment 1: paddr=0006520c vaddr=3fc9f100 size=05598h ( 21912) load[0m
+[0;32mI (165) esp_image: segment 2: paddr=0006a7ac vaddr=40378000 size=0586ch ( 22636) load[0m
+[0;32mI (170) esp_image: segment 3: paddr=00070020 vaddr=42000020 size=2597b4h (2463668) map[0m
+[0;32mI (553) esp_image: segment 4: paddr=002c97dc vaddr=4037d86c size=11830h ( 71728) load[0m
+[0;32mI (568) esp_image: segment 5: paddr=002db014 vaddr=50000000 size=00024h (    36) load[0m
+[0;32mI (578) boot: Loaded app from partition at offset 0x20000[0m
+[0;32mI (578) boot: Disabling RNG early entropy source...[0m
+[0;32mI (588) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (588) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (589) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (590) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (595) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (599) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (603) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (608) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (613) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (617) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (623) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (627) MSPI Timing: Enter psram timing tuning[0m
+[0;32mI (632) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (635) esp_psram: Speed: 80MHz[0m
+[0;32mI (656) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (822) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (822) cpu_start: Multicore app[0m
+[0;32mI (1009) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1017) cpu_start: GPIO 44 and 43 are used as console UART I/O pins[0m
+[0;32mI (1018) cpu_start: Pro cpu start user code[0m
+[0;32mI (1018) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (1020) app_init: Application information:[0m
+[0;32mI (1024) app_init: Project name:     visualec_edge[0m
+[0;32mI (1028) app_init: App version:      a559c51-dirty[0m
+[0;32mI (1033) app_init: Compile time:     Sep  6 2026 02:26:10[0m
+[0;32mI (1038) app_init: ELF file SHA256:  3e2ebdc10...[0m
+[0;32mI (1042) app_init: ESP-IDF:          v6.0.2[0m
+[0;32mI (1046) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1050) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1054) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1058) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1065) heap_init: At 3FCAA0A0 len 0003F670 (253 KiB): RAM[0m
+[0;32mI (1070) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1075) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (1081) esp_psram: Adding pool of 5440K of PSRAM memory to heap allocator[0m
+[0;32mI (1087) esp_psram: Adding pool of 43K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (1099) spi_flash: detected chip: generic[0m
+[0;32mI (1102) spi_flash: flash io: qio[0m
+[0;32mI (1105) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1112) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1118) main_task: Started on CPU0[0m
+[0;32mI (1121) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1129) main_task: Calling app_main()[0m
+[0;32mI (1144) pp: pp rom version: e7ae62f[0m
+[0;32mI (1144) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1145) wifi:wifi driver task: 3fced5bc, prio:23, stack:6656, core=0[0m
+[0;32mI (1151) wifi:wifi firmware version: 00ad238[0m
+[0;32mI (1152) wifi:wifi certification version: v7.0[0m
+[0;32mI (1155) wifi:config NVS flash: enabled[0m
+[0;32mI (1158) wifi:config nano formatting: disabled[0m
+[0;32mI (1162) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1168) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1172) wifi:Init management short buffer num: 32[0m
+[0;32mI (1176) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1180) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1184) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1189) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1192) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1197) wifi_init: rx ba win: 6[0m
+[0;32mI (1199) wifi_init: accept mbox: 6[0m
+[0;32mI (1202) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1205) wifi_init: udp mbox: 6[0m
+[0;32mI (1208) wifi_init: tcp mbox: 6[0m
+[0;32mI (1211) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1215) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1218) wifi_init: tcp mss: 1440[0m
+[0;32mI (1221) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1225) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1229) phy_init: phy_version 712,87e8c20e,Apr 13 2026,18:51:10[0m
+[0;32mI (1264) wifi:mode : sta (1c:db:d4:a9:45:dc)[0m
+[0;32mI (1264) wifi:enable tsf[0m
+[1;31mE (1267) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (1267) transport_base: Failed to open a new connection: 32772[0m
+[0;32mI (1271) wifi:E (1271) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0
+[1;31mE (1278) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (1284) wifi:state: init -> auth (0xb0)I (1301) websocket_client: Reconnect after 2000 ms[0m
+
+[0;32mI (1271) websocket_client: Started[0m
+[0;32mI (1312) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1317) visualec_edge: Visualec edge firmware started; relays safe, waiting for authenticated occupancy[0m
+[0;32mI (1320) wifi:I (1318) FbsLoader: The storage free size is 24576 KB[0m
+state: assoc -> run (0x10)I (1331) FbsLoader: The partition size is 2048 KB
+
+[0;32mI (1325) main_task: Returned from app_main()[0m
+[0;32mI (1347) wifi:connected with siva, aid = 4, channel 11, BW20, bssid = c4:e9:0a:45:17:01[0m
+[0;32mI (1350) wifi:security: WPA2-PSK, phy: bgn, rssi: -35, cipher(pairwise:0x3, group:0x1), pmf:0[0m
+[0;32mI (1359) wifi:pm start, type: 1[0m
+
+[0;32mI (1361) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1369) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (1378) wifi:dp: 10, bi: 102400, li: 2, scale listen interval from 307200 us to 204800 us[0m
+[0;32mI (1385) wifi:AP's beacon interval = 102400 us, DTIM period = 10[0m
+[0;33mW (1453) dl::Model: minimize() will delete unused inference variables, breaking model testing/debugging.[0m
+[0;32mI (2408) esp_netif_handlers: sta ip: 192.168.0.113, mask: 255.255.255.0, gw: 192.168.0.1[0m
+[0;32mI (3145) wifi:<ba-add>idx:0 (ifx:0, c4:e9:0a:45:17:01), tid:0, ssn:4, winSize:64[0m
+[1;31mE (4042) websocket_client: Websocket client is not connected[0m
+[1;31mE (6092) websocket_client: Websocket client is not connected[0m
+[1;31mE (8092) websocket_client: Websocket client is not connected[0m
+[1;31mE (10092) websocket_client: Websocket client is not connected[0m
+[1;31mE (12142) websocket_client: Websocket client is not connected[0m
+[1;31mE (14192) websocket_client: Websocket client is not connected[0m
+[1;31mE (16242) websocket_client: Websocket client is not connected[0m
+[1;31mE (18292) websocket_client: Websocket client is not connected[0m
+[1;31mE (20342) websocket_client: Websocket client is not connected[0m
+[1;31mE (22392) websocket_client: Websocket client is not connected[0m
+[1;31mE (24442) websocket_client: Websocket client is not connected[0m
+[1;31mE (26492) websocket_client: Websocket client is not connected[0m
+[1;31mE (28542) websocket_client: Websocket client is not connected[0m
+[1;31mE (30592) websocket_client: Websocket client is not connected[0m
+[1;31mE (32642) websocket_client: Websocket client is not connected[0m
+[1;31mE (34692) websocket_client: Websocket client is not connected[0m
+[1;31mE (36742) websocket_client: Websocket client is not connected[0m
+[1;31mE (38792) websocket_client: Websocket client is not connected[0m
+[1;31mE (40842) websocket_client: Websocket client is not connected[0m
+[1;31mE (42892) websocket_client: Websocket client is not connected[0m
+[1;31mE (44892) websocket_client: Websocket client is not connected[0m
+[1;31mE (46942) websocket_client: Websocket client is not connected[0m
+[1;31mE (48942) websocket_client: Websocket client is not connected[0m
+[1;31mE (50942) websocket_client: Websocket client is not connected[0m
+[1;31mE (52942) websocket_client: Websocket client is not connected[0m
+[1;31mE (54942) websocket_client: Websocket client is not connected[0m
+[1;31mE (56942) websocket_client: Websocket client is not connected[0m
+[1;31mE (58942) websocket_client: Websocket client is not connected[0m
+[1;31mE (60942) websocket_client: Websocket client is not connected[0m
+[1;31mE (62942) websocket_client: Websocket client is not connected[0m
+[1;31mE (64942) websocket_client: Websocket client is not connected[0m
+[1;31mE (66942) websocket_client: Websocket client is not connected[0m
+[1;31mE (68942) websocket_client: Websocket client is not connected[0m
+[1;31mE (70942) websocket_client: Websocket client is not connected[0m
+[1;31mE (72942) websocket_client: Websocket client is not connected[0m
+[1;31mE (74942) websocket_client: Websocket client is not connected[0m
+[1;31mE (76942) websocket_client: Websocket client is not connected[0m
+[1;31mE (78942) websocket_client: Websocket client is not connected[0m
+[1;31mE (80942) websocket_client: Websocket client is not connected[0m
+[1;31mE (82942) websocket_client: Websocket client is not connected[0m
+[1;31mE (84942) websocket_client: Websocket client is not connected[0m
+[1;31mE (86942) websocket_client: Websocket client is not connected[0m
+[1;31mE (88942) websocket_client: Websocket client is not connected[0m
+[0;32mI (556) esp_image: segment 4: paddr=002c97dc vaddr=4037d86c sizeI (1018) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1026) cpu_start: GPIO 44 and 43 are used as console UART I/O pins[0m
+[0;32mI (1026) cpu_start: Pro cpu start user code[0m
+[0;32mI (1026) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (1028) app_init: Application information:[0m
+[0;32mI (1032) app_init: Project name:     visualec_edge[0m
+[0;32mI (1037) app_init: App version:      a559c51-dirty[0m
+[0;32mI (1041) app_init: Compile time:     Sep  6 2026 02:26:10[0m
+[0;32mI (1046) app_init: ELF file SHA256:  3e2ebdc10...[0m
+[0;32mI (1051) app_init: ESP-IDF:          v6.0.2[0m
+[0;32mI (1055) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1059) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1063) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1067) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1073) heap_init: At 3FCAA0A0 len 0003F670 (253 KiB): RAM[0m
+[0;32mI (1078) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1083) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (1089) esp_psram: Adding pool of 5440K of PSRAM memory to heap allocator[0m
+[0;32mI (1095) esp_psram: Adding pool of 43K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (1107) spi_flash: detected chip: generic[0m
+[0;32mI (1110) spi_flash: flash io: qio[0m
+[0;32mI (1114) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1120) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1127) main_task: Started on CPU0[0m
+[0;32mI (1130) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1138) main_task: Calling app_main()[0m
+[0;32mI (1152) pp: pp rom version: e7ae62f[0m
+[0;32mI (1152) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1153) wifi:wifi driver task: 3fced5bc, prio:23, stack:6656, core=0[0m
+[0;32mI (1160) wifi:wifi firmware version: 00ad238[0m
+[0;32mI (1160) wifi:wifi certification version: v7.0[0m
+[0;32mI (1163) wifi:config NVS flash: enabled[0m
+[0;32mI (1167) wifi:config nano formatting: disabled[0m
+[0;32mI (1171) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1176) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1180) wifi:Init management short buffer num: 32[0m
+[0;32mI (1185) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1189) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1193) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1197) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1201) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1205) wifi_init: rx ba win: 6[0m
+[0;32mI (1208) wifi_init: accept mbox: 6[0m
+[0;32mI (1211) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1214) wifi_init: udp mbox: 6[0m
+[0;32mI (1217) wifi_init: tcp mbox: 6[0m
+[0;32mI (1220) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1223) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1226) wifi_init: tcp mss: 1440[0m
+[0;32mI (1229) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1233) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1237) phy_init: phy_version 712,87e8c20e,Apr 13 2026,18:51:10[0m
+[0;32mI (1271) wifi:mode : sta (1c:db:d4:a9:45:dc)[0m
+[0;32mI (1271) wifi:enable tsf[0m
+[0;32mI (1273) websocket_client: Started[0m
+[1;31mE (1273) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (1275) transport_base: Failed to open a new connection: 32772[0m
+[0;32mI (1277) wifi:E (1280) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0
+[1;31mE (1288) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (1294) wifi:state: init -> auth (0xb0)I (1311) websocket_client: Reconnect after 2000 ms[0m
+
+[0;32mI (1275) FbsLoader: The storage free size is 24576 KB[0m
+[0;32mI (1322) wifi:I (1324) FbsLoader: The partition size is 2048 KB[0m
+state: auth -> assoc (0x0)
+[0;32mI (1277) visualec_edge: Visualec edge firmware started; relays safe, waiting for authenticated occupancy[0m
+[0;32mI (1336) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1347) main_task: Returned from app_main()[0m
+[0;32mI (1354) wifi:connected with siva, aid = 4, channel 11, BW20, bssid = c4:e9:0a:45:17:01[0m
+[0;32mI (1357) wifi:security: WPA2-PSK, phy: bgn, rssi: -36, cipher(pairwise:0x3, group:0x1), pmf:0[0m
+[0;32mI (1366) wifi:pm start, type: 1[0m
+
+[0;32mI (1368) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1376) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (1384) wifi:dp: 10, bi: 102400, li: 2, scale listen interval from 307200 us to 204800 us[0m
+[0;32mI (1392) wifi:AP's beacon interval = 102400 us, DTIM period = 10[0m
+[0;33mW (1446) dl::Model: minimize() will delete unused inference variables, breaking model testing/debugging.[0m
+[0;32mI (2414) esp_netif_handlers: sta ip: 192.168.0.113, mask: 255.255.255.0, gw: 192.168.0.1[0m
+[0;32mI (3127) wifi:<ba-add>idx:0 (ifx:0, c4:e9:0a:45:17:01), tid:0, ssn:4, winSize:64[0m
+[1;31mE (4498) websocket_client: Websocket client is not connected[0m
+[1;31mE (6548) websocket_client: Websocket client is not connected[0m
+[1;31mE (8548) websocket_client: Websocket client is not connected[0m
+[1;31mE (10548) websocket_client: Websocket client is not connected[0m
+[1;31mE (12548) websocket_client: Websocket client is not connected[0m
+[1;31mE (14548) websocket_client: Websocket client is not connected[0m
+[1;31mE (16548) websocket_client: Websocket client is not connected[0m
+[1;31mE (18548) websocket_client: Websocket client is not connected[0m
+[1;31mE (20548) websocket_client: Websocket client is not connected[0m
+[1;31mE (22598) websocket_client: Websocket client is not connected[0m
+[1;31mE (24648) websocket_client: Websocket client is not connected[0m
+[1;31mE (26698) websocket_client: Websocket client is not connected[0m
+[1;31mE (28748) websocket_client: Websocket client is not connected[0m
+[1;31mE (30798) websocket_client: Websocket client is not connected[0m
+[1;31mE (32848) websocket_client: Websocket client is not connected[0m
+[1;31mE (34898) websocket_client: Websocket client is not connected[0m
+[1;31mE (36948) websocket_client: Websocket client is not connected[0m
+[1;31mE (38948) websocket_client: Websocket client is not connected[0m
+[1;31mE (40948) websocket_client: Websocket client is not connected[0m
+[1;31mE (42948) websocket_client: Websocket client is not connected[0m
+[1;31mE (44948) websocket_client: Websocket client is not connected[0m
+[1;31mE (46948) websocket_client: Websocket client is not connected[0m
+[1;31mE (48948) websocket_client: Websocket client is not connected[0m
+[1;31mE (50948) websocket_client: Websocket client is not connected[0m
+[1;31mE (52948) websocket_client: Websocket client is not connected[0m
+[1;31mE (54948) websocket_client: Websocket client is not connected[0m
+[1;31mE (56948) websocket_client: Websocket client is not connected[0m
+[1;31mE (58948) websocket_client: Websocket client is not connected[0m
+[1;31mE (60948) websocket_client: Websocket client is not connected[0m
+[1;31mE (62948) websocket_client: Websocket client is not connected[0m
+[1;31mE (64948) websocket_client: Websocket client is not connected[0m
+[1;31mE (66948) websocket_client: Websocket client is not connected[0m
+[1;31mE (68948) websocket_client: Websocket client is not connected[0m
+[1;31mE (70948) websocket_client: Websocket client is not connected[0m
+[1;31mE (72948) websocket_client: Websocket client is not connected[0m
+[1;31mE (74948) websocket_client: Websocket client is not connected[0m
+[1;31mE (76948) websocket_client: Websocket client is not connected[0m
+[1;31mE (78948) websocket_client: Websocket client is not connected[0m
+[1;31mE (80948) websocket_client: Websocket client is not connected[0m
+[1;31mE (82998) websocket_client: Websocket client is not connected[0m
+[1;31mE (85048) websocket_client: Websocket client is not connected[0m
+[1;31mE (87098) websocket_client: Websocket client is not connected[0m
+[1;31mE (89148) websocket_client: Websocket client is not connected[0m
+[1;31mE (91198) websocket_client: Websocket client is not connected[0m
+[1;31mE (93248) websocket_client: Websocket client is not connected[0m
+[1;31mE (95248) websocket_client: Websocket client is not connected[0m
+[1;31mE (97248) websocket_client: Websocket client is not connected[0m
+[1;31mE (99248) websocket_client: Websocket client is not connected[0m
+[1;31mE (101248) websocket_client: Websocket client is not connected[0m
+[1;31mE (103248) websocket_client: Websocket client is not connected[0m
+[1;31mE (105248) websocket_client: Websocket client is not connected[0m
+[1;31mE (107248) websocket_client: Websocket client is not connected[0m
+[1;31mE (109248) websocket_client: Websocket client is not connected[0m
+[1;31mE (111248) websocket_client: Websocket client is not connected[0m
+[1;31mE (113248) websocket_client: Websocket client is not connected[0m
+[1;31mE (115248) websocket_client: Websocket client is not connected[0m
+[1;31mE (117248) websocket_client: Websocket client is not connected[0m
+[1;31mE (119248) websocket_client: Websocket client is not connected[0m
+[1;31mE (121248) websocket_client: Websocket client is not connected[0m
+[1;31mE (123248) websocket_client: Websocket client is not connected[0m
+[1;31mE (125248) websocket_client: Websocket client is not connected[0m
+[1;31mE (127248) websocket_client: Websocket client is not connected[0m
+[1;31mE (129248) websocket_client: Websocket client is not connected[0m
+[1;31mE (131248) websocket_client: Websocket client is not connected[0m
+[1;31mE (133248) websocket_client: Websocket client is not connected[0m
+[1;31mE (135248) websocket_client: Websocket client is not connected[0m
+[1;31mE (137298) websocket_client: Websocket client is not connected[0m
+[1;31mE (139348) websocket_client: Websocket client is not connected[0m
+[1;31mE (141348) websocket_client: Websocket client is not connected[0m
+[1;31mE (143348) websocket_client: Websocket client is not connected[0m
+[1;31mE (145348) websocket_client: Websocket client is not connected[0m
+[1;31mE (147348) websocket_client: Websocket client is not connected[0m
+[1;31mE (149348) websocket_client: Websocket client is not connected[0m
+[1;31mE (151348) websocket_client: Websocket client is not connected[0m
+[1;31mE (153348) websocket_client: Websocket client is not connected[0m
+[1;31mE (155348) websocket_client: Websocket client is not connected[0m
+[1;31mE (157348) websocket_client: Websocket client is not connected[0m
+[1;31mE (159348) websocket_client: Websocket client is not connected[0m
+[1;31mE (161348) websocket_client: Websocket client is not connected[0m
+[0;32mI (162867) wifi:<ba-add>idx:1 (ifx:0, c4:e9:0a:45:17:01), tid:6, ssn:0, winSize:64[0m
+[0;32mI (1018) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1026) cpu_start: GPIO 44 and 43 are used as console UART I/O pins[0m
+[0;32mI (1026) cpu_start: Pro cpu start user code[0m
+[0;32mI (1026) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (1028) app_init: Application information:[0m
+[0;32mI (1032) app_init: Project name:     visualec_edge[0m
+[0;32mI (1037) app_init: App version:      a559c51-dirty[0m
+[0;32mI (1041) app_init: Compile time:     Sep  6 2026 02:26:10[0m
+[0;32mI (1046) app_init: ELF file SHA256:  3e2ebdc10...[0m
+[0;32mI (1051) app_init: ESP-IDF:          v6.0.2[0m
+[0;32mI (1055) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1059) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1063) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1067) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1073) heap_init: At 3FCAA0A0 len 0003F670 (253 KiB): RAM[0m
+[0;32mI (1078) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1083) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (1089) esp_psram: Adding pool of 5440K of PSRAM memory to heap allocator[0m
+[0;32mI (1095) esp_psram: Adding pool of 43K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (1107) spi_flash: detected chip: generic[0m
+[0;32mI (1110) spi_flash: flash io: qio[0m
+[0;32mI (1114) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1120) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1127) main_task: Started on CPU0[0m
+[0;32mI (1130) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1138) main_task: Calling app_main()[0m
+[0;32mI (1152) pp: pp rom version: e7ae62f[0m
+[0;32mI (1152) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1153) wifi:wifi driver task: 3fced5bc, prio:23, stack:6656, core=0[0m
+[0;32mI (1160) wifi:wifi firmware version: 00ad238[0m
+[0;32mI (1160) wifi:wifi certification version: v7.0[0m
+[0;32mI (1163) wifi:config NVS flash: enabled[0m
+[0;32mI (1167) wifi:config nano formatting: disabled[0m
+[0;32mI (1171) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1176) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1180) wifi:Init management short buffer num: 32[0m
+[0;32mI (1185) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1189) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1193) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1197) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1201) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1205) wifi_init: rx ba win: 6[0m
+[0;32mI (1208) wifi_init: accept mbox: 6[0m
+[0;32mI (1211) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1214) wifi_init: udp mbox: 6[0m
+[0;32mI (1217) wifi_init: tcp mbox: 6[0m
+[0;32mI (1220) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1223) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1226) wifi_init: tcp mss: 1440[0m
+[0;32mI (1229) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1233) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1237) phy_init: phy_version 712,87e8c20e,Apr 13 2026,18:51:10[0m
+[0;32mI (1274) wifi:mode : sta (1c:db:d4:a9:45:dc)[0m
+[0;32mI (1274) wifi:enable tsf[0m
+[0;32mI (1276) websocket_client: Started[0m
+[1;31mE (1276) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (1278) transport_base: Failed to open a new connection: 32772[0m
+[0;32mI (1281) wifi:E (1283) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0
+[1;31mE (1291) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (1297) wifi:state: init -> auth (0xb0)I (1314) websocket_client: Reconnect after 2000 ms[0m
+
+[0;32mI (1278) FbsLoader: The storage free size is 24576 KB[0m
+[0;32mI (1325) wifi:I (1327) FbsLoader: The partition size is 2048 KB[0m
+state: auth -> assoc (0x0)
+[0;32mI (1281) visualec_edge: Visualec edge firmware started; relays safe, waiting for authenticated occupancy[0m
+[0;32mI (1339) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1350) main_task: Returned from app_main()[0m
+[0;32mI (1357) wifi:connected with siva, aid = 4, channel 11, BW20, bssid = c4:e9:0a:45:17:01[0m
+[0;32mI (1360) wifi:security: WPA2-PSK, phy: bgn, rssi: -31, cipher(pairwise:0x3, group:0x1), pmf:0[0m
+[0;32mI (1369) wifi:pm start, type: 1[0m
+
+[0;32mI (1371) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1379) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (1387) wifi:dp: 10, bi: 102400, li: 2, scale listen interval from 307200 us to 204800 us[0m
+[0;32mI (1395) wifi:AP's beacon interval = 102400 us, DTIM period = 10[0m
+[0;33mW (1449) dl::Model: minimize() will delete unused inference variables, breaking model testing/debugging.[0m
+[0;32mI (2417) esp_netif_handlers: sta ip: 192.168.0.113, mask: 255.255.255.0, gw: 192.168.0.1[0m
+[0;32mI (5155) wifi:<ba-add>idx:0 (ifx:0, c4:e9:0a:45:17:01), tid:0, ssn:4, winSize:64[0m
+[1;31mE (5201) websocket_client: Websocket client is not connected[0m
+[1;31mE (7251) websocket_client: Websocket client is not connected[0m
+[1;31mE (9251) websocket_client: Websocket client is not connected[0m
+[1;31mE (11251) websocket_client: Websocket client is not connected[0m
+[1;31mE (13251) websocket_client: Websocket client is not connected[0m
+[1;31mE (15251) websocket_client: Websocket client is not connected[0m
+[1;31mE (17251) websocket_client: Websocket client is not connected[0m
+[1;31mE (19251) websocket_client: Websocket client is not connected[0m
+[1;31mE (21251) websocket_client: Websocket client is not connected[0m

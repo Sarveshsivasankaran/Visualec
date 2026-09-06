@@ -1,0 +1,2 @@
+source D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/gdbinit/symbols
+source D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/gdbinit/connect

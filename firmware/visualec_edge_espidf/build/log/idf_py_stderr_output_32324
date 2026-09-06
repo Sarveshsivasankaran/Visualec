@@ -1,0 +1,65 @@
+Command: cmake -G Ninja -B D:\Program files\Visualec\firmware\visualec_edge_espidf\build -DPYTHON_DEPS_CHECKED=1 -DPYTHON=D:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe -DESP_PLATFORM=1 -DCCACHE_ENABLE=False D:\Program files\Visualec\firmware\visualec_edge_espidf
+fatal: detected dubious ownership in repository at 'D:/esp/v6.0.2/esp-idf'
+'D:/esp/v6.0.2/esp-idf' is owned by:
+	SHADOW-LAPTOP/Solo-P-Leveller (S-1-5-21-919601932-1156625651-44635924-1001)
+but the current user is:
+	SHADOW-LAPTOP/CodexSandboxOffline (S-1-5-21-919601932-1156625651-44635924-1003)
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory D:/esp/v6.0.2/esp-idf
+Loading defaults file D:/Program files/Visualec/firmware/visualec_edge_espidf/sdkconfig.defaults...
+Configuration Report                                                            
++------------------------------------------------------------------------------+
+|  Parser Version: 1                                                           |
+|  Verbosity: default                                                          |
+|  Defaults policy: sdkconfig                                                  |
+|  Status: Finished with notifications                                         |
+|                                                                              |
+| Miscellaneous                                                                |
+| +--------------------------------------------------------------------------+ |
+| | * BT_NIMBLE_MESH_PROVISIONER (defined at                                 | |
+| | D:/esp/v6.0.2/esp-idf/components/bt/host/nimble/Kconfig.in:1421):        | |
+| | 'default 0' is not a valid bool value (only 'y' and 'n' are allowed).    | |
+| | Value is treated as 'n'.                                                 | |
+| | * FATFS_PRINT_LLI (defined at                                            | |
+| | D:/esp/v6.0.2/esp-idf/components/fatfs/Kconfig:230): 'default 0' is not  | |
+| | a valid bool value (only 'y' and 'n' are allowed). Value is treated as   | |
+| | 'n'.                                                                     | |
+| | * FATFS_PRINT_FLOAT (defined at                                          | |
+| | D:/esp/v6.0.2/esp-idf/components/fatfs/Kconfig:235): 'default 0' is not  | |
+| | a valid bool value (only 'y' and 'n' are allowed). Value is treated as   | |
+| | 'n'.                                                                     | |
+| +--------------------------------------------------------------------------+ |
++------------------------------------------------------------------------------+
+fatal: detected dubious ownership in repository at 'D:/esp/v6.0.2/esp-idf'
+'D:/esp/v6.0.2/esp-idf' is owned by:
+	SHADOW-LAPTOP/Solo-P-Leveller (S-1-5-21-919601932-1156625651-44635924-1001)
+but the current user is:
+	SHADOW-LAPTOP/CodexSandboxOffline (S-1-5-21-919601932-1156625651-44635924-1003)
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory D:/esp/v6.0.2/esp-idf
+fatal: detected dubious ownership in repository at 'D:/esp/v6.0.2/esp-idf/components/openthread/openthread'
+'D:/esp/v6.0.2/esp-idf/components/openthread/openthread/.git' is owned by:
+	SHADOW-LAPTOP/Solo-P-Leveller (S-1-5-21-919601932-1156625651-44635924-1001)
+but the current user is:
+	SHADOW-LAPTOP/CodexSandboxOffline (S-1-5-21-919601932-1156625651-44635924-1003)
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory D:/esp/v6.0.2/esp-idf/components/openthread/openthread
+Traceback (most recent call last):
+  File "D:\esp\v6.0.2\esp-idf\components\esp_rom\gen_gdbinit.py", line 72, in <module>
+    gdbinit_lines = generate_gdbinit_rom_add_symbols(target)
+  File "D:\esp\v6.0.2\esp-idf\components\esp_rom\gen_gdbinit.py", line 31, in generate_gdbinit_rom_add_symbols
+    raise OSError(
+        'ESP_ROM_ELF_DIR environment variable is not defined. Please try to run IDF "install" and "export" scripts.'
+    )
+OSError: ESP_ROM_ELF_DIR environment variable is not defined. Please try to run IDF "install" and "export" scripts.
+CMake Warning at D:/esp/v6.0.2/esp-idf/tools/cmake/gdbinit.cmake:52 (message):
+  Error while generating esp_rom gdbinit
+Call Stack (most recent call first):
+  D:/esp/v6.0.2/esp-idf/tools/cmake/project.cmake:357 (__generate_gdbinit)
+  D:/esp/v6.0.2/esp-idf/tools/cmake/project.cmake:1004 (__project_info)
+  CMakeLists.txt:5 (project)
+
+

@@ -1,0 +1,251 @@
+# ninja log v6
+2237	10130	8103442268103792	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_sys.c.obj	d465ccdab19c670c
+49	6801	8103442246220679	esp-idf/log/CMakeFiles/__idf_log.dir/src/noos/log_timestamp.c.obj	faeace689d178efe
+10130	17646	8103442347038759	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/rtc_clk_init.c.obj	38edc0933ed62a0a
+869	8394	8103442254433993	esp-idf/log/CMakeFiles/__idf_log.dir/src/buffer/log_buffers.c.obj	476a9e3f9872f739
+8394	16047	8103442329678575	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/esp_cpu_intr.c.obj	74854002371d24ae
+301	7529	8103442248748414	esp-idf/log/CMakeFiles/__idf_log.dir/src/log_timestamp_common.c.obj	416e758215029f67
+549	8069	8103442251222199	esp-idf/log/CMakeFiles/__idf_log.dir/src/noos/log_lock.c.obj	3e26982ebd41d04d
+1385	9357	8103442259583030	esp-idf/log/CMakeFiles/__idf_log.dir/src/log_format_text.c.obj	f1be4c12cd47e510
+402	1638	8103424631336005	esp-idf/log/CMakeFiles/__idf_log.dir/src/noos/util.c.obj	f33096b14be921e2
+6801	14576	8103442313745265	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_cache_writeback_esp32s3.S.obj	343a8134fcfa88e1
+1149	9101	8103442257229332	esp-idf/log/CMakeFiles/__idf_log.dir/src/util.c.obj	c6e3e0c5bca732f9
+1652	9628	8103442262257893	esp-idf/log/CMakeFiles/__idf_log.dir/src/log_print.c.obj	2b3abca4b7886b87
+1935	10117	8103442265086186	esp-idf/log/CMakeFiles/__idf_log.dir/src/log.c.obj	2e9d544be47f54cd
+3053	10411	8103442276259990	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_print.c.obj	ccbba1680c297315
+22287	28605	8103442468613087	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/esp_image_format.c.obj	b44ce9608f9772b3
+3384	10727	8103442279571599	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_crc.c.obj	d3132b3cba40a2d8
+4155	11480	8103442287281890	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_serial_output.c.obj	c4ad6c128fff355f
+7529	15130	8103442321029581	esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/src/esp_err_to_name.c.obj	78593b0993673fe1
+17341	24532	8103442419144870	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_clock_init.c.obj	a33adcb9d78b5cf
+4603	11688	8103442291771245	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_spiflash.c.obj	6bba47b5b715c813
+45697	48989	8103442702696662	esp-idf/soc/CMakeFiles/__idf_soc.dir/dport_access_common.c.obj	2b36de73e4747555
+20426	27662	8103442449987729	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/bootloader_flash/src/flash_qio_mode.c.obj	866c211b36e10842
+24532	30053	8103442491056374	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_console_loader.c.obj	9361a58b2b7e1eac
+4835	11982	8103442294085455	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_efuse.c.obj	d2c6e827eaf5d948
+5094	12181	8103442296681850	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_gpio.c.obj	a965dd1a07a55e33
+14	60526	8103834881709544	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_gpio/cmake_install.cmake	fb969f658acc1da3
+79532	81980	8103443065234216	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/.bin_timestamp	b910b17ecf710b72
+71514	72087	8103442960882870	esp-idf/esp_hal_gpio/libesp_hal_gpio.a	769c8e895c30949b
+5403	12526	8103442299770294	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_longjmp.S.obj	1bbb01847775f159
+5971	13410	8103442305440416	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_systimer.c.obj	9bcfc78e5b057755
+6496	13777	8103442310693374	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_cache_esp32s2_esp32s3.c.obj	af9a0fd8bdae6c1c
+8069	15741	8103442326425292	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/cpu.c.obj	afcc9e2fc9c29906
+55219	57051	8103442797925801	esp-idf/esp_hal_uart/libesp_hal_uart.a	6a11a9fb0c0918e8
+9101	16778	8103442336739749	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/esp_memory_utils.c.obj	424a6a91f33b6d31
+9357	17082	8103442339302670	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/cpu_region_protect.c.obj	bbf1d4377d829016
+42258	48954	8103442668309838	esp-idf/esp_hal_gpio/CMakeFiles/__idf_esp_hal_gpio.dir/sdm_hal.c.obj	4a4e98892db54a8f
+9628	17341	8103442342009287	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/rtc_clk.c.obj	430b2427b581f41d
+22902	29091	8103442474746535	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_init.c.obj	7ca6a56e7923e440
+23862	29376	8103442484357277	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_clock_loader.c.obj	c41771f9a7041256
+10118	17634	8103442346913348	esp-idf/log/liblog.a	d663266abdb9ee01
+10727	18214	8103442353007390	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/rtc_sleep.c.obj	c93c0462df7f0c5f
+19644	26597	8103442442175981	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_random_esp32s3.c.obj	4a0f467e62bb39b8
+10412	17943	8103442349843707	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/rtc_init.c.obj	8c21d6c9be3c64b3
+11481	18815	8103442360542843	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/rtc_time.c.obj	baccc8f9145ebade
+11688	19094	8103442362611902	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/chip_info.c.obj	309834f2950393be
+11982	19644	8103442365548848	esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/esp_err.c.obj	e85327746cf0ccaa
+18815	25983	8103442433880594	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/flash_encrypt.c.obj	ae417fcbde5680bb
+12182	19971	8103442367546538	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32s3/esp_efuse_table.c.obj	4b6b0fee209ecb4b
+13410	21165	8103442379837033	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32s3/esp_efuse_rtc_calib.c.obj	c0e114ed946a65b8
+15742	22552	8103442403153454	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/esp_efuse_utility.c.obj	9f7ebf0ea9a6d2f4
+16778	23148	8103442413511437	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_common.c.obj	e67e915b68c3ec91
+12526	20425	8103442370998179	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32s3/esp_efuse_fields.c.obj	adc46e9f70f1e08d
+14	60526	8103834887104421	build.ninja	fb969f658acc1da3
+13777	21475	8103442383510713	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32s3/esp_efuse_utility.c.obj	e1e27c17418ea862
+14576	22003	8103442391501856	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/esp_efuse_api.c.obj	4d841165f82f9f9e
+19094	26279	8103442436670527	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/secure_boot.c.obj	4ec82773818c74b7
+31812	38687	8103442563852461	esp-idf/esp_hal_timg/CMakeFiles/__idf_esp_hal_timg.dir/timer_hal.c.obj	407d7288572ab448
+15131	22287	8103442397037127	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/esp_efuse_fields.c.obj	afd657b13f872728
+16047	22901	8103442406200824	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/efuse_controller/keys/with_key_purposes/esp_efuse_api_key.c.obj	29d849f4f0a28fc9
+37902	44798	8103442624754396	esp-idf/esp_hal_dma/CMakeFiles/__idf_esp_hal_dma.dir/gdma_hal_ahb_v1.c.obj	30aa655e27a7ad28
+33173	40369	8103442577458616	esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_wrap.c.obj	374c4d1586acf376
+17082	24007	8103442416551389	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_common_loader.c.obj	922a11b1873d412b
+17634	24811	8103442422082223	esp-idf/esp_rom/libesp_rom.a	2a35f2f9f1ac75b6
+17646	24820	8103442422196516	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_mem.c.obj	3984f8d4c35d38d8
+19971	26879	8103442445446724	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/bootloader_flash/src/bootloader_flash.c.obj	e74d30d69eeeb741
+14	60526	8103834886182945	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/log/cmake_install.cmake	fb969f658acc1da3
+24811	30314	8103442493839793	esp-idf/esp_common/libesp_common.a	19e05d4fcb372a15
+17944	25364	8103442425173751	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_random.c.obj	61f6ab50314b129b
+18214	25677	8103442427872144	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_efuse.c.obj	37bb3412964e65cb
+21166	27897	8103442457389973	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/bootloader_flash/src/bootloader_flash_config_esp32s3.c.obj	a087f221d5d5288
+21475	28178	8103442460482154	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_utility.c.obj	ef510dc99c84bed0
+22003	28436	8103442465771658	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/flash_partitions.c.obj	77c1539b3602e066
+14	60526	8103834886223205	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_stdio/cmake_install.cmake	fb969f658acc1da3
+22552	28825	8103442471262979	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_sha.c.obj	26eabf6f16cc403f
+24297	29708	8103442488706820	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_console.c.obj	ca1e754cc49daeea
+24820	31164	8103442493937062	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/esp32s3/bootloader_soc.c.obj	28392c7d13c1ad27
+33472	40642	8103442580455393	esp-idf/esp_hal_clock/CMakeFiles/__idf_esp_hal_clock.dir/esp32s3/clk_tree_hal.c.obj	b05e99ac994cdcf7
+25364	31812	8103442499372116	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/esp32s3/bootloader_esp32s3.c.obj	8262bb31779c2b39
+25677	32372	8103442502499624	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_panic.c.obj	cb2efc399bc1cd40
+25983	32594	8103442505563556	esp-idf/esp_security/CMakeFiles/__idf_esp_security.dir/src/esp_crypto_lock.c.obj	fec511e430827368
+46050	48990	8103442706234561	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/interrupts.c.obj	ddb10b6a6a25078b
+26279	32901	8103442508525598	esp-idf/esp_security/CMakeFiles/__idf_esp_security.dir/src/esp_crypto_periph_clk.c.obj	cc77e7b81c6c367a
+26597	33173	8103442511711874	esp-idf/esp_hal_security/CMakeFiles/__idf_esp_hal_security.dir/mpu_hal.c.obj	ee829c6ecb0a3cdd
+26880	33472	8103442514524359	esp-idf/esp_hal_ana_conv/CMakeFiles/__idf_esp_hal_ana_conv.dir/esp32s3/adc_periph.c.obj	4b77dc6c094ba21b
+28437	35572	8103442530096583	esp-idf/esp_hal_ana_conv/CMakeFiles/__idf_esp_hal_ana_conv.dir/temperature_sensor_hal.c.obj	5fddeec65261ad2d
+27662	33812	8103442522345361	esp-idf/esp_hal_ana_conv/CMakeFiles/__idf_esp_hal_ana_conv.dir/adc_hal_common.c.obj	1413263707188a2c
+45088	48959	8103442696622635	esp-idf/soc/CMakeFiles/__idf_soc.dir/lldesc.c.obj	567a3ca5d408ea71
+27897	34704	8103442524708250	esp-idf/esp_hal_ana_conv/CMakeFiles/__idf_esp_hal_ana_conv.dir/adc_oneshot_hal.c.obj	91b3cf9b44883342
+28178	35273	8103442527513193	esp-idf/esp_hal_ana_conv/CMakeFiles/__idf_esp_hal_ana_conv.dir/adc_hal.c.obj	8e6e76c81659a1c8
+28605	36075	8103442531788842	esp-idf/esp_hal_ana_conv/CMakeFiles/__idf_esp_hal_ana_conv.dir/esp32s3/temperature_sensor_periph.c.obj	14811cb1588ea9ba
+28825	36362	8103442533987104	esp-idf/esp_hal_uart/CMakeFiles/__idf_esp_hal_uart.dir/uart_hal.c.obj	212c1dc1732635af
+29091	36628	8103442536638406	esp-idf/esp_hal_uart/CMakeFiles/__idf_esp_hal_uart.dir/uart_hal_iram.c.obj	2b4b66296eca3986
+29376	37342	8103442539490606	esp-idf/esp_hal_uart/CMakeFiles/__idf_esp_hal_uart.dir/esp32s3/uart_periph.c.obj	835ee5e9e1fb21c1
+29708	37902	8103442542818592	esp-idf/esp_hal_uart/CMakeFiles/__idf_esp_hal_uart.dir/uhci_hal.c.obj	b2f0c4fc6bb29c00
+6005	7295	8103424687360726	esp-idf/esp_hal_wdt/CMakeFiles/__idf_esp_hal_wdt.dir/esp32s3/mwdt_periph.c.obj	69286ab068bb60e9
+30314	38382	8103442548872909	esp-idf/esp_hw_support/libesp_hw_support.a	4f66b03bcfcab49b
+30053	38148	8103442546264542	esp-idf/esp_hal_wdt/CMakeFiles/__idf_esp_hal_wdt.dir/rom_patch.c.obj	21b1b0362f328079
+14	60526	8103834886243352	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/freertos/cmake_install.cmake	fb969f658acc1da3
+31167	38418	8103442557396894	esp-idf/esp_hal_wdt/CMakeFiles/__idf_esp_hal_wdt.dir/xt_wdt_hal.c.obj	c2b482e8c29474f0
+39298	46691	8103442638712695	esp-idf/esp_hal_usb/CMakeFiles/__idf_esp_hal_usb.dir/esp32s3/usb_dwc_periph.c.obj	319a30dafcb4f355
+32372	39077	8103442569454337	esp-idf/esp_hal_timg/CMakeFiles/__idf_esp_hal_timg.dir/esp32s3/timer_periph.c.obj	a8b977f0fd0c3302
+32901	39597	8103442574751151	esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/esp_bootloader_desc.c.obj	9985e124fd3820cc
+33812	40923	8103442583862338	esp-idf/esp_hal_gpspi/CMakeFiles/__idf_esp_hal_gpspi.dir/esp32s3/spi_periph.c.obj	8b0b76e78777fe3d
+34704	41674	8103442592773941	esp-idf/esp_hal_gpspi/CMakeFiles/__idf_esp_hal_gpspi.dir/spi_hal.c.obj	21319090fc1cb5f5
+35273	42258	8103442598461400	esp-idf/esp_hal_gpspi/CMakeFiles/__idf_esp_hal_gpspi.dir/spi_hal_iram.c.obj	5af153ff3b1a24c5
+35572	42569	8103442601457086	esp-idf/esp_hal_gpspi/CMakeFiles/__idf_esp_hal_gpspi.dir/spi_slave_hal.c.obj	4301c44ad039901a
+38433	45696	8103442630064055	esp-idf/esp_hal_pmu/CMakeFiles/__idf_esp_hal_pmu.dir/brownout_hal.c.obj	b92e4edafd44f207
+36075	42879	8103442606480869	esp-idf/esp_hal_gpspi/CMakeFiles/__idf_esp_hal_gpspi.dir/spi_slave_hal_iram.c.obj	174a1f52a436c3ff
+36363	43249	8103442609364065	esp-idf/esp_hal_gpspi/CMakeFiles/__idf_esp_hal_gpspi.dir/spi_slave_hd_hal.c.obj	53a81fb55d599397
+36628	44403	8103442612010320	esp-idf/esp_hal_dma/CMakeFiles/__idf_esp_hal_dma.dir/gdma_hal_top.c.obj	eeba25c2b01f8f6
+37342	44741	8103442619149370	esp-idf/esp_hal_dma/CMakeFiles/__idf_esp_hal_dma.dir/esp32s3/gdma_periph.c.obj	2dd52387fe63488b
+38382	45681	8103442629553846	esp-idf/esp_system/libesp_system.a	252f6440daaf7572
+38148	45088	8103442627213234	esp-idf/esp_hal_pmu/CMakeFiles/__idf_esp_hal_pmu.dir/esp32s3/rtc_cntl_hal.c.obj	93be7d732ae6ee4b
+42880	48955	8103442674532037	esp-idf/hal/CMakeFiles/__idf_hal.dir/hal_utils.c.obj	c4678cbad9c1239f
+38820	46049	8103442633938816	esp-idf/esp_hal_usb/CMakeFiles/__idf_esp_hal_usb.dir/usb_dwc_hal.c.obj	8e47b7fb6cf36c48
+59760	61180	8103442843333359	esp-idf/micro-ecc/libmicro-ecc.a	204f017937268fd
+39077	46336	8103442636506786	esp-idf/esp_hal_usb/CMakeFiles/__idf_esp_hal_usb.dir/usb_wrap_hal.c.obj	2f0eece5f4fcb7c9
+39597	46993	8103442641708145	esp-idf/esp_hal_usb/CMakeFiles/__idf_esp_hal_usb.dir/usb_serial_jtag_hal.c.obj	6141a2786d0d6476
+40369	47306	8103442649427427	esp-idf/esp_hal_gpio/CMakeFiles/__idf_esp_hal_gpio.dir/gpio_hal.c.obj	28661bdb6414c383
+32594	39298	8103442571674013	esp-idf/micro-ecc/CMakeFiles/__idf_micro-ecc.dir/uECC_verify_antifault.c.obj	d97944587ef9fd0c
+40642	48109	8103442652153919	esp-idf/esp_hal_gpio/CMakeFiles/__idf_esp_hal_gpio.dir/rtc_io_hal.c.obj	da181d0c6edd570
+40923	48412	8103442654964623	esp-idf/esp_hal_gpio/CMakeFiles/__idf_esp_hal_gpio.dir/esp32s3/rtc_io_periph.c.obj	52a1efa8e529164e
+41674	48680	8103442662472062	esp-idf/esp_hal_gpio/CMakeFiles/__idf_esp_hal_gpio.dir/esp32s3/dedic_gpio_periph.c.obj	c87dd49967a2c352
+42569	48954	8103442671429859	esp-idf/esp_hal_gpio/CMakeFiles/__idf_esp_hal_gpio.dir/esp32s3/sdm_periph.c.obj	3fb0cde6b41125b2
+75947	77887	8103443005212370	esp-idf/main/libmain.a	965643c4b0f4a0a8
+43250	48956	8103442678234514	esp-idf/hal/CMakeFiles/__idf_hal.dir/efuse_hal.c.obj	fc8bf0a7853f762c
+44404	48956	8103442689771750	esp-idf/hal/CMakeFiles/__idf_hal.dir/esp32s3/efuse_hal.c.obj	df7ab9c4a21857d3
+44741	48957	8103442693140920	esp-idf/hal/CMakeFiles/__idf_hal.dir/mmu_hal.c.obj	862105b1e57a7469
+45681	48959	8103442702540240	esp-idf/efuse/libefuse.a	8c7643613938512c
+44798	48958	8103442693713847	esp-idf/hal/CMakeFiles/__idf_hal.dir/cache_hal.c.obj	a707c2127c0fe458
+48412	51102	8103442729854005	esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/eri.c.obj	566bb3386394ce4e
+46336	48990	8103442709098889	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/gpio_periph.c.obj	2cba9e5d3c710186
+46691	49111	8103442712642230	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/mpi_periph.c.obj	27e9d264caeacc7b
+9661	9941	8103424726627544	project_elf_src_esp32s3.c	587b21b4558d7730
+9661	9941	8103424726627544	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/project_elf_src_esp32s3.c	587b21b4558d7730
+46993	49825	8103442715664779	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/power_supply_periph.c.obj	b0bedf53a10c0c38
+48680	51128	8103442732526954	esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/xt_trax.c.obj	133af41b21f4698a
+47306	49718	8103442742774498	ld/bootloader.memory.ld	4434befa61a55cab
+47306	49718	8103442742774498	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/ld/bootloader.memory.ld	4434befa61a55cab
+48109	50022	8103442745842098	ld/bootloader.sections.ld	3c67ad29a5eb76f2
+48959	51236	8103442735320488	esp-idf/bootloader_support/libbootloader_support.a	dfaebed826728f2d
+48109	50022	8103442745842098	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/ld/bootloader.sections.ld	3c67ad29a5eb76f2
+10251	10656	8103424729826574	CMakeFiles/bootloader.elf.dir/project_elf_src_esp32s3.c.obj	133967b5c34b617
+51236	52578	8103442758098519	esp-idf/esp_security/libesp_security.a	93f26df5a02530d3
+50022	51453	8103442745956364	esp-idf/main/CMakeFiles/__idf_main.dir/bootloader_start.c.obj	f481d7201d8b587f
+52578	53893	8103442771513384	esp-idf/esp_hal_security/libesp_hal_security.a	1b896a4bd36db749
+53894	55219	8103442784672312	esp-idf/esp_hal_ana_conv/libesp_hal_ana_conv.a	9ad1bcd003a08491
+57051	58366	8103442816242504	esp-idf/esp_hal_wdt/libesp_hal_wdt.a	8bf245eba65d0d9b
+58366	59760	8103442829399993	esp-idf/esp_hal_timg/libesp_hal_timg.a	3ccf1285530ba2d6
+14	60526	8103834881330278	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/hal/cmake_install.cmake	fb969f658acc1da3
+61180	62542	8103442857530958	esp-idf/esp_bootloader_format/libesp_bootloader_format.a	6a57c579753043aa
+62543	63881	8103442871159573	esp-idf/spi_flash/libspi_flash.a	471ba83668935b22
+63881	65659	8103442884541850	esp-idf/esp_hal_clock/libesp_hal_clock.a	a5d7c7d88ed318e7
+65660	67602	8103442902329876	esp-idf/esp_hal_gpspi/libesp_hal_gpspi.a	e2faabf5b362d5a6
+67602	69421	8103442921750428	esp-idf/esp_hal_dma/libesp_hal_dma.a	e589a8247445c16c
+69421	70844	8103442939945197	esp-idf/esp_hal_pmu/libesp_hal_pmu.a	3d0892434f921962
+70844	71514	8103442954172519	esp-idf/esp_hal_usb/libesp_hal_usb.a	2aa791a085500b28
+72087	72613	8103442966603406	esp-idf/hal/libhal.a	e437fe5dae288ccc
+72613	73797	8103442971862280	esp-idf/soc/libsoc.a	b9339fac3586cb5f
+73797	75947	8103442983705895	esp-idf/xtensa/libxtensa.a	4c9d832347e1d34f
+77888	79532	8103443024609108	bootloader.elf	e9ae46e88c4b9fb7
+79532	81980	8103443065234216	.bin_timestamp	b910b17ecf710b72
+35	1610	8103459160001596	CMakeFiles/bootloader_check_size	f6e7091710faf7b7
+35	1610	8103459160001596	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/CMakeFiles/bootloader_check_size	f6e7091710faf7b7
+14	60526	8103834880706193	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834880757861	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834880859883	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/xtensa/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834880880034	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_libc/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834881103034	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/soc/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834881867533	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_usb/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834882070879	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_pmu/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834882265084	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_dma/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834882481220	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_gpspi/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834882702146	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_clock/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834882722328	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_mspi/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834882747592	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_blockdev/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834882860237	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/spi_flash/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834882981312	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_bootloader_format/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834882999695	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_app_format/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834883032114	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/partition_table/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834883042596	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esptool_py/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834885193117	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hw_support/lowpower/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834883178639	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/micro-ecc/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834883377774	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_timg/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834883516472	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_wdt/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834883675104	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_uart/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834883854395	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_ana_conv/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834883902329	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_rtc_timer/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834884047646	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_security/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834885162836	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hw_support/mspi_timing_tuning/port/esp32s3/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834884212861	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_security/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834884529758	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/bootloader_support/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834884743710	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/efuse/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834884906632	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_system/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834885110502	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hw_support/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834885142727	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hw_support/port/esp32s3/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834885461365	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_common/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834885865288	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_rom/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834886223205	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/bootloader/cmake_install.cmake	fb969f658acc1da3
+14	60526	8103834886364195	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/main/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	build.ninja	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/xtensa/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_libc/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/soc/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/hal/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_gpio/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_usb/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_pmu/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_dma/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_gpspi/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_clock/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_mspi/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_blockdev/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/spi_flash/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_bootloader_format/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_app_format/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/partition_table/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esptool_py/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/micro-ecc/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_timg/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_wdt/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_uart/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_ana_conv/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_rtc_timer/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hal_security/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_security/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/bootloader_support/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/efuse/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_system/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hw_support/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hw_support/port/esp32s3/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hw_support/mspi_timing_tuning/port/esp32s3/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_hw_support/lowpower/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_common/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_rom/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/log/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/bootloader/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/esp_stdio/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/freertos/cmake_install.cmake	fb969f658acc1da3
+65	59027	8103834887104421	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/esp-idf/main/cmake_install.cmake	fb969f658acc1da3
+68	1969	8103834891059521	CMakeFiles/bootloader_check_size	f6e7091710faf7b7
+68	1969	8103834891059521	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/CMakeFiles/bootloader_check_size	f6e7091710faf7b7
+31	860	8103839917255613	CMakeFiles/bootloader_check_size	f6e7091710faf7b7
+31	860	8103839917255613	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/CMakeFiles/bootloader_check_size	f6e7091710faf7b7
+35	332	8103845461021213	CMakeFiles/bootloader_check_size	f6e7091710faf7b7
+35	332	8103845461021213	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/CMakeFiles/bootloader_check_size	f6e7091710faf7b7
+18	181	8103846485558364	CMakeFiles/bootloader_check_size	f6e7091710faf7b7
+18	181	8103846485558364	D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/CMakeFiles/bootloader_check_size	f6e7091710faf7b7

@@ -1,0 +1,7 @@
+-mlongcalls
+-fno-builtin-memcpy
+-fno-builtin-memset
+-fno-builtin-bzero
+-mdisable-hardware-atomics
+"-specs=D:/Program files/Visualec/firmware/visualec_edge_espidf/build/specs/picolibc.specs"
+-fno-rtti

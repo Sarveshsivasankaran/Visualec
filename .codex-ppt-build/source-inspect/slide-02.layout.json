@@ -1,0 +1,975 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/hwbqtkby",
+    "id": "hwbqtkby",
+    "slide": 2,
+    "layoutId": "/ppt/slideLayouts/slideLayout2.xml",
+    "layoutName": "MASTER",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "backgroundColor": "#0B1220",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1279.97,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Aptos Display"
+      },
+      "minorFont": {
+        "latinTypeface": "Aptos"
+      }
+    },
+    "typefaces": [
+      "Aptos",
+      "Aptos Display"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout2.xml",
+      "name": "MASTER",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "backgroundColor": "#0B1220",
+      "elements": [
+        {
+          "order": 1,
+          "kind": "shape",
+          "scope": "layout",
+          "aid": "template/layout//ppt/slideLayouts/slideLayout2.xml/2",
+          "id": "2",
+          "name": "Shape 0",
+          "bbox": [
+            57.6,
+            683.52,
+            1161.6,
+            0
+          ],
+          "geometry": "line",
+          "lineColor": "#1E293B",
+          "lineWidth": 1.33
+        },
+        {
+          "order": 2,
+          "kind": "shape",
+          "scope": "layout",
+          "aid": "template/layout//ppt/slideLayouts/slideLayout2.xml/3",
+          "id": "3",
+          "name": "Text 1",
+          "bbox": [
+            62.4,
+            689.28,
+            672,
+            17.28
+          ],
+          "geometry": "rect",
+          "text": "Visualec • ESP32-S3 Edge Vision Architecture",
+          "textPreview": "Visualec • ESP32-S3 Edge Vision Architecture",
+          "resolvedTextStyle": {
+            "anchor": 2,
+            "verticalAlignment": "middle",
+            "wrap": "square"
+          },
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "Visualec • ESP32-S3 Edge Vision Architecture",
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "Visualec • ESP32-S3 Edge Vision Architecture",
+                  "fontSize": 9.33,
+                  "color": "#94A3B8"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "kind": "shape",
+          "scope": "layout",
+          "aid": "template/layout//ppt/slideLayouts/slideLayout2.xml/25",
+          "id": "25",
+          "name": "Slide Number Placeholder 0",
+          "bbox": [
+            1171.2,
+            689.28,
+            83.99,
+            31.5
+          ],
+          "geometry": "rect",
+          "text": "1002",
+          "textPreview": "1002",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "1002",
+              "resolvedTextStyle": {
+                "alignment": "left"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "1002"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "type": "master",
+      "elements": [
+        {
+          "order": 1,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster1.xml/25",
+          "id": "25",
+          "name": "Slide Number Placeholder 0",
+          "bbox": [
+            1171.2,
+            689.28,
+            83.99,
+            31.5
+          ],
+          "geometry": "rect",
+          "text": "null",
+          "textPreview": "null",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "null",
+              "resolvedTextStyle": {
+                "alignment": "left"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "null"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9072xkry",
+      "id": "2",
+      "name": "Text 0",
+      "bbox": [
+        62.4,
+        34.56,
+        1152,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Why stock YOLOv8n is not the right target",
+      "textPreview": "Why stock YOLOv8n is not the right target",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Why stock YOLOv8n is not the right target"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Why stock YOLOv8n is not the right target",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Why stock YOLOv8n is not the right target",
+              "fontSize": 37.33,
+              "typeface": "Aptos Display",
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ozy1ofad",
+      "id": "3",
+      "name": "Text 1",
+      "bbox": [
+        65.28,
+        89.28,
+        1132.8,
+        30.72
+      ],
+      "geometry": "rect",
+      "text": "24 FPS neural inference on ESP32-S3 is not realistic; 24 FPS system responsiveness is.",
+      "textPreview": "24 FPS neural inference on ESP32-S3 is not realistic; 24 FPS system responsiveness is.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "24 FPS neural inference on ESP32-S3 is not realistic; 24 FPS system responsiveness is."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "24 FPS neural inference on ESP32-S3 is not realistic; 24 FPS system responsiveness is.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "24 FPS neural inference on ESP32-S3 is not realistic; 24 FPS system responsiveness is.",
+              "fontSize": 14.67,
+              "color": "#94A3B8"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/b29kza94",
+      "id": "4",
+      "name": "Text 2",
+      "bbox": [
+        76.8,
+        172.8,
+        264,
+        129.6
+      ],
+      "geometry": "roundRect",
+      "text": "YOLOv8n\n~3.2M params\n80 COCO classes",
+      "textPreview": "YOLOv8n | ~3.2M params | 80 COCO classes",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "shrinkText",
+        "insets": {
+          "top": 0.11,
+          "right": 0.11,
+          "bottom": 0.11,
+          "left": 0.11
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "YOLOv8n"
+          },
+          {
+            "index": 2,
+            "text": "~3.2M params"
+          },
+          {
+            "index": 3,
+            "text": "80 COCO classes"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "YOLOv8n",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "YOLOv8n",
+              "fontSize": 21.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "~3.2M params",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "~3.2M params",
+              "fontSize": 21.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "80 COCO classes",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "80 COCO classes",
+              "fontSize": 21.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#1E1B4B",
+      "lineColor": "#A78BFA",
+      "lineWidth": 1.47
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a10jqpsj",
+      "id": "5",
+      "name": "Shape 3",
+      "bbox": [
+        355.2,
+        237.12,
+        91.2,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#FB7185",
+      "lineWidth": 2.13
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x4r21kru",
+      "id": "6",
+      "name": "Text 4",
+      "bbox": [
+        456,
+        172.8,
+        278.4,
+        129.6
+      ],
+      "geometry": "roundRect",
+      "text": "Too much compute\nfor ESP32-S3\nreal-time inference",
+      "textPreview": "Too much compute | for ESP32-S3 | real-time inference",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "shrinkText",
+        "insets": {
+          "top": 0.11,
+          "right": 0.11,
+          "bottom": 0.11,
+          "left": 0.11
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Too much compute"
+          },
+          {
+            "index": 2,
+            "text": "for ESP32-S3"
+          },
+          {
+            "index": 3,
+            "text": "real-time inference"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Too much compute",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Too much compute",
+              "fontSize": 21.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "for ESP32-S3",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "for ESP32-S3",
+              "fontSize": 21.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "real-time inference",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "real-time inference",
+              "fontSize": 21.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#3F1D2D",
+      "lineColor": "#FB7185",
+      "lineWidth": 1.47
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/w3i1sfa9",
+      "id": "7",
+      "name": "Shape 5",
+      "bbox": [
+        748.8,
+        237.12,
+        91.2,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#34D399",
+      "lineWidth": 2.13
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/r65knqtk",
+      "id": "8",
+      "name": "Text 6",
+      "bbox": [
+        849.6,
+        172.8,
+        292.8,
+        129.6
+      ],
+      "geometry": "roundRect",
+      "text": "Reframe goal:\n24 FPS zone\noccupancy output",
+      "textPreview": "Reframe goal: | 24 FPS zone | occupancy output",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "shrinkText",
+        "insets": {
+          "top": 0.11,
+          "right": 0.11,
+          "bottom": 0.11,
+          "left": 0.11
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Reframe goal:"
+          },
+          {
+            "index": 2,
+            "text": "24 FPS zone"
+          },
+          {
+            "index": 3,
+            "text": "occupancy output"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Reframe goal:",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Reframe goal:",
+              "fontSize": 21.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "24 FPS zone",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "24 FPS zone",
+              "fontSize": 21.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "occupancy output",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "occupancy output",
+              "fontSize": 21.33,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#063A35",
+      "lineColor": "#34D399",
+      "lineWidth": 1.47
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q5wjelsz",
+      "id": "9",
+      "name": "Text 7",
+      "bbox": [
+        78.72,
+        355.2,
+        513.6,
+        139.2
+      ],
+      "geometry": "rect",
+      "text": "The ESP32-S3 is a dual-core LX7 MCU at up to 240 MHz with limited internal SRAM. Current Espressif detector benchmarks show tiny custom detectors are possible, but still below 24 neural inferences/sec on S3.",
+      "textPreview": "The ESP32-S3 is a dual-core LX7 MCU at up to 240 MHz with limited internal SRAM. Current Espressif detector benchmarks show tiny custom d...",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "shrinkText",
+        "insets": {
+          "top": 0.03,
+          "right": 0.03,
+          "bottom": 0.03,
+          "left": 0.03
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "The ESP32-S3 is a dual-core LX7 MCU at up to 240 MHz with"
+          },
+          {
+            "index": 2,
+            "text": "limited internal SRAM. Current Espressif detector"
+          },
+          {
+            "index": 3,
+            "text": "benchmarks show tiny custom detectors are possible, but"
+          },
+          {
+            "index": 4,
+            "text": "still below 24 neural inferences/sec on S3."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "The ESP32-S3 is a dual-core LX7 MCU at up to 240 MHz with limited internal SRAM. Current Espressif detector benchmarks show tiny custom detectors are possible, but still below 24 neural inferences/sec on S3.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "The ESP32-S3 is a dual-core LX7 MCU at up to 240 MHz with limited internal SRAM. Current Espressif detector benchmarks show tiny custom detectors are possible, but still below 24 neural inferences/sec on S3.",
+              "fontSize": 20,
+              "color": "#CBD5E1"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ove9o7yd",
+      "id": "10",
+      "name": "Text 8",
+      "bbox": [
+        645.12,
+        357.12,
+        532.8,
+        59.52
+      ],
+      "geometry": "roundRect",
+      "text": "Best rule: detector does not need to run on every frame",
+      "textPreview": "Best rule: detector does not need to run on every frame",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "shrinkText",
+        "insets": {
+          "top": 0.11,
+          "right": 0.11,
+          "bottom": 0.11,
+          "left": 0.11
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Best rule: detector does not need to run on every"
+          },
+          {
+            "index": 2,
+            "text": "frame"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Best rule: detector does not need to run on every frame",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Best rule: detector does not need to run on every frame",
+              "fontSize": 22.67,
+              "color": "#F8FAFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#0E1726",
+      "lineColor": "#22D3EE",
+      "lineWidth": 1.47
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9wnqhczy",
+      "id": "11",
+      "name": "Text 9",
+      "bbox": [
+        648,
+        439.68,
+        499.2,
+        86.4
+      ],
+      "geometry": "rect",
+      "text": "Camera + motion + tracker can update every frame. The neural model only rechecks when motion or timeout demands it.",
+      "textPreview": "Camera + motion + tracker can update every frame. The neural model only rechecks when motion or timeout demands it.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "shrinkText",
+        "insets": {
+          "top": 0.03,
+          "right": 0.03,
+          "bottom": 0.03,
+          "left": 0.03
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Camera + motion + tracker can update every frame. The"
+          },
+          {
+            "index": 2,
+            "text": "neural model only rechecks when motion or timeout"
+          },
+          {
+            "index": 3,
+            "text": "demands it."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Camera + motion + tracker can update every frame. The neural model only rechecks when motion or timeout demands it.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Camera + motion + tracker can update every frame. The neural model only rechecks when motion or timeout demands it.",
+              "fontSize": 20,
+              "color": "#CBD5E1"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mtwrmxg7",
+      "id": "12",
+      "name": "Text 10",
+      "bbox": [
+        65.28,
+        655.68,
+        1142.4,
+        22.08
+      ],
+      "geometry": "rect",
+      "text": "Sources: Espressif ESP32-S3 product page; Espressif ESP-Detection benchmark; ESP-DL docs.",
+      "textPreview": "Sources: Espressif ESP32-S3 product page; Espressif ESP-Detection benchmark; ESP-DL docs.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Sources: Espressif ESP32-S3 product page; Espressif ESP-Detection benchmark; ESP-DL docs."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Sources: Espressif ESP32-S3 product page; Espressif ESP-Detection benchmark; ESP-DL docs.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Sources: Espressif ESP32-S3 product page; Espressif ESP-Detection benchmark; ESP-DL docs.",
+              "fontSize": 9.33,
+              "color": "#64748B"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gbmxszmt",
+      "id": "25",
+      "name": "Slide Number Placeholder 0",
+      "bbox": [
+        1171.2,
+        689.28,
+        83.99,
+        31.5
+      ],
+      "geometry": "rect",
+      "text": "2",
+      "textPreview": "2",
+      "resolvedFontSize": 9.33,
+      "resolvedTextStyle": {
+        "fontSize": 9.33,
+        "typeface": "Aptos",
+        "color": "#64748B",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "2"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "2",
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "2"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    }
+  ],
+  "composeRuns": []
+}

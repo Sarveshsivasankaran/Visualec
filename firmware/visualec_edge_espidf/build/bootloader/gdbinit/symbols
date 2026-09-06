@@ -1,0 +1,9 @@
+
+
+# Load bootloader symbols
+set confirm off
+    # Bootloader elf was not found
+set confirm on
+
+# Load application symbols
+file D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/bootloader.elf

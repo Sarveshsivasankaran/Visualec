@@ -1,0 +1,31 @@
+Command: cmake -G Ninja -B D:\Program files\Visualec\firmware\visualec_edge_espidf\build -DPYTHON_DEPS_CHECKED=1 -DPYTHON=D:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe -DESP_PLATFORM=1 -DIDF_TARGET=esp32s3 -DCCACHE_ENABLE=True D:\Program files\Visualec\firmware\visualec_edge_espidf
+-- Found Git: D:/Git/cmd/git.exe (found version "2.54.0.windows.1")
+-- Component directory D:/esp/v6.0.2/esp-idf/components/mqtt does not contain a CMakeLists.txt file. No component will be added
+-- Minimal build - OFF
+-- ccache will be used for faster recompilation
+-- The C compiler identification is GNU 15.2.0
+-- The CXX compiler identification is GNU 15.2.0
+-- The ASM compiler identification is GNU
+-- Found assembler: D:/Espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc.exe
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: D:/Espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: D:/Espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-g++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Building ESP-IDF components for target esp32s3
+NOTICE: Dependencies lock doesn't exist, solving dependencies.
+...............NOTICE: Updating lock file at D:\Program files\Visualec\firmware\visualec_edge_espidf\dependencies.lock
+NOTICE: Processing 6 dependencies:
+NOTICE: [1/6] espressif/dl_fft (0.6.0)
+NOTICE: [2/6] espressif/esp-dl (3.3.11)
+NOTICE: [3/6] espressif/esp_new_jpeg (1.0.2)
+NOTICE: [4/6] espressif/esp_websocket_client (1.8.0)
+NOTICE: [5/6] espressif/pedestrian_detect (0.3.2)
+NOTICE: [6/6] idf (6.0.2)
+-- ESP-TEE is currently supported only on the esp32c6;esp32h2;esp32c5;esp32c61 SoCs
+-- Configuring incomplete, errors occurred!

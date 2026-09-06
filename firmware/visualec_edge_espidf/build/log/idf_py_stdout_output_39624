@@ -1,0 +1,22 @@
+Command: ninja all
+[1/13] Performing build step for 'bootloader'
+[1/1] C:\Windows\system32\cmd.exe /C "cd /D "D:\Program files\Visualec\firmware\visualec_edge_espidf\build\bootloader" && D:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe D:/esp/v6.0.2/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 "D:/Program files/Visualec/firmware/visualec_edge_espidf/build/bootloader/bootloader.bin""
+Bootloader binary size 0x57e0 bytes. 0x2820 bytes (31%) free.
+[2/13] Linking C static library esp-idf\espressif__esp-dl\libespressif__esp-dl.a
+[3/13] No install step for 'bootloader'
+[4/13] Linking C static library esp-idf\espressif__pedestrian_detect\libespressif__pedestrian_detect.a
+[5/13] Linking C static library esp-idf\visualec_pico\libvisualec_pico.a
+[6/13] Completed 'bootloader'
+[7/13] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/main.cpp.obj
+[8/13] Linking C static library esp-idf\main\libmain.a
+[9/13] Generating esp-idf/esp_system/ld/sections.ld
+[10/13] Building C object CMakeFiles/visualec_edge.elf.dir/project_elf_src_esp32s3.c.obj
+[11/13] Linking CXX executable visualec_edge.elf
+[12/13] Generating binary image from built executable
+esptool v5.3.1
+Creating ESP32-S3 image...
+Merged 3 ELF sections.
+Successfully created ESP32-S3 image.
+Generated D:/Program files/Visualec/firmware/visualec_edge_espidf/build/visualec_edge.bin
+[13/13] C:\Windows\system32\cmd.exe /C "cd /D "D:\Program files\Visualec\firmware\visualec_edge_espidf\build" && D:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe D:/esp/v6.0.2/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "D:/Program files/Visualec/firmware/visualec_edge_espidf/build/partition_table/partition-table.bin" "D:/Program files/Visualec/firmware/visualec_edge_espidf/build/visualec_edge.bin""
+visualec_edge.bin binary size 0x2bb040 bytes. Smallest app partition is 0x300000 bytes. 0x44fc0 bytes (9%) free.

@@ -1,0 +1,421 @@
+Command: D:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe D:\esp\v6.0.2\esp-idf\tools/idf_monitor.py -p COM6 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\Program files\Visualec\firmware\visualec_edge_espidf\build\visualec_edge.elf D:\Program files\Visualec\firmware\visualec_edge_espidf\build\bootloader\bootloader.elf --force-color -m 'D:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe' 'D:\esp\v6.0.2\esp-idf\tools\idf.py' '-p' 'COM6'
+[0;32mI (99) boot:  6 storage          Unknown data     01 82 00820000ESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x38 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40381bc6
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1664
+load:0x403c8700,len:0xf38
+load:0x403cb700,len:0x31e8
+entry 0x403c8930
+[0;32mI (24) boot: ESP-IDF v6.0.2 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Sep  6 2026 02:14:18[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (31) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (39) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (43) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (47) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (54) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (60) boot:  0 nvs              WiFi data        01 02 0000a000 00006000[0m
+[0;32mI (67) boot:  1 otadata          OTA data         01 00 00010000 00002000[0m
+[0;32mI (73) boot:  2 phy_init         RF data          01 01 00012000 00001000[0m
+[0;32mI (80) boot:  3 ota_0            OTA app          00 10 00020000 00300000[0m
+[0;32mI (86) boot:  4 ota_1            OTA app          00 11 00320000 00300000[0m
+[0;32mI (93) boot:  5 pedestrian_det   Unknown data     01 82 00620000 00200000[0m
+[0;32mI (99) boot:  6 storage          Unknown data     01 82 00820000 007e0000[0m
+[0;32mI (106) boot: End of partition table[0m
+[0;32mI (110) esp_image: segment 0: paddr=00020020 vaddr=3c260020 size=451e4h (283108) map[0m
+[0;32mI (161) esp_image: segment 1: paddr=0006520c vaddr=3fc9f100 size=05598h ( 21912) load[0m
+[0;32mI (165) esp_image: segment 2: paddr=0006a7ac vaddr=40378000 size=0586ch ( 22636) load[0m
+[0;32mI (170) esp_image: segment 3: paddr=00070020 vaddr=42000020 size=2597b4h (2463668) map[0m
+[0;32mI (553) esp_image: segment 4: paddr=002c97dc vaddr=4037d86c size=11830h ( 71728) load[0m
+[0;32mI (568) esp_image: segment 5: paddr=002db014 vaddr=50000000 size=00024h (    36) load[0m
+[0;32mI (578) boot: Loaded app from partition at offset 0x20000[0m
+[0;32mI (578) boot: Disabling RNG early entropy source...[0m
+[0;32mI (588) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (588) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (589) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (590) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (595) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (599) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (603) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (608) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (613) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (617) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (623) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (627) MSPI Timing: Enter psram timing tuning[0m
+[0;32mI (632) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (635) esp_psram: Speed: 80MHz[0m
+[0;32mI (656) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (822) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (822) cpu_start: Multicore app[0m
+[0;32mI (1012) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1020) cpu_start: GPIO 44 and 43 are used as console UART I/O pins[0m
+[0;32mI (1021) cpu_start: Pro cpu start user code[0m
+[0;32mI (1021) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (1023) app_init: Application information:[0m
+[0;32mI (1027) app_init: Project name:     visualec_edge[0m
+[0;32mI (1031) app_init: App version:      a559c51-dirty[0m
+[0;32mI (1036) app_init: Compile time:     Sep  6 2026 02:15:08[0m
+[0;32mI (1041) app_init: ELF file SHA256:  bbd189164...[0m
+[0;32mI (1045) app_init: ESP-IDF:          v6.0.2[0m
+[0;32mI (1049) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1053) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1057) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1061) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1067) heap_init: At 3FCAA0A0 len 0003F670 (253 KiB): RAM[0m
+[0;32mI (1073) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1078) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (1083) esp_psram: Adding pool of 5440K of PSRAM memory to heap allocator[0m
+[0;32mI (1090) esp_psram: Adding pool of 43K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (1101) spi_flash: detected chip: generic[0m
+[0;32mI (1105) spi_flash: flash io: qio[0m
+[0;32mI (1108) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1114) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1121) main_task: Started on CPU0[0m
+[0;32mI (1124) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1132) main_task: Calling app_main()[0m
+[0;32mI (1146) pp: pp rom version: e7ae62f[0m
+[0;32mI (1146) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1147) wifi:wifi driver task: 3fced5bc, prio:23, stack:6656, core=0[0m
+[0;32mI (1154) wifi:wifi firmware version: 00ad238[0m
+[0;32mI (1154) wifi:wifi certification version: v7.0[0m
+[0;32mI (1157) wifi:config NVS flash: enabled[0m
+[0;32mI (1161) wifi:config nano formatting: disabled[0m
+[0;32mI (1165) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1170) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1174) wifi:Init management short buffer num: 32[0m
+[0;32mI (1179) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1183) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1187) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1191) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1195) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1199) wifi_init: rx ba win: 6[0m
+[0;32mI (1202) wifi_init: accept mbox: 6[0m
+[0;32mI (1205) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1208) wifi_init: udp mbox: 6[0m
+[0;32mI (1211) wifi_init: tcp mbox: 6[0m
+[0;32mI (1214) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1217) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1220) wifi_init: tcp mss: 1440[0m
+[0;32mI (1223) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1227) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1231) phy_init: phy_version 712,87e8c20e,Apr 13 2026,18:51:10[0m
+[0;32mI (1266) wifi:mode : sta (1c:db:d4:a9:45:dc)[0m
+[0;32mI (1266) wifi:enable tsf[0m
+[1;31mE (1269) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (1269) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (1273) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (1279) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (1296) websocket_client: Reconnect after 2000 ms[0m
+[0;32mI (1300) websocket_client: Started[0m
+[0;32mI (1304) visualec_edge: Visualec edge firmware started; relays safe, waiting for authenticated occupancy[0m
+[0;32mI (1305) FbsLoader: The storage free size is 24576 KB[0m
+[0;32mI (1313) main_task: Returned from app_main()[0m
+[0;32mI (1318) FbsLoader: The partition size is 2048 KB[0m
+[0;33mW (1439) dl::Model: minimize() will delete unused inference variables, breaking model testing/debugging.[0m
+[1;31mE (3296) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (3297) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (3297) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (3302) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (3320) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (5320) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (5320) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (5321) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (5326) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (5343) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (7344) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (7345) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (7345) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (7350) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (7368) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (9368) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (9368) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (9369) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (9374) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (9391) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (11392) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (11392) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (11393) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (11399) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (11416) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (13416) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (13416) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (13417) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (13423) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (13440) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (15440) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (15440) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (15441) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (15447) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (15464) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (17464) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (17464) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (17465) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (17471) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (17488) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (19488) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (19488) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (19489) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (19495) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (19512) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (21512) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (21512) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (21513) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (21519) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (21536) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (23536) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (23536) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (23537) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (23543) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (23560) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (25560) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (25560) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (25561) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (25567) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (25584) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (27584) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (27584) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (27585) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (27591) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (27608) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (29608) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (29608) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (29609) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (29615) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (29632) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (31632) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (31632) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (31633) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (31639) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (31656) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (33656) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (33656) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (33657) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (33663) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (33680) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (35680) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (35680) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (35681) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (35687) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (35704) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (37704) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (37704) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (37705) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (37711) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (37728) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (39728) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (39729) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (39729) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (39735) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (39752) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (41753) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (41753) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (41754) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (41760) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (41777) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (43777) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (43777) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (43778) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (43784) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (43801) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (45801) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (45801) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (45802) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (45808) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (45825) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (47825) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (47825) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (47826) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (47832) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (47849) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (49849) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (49849) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (49850) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (49856) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (49873) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (51873) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (51873) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (51874) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (51880) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (51897) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (53897) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (53897) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (53898) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (53904) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (53921) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (55921) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (55921) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (55922) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (55928) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (55945) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (57945) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (57945) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (57946) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (57952) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (57969) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (59969) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (59969) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (59970) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (59976) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (59993) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (61993) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (61993) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (61994) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (62000) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (62017) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (64017) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (64017) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (64018) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (64024) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (64041) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (66041) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (66041) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (66042) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (66048) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (66065) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (68065) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (68065) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (68066) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (68072) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (68089) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (70089) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (70089) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (70090) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (70096) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (70113) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (72113) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (72113) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (72114) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (72120) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (72137) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (74137) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (74137) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (74138) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (74144) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (74161) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (76161) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (76161) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (76162) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (76168) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (76185) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (78185) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (78185) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (78186) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (78192) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (78209) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (80209) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (80209) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (80210) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (80216) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (80233) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (82233) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (82233) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (82234) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (82240) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (82257) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (84257) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (84257) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (84258) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (84264) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (84281) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (86281) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (86281) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (86282) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (86288) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (86305) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (88305) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (88305) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (88306) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (88312) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (88329) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (90329) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (90330) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (90330) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (90336) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (90353) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (92354) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (92354) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (92355) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (92361) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (92378) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (94378) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (94378) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (94379) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (94385) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (94402) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (96402) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (96402) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (96403) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (96409) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (96426) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (98426) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (98426) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (98427) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (98433) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (98450) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (100450) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (100450) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (100451) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (100457) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (100474) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (102475) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (102475) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (102476) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (102482) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (102499) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (104500) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (104500) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (104501) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (104507) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (104524) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (106525) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (106525) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (106526) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (106532) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (106549) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (108550) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (108550) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (108551) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (108557) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (108574) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (110575) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (110575) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (110576) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (110582) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (110599) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (112600) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (112600) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (112601) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (112607) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (112624) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (114625) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (114625) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (114626) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (114632) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (114649) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (116650) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (116651) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (116651) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (116657) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (116675) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (118675) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (118675) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (118676) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (118682) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (118699) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (120700) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (120700) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (120701) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (120707) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (120724) websocket_client: Reconnect after 2000 ms[0m
+[1;31mE (122725) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (122725) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (122726) transport_ws: Error connecting to host 192.168.0.102:8000[0m
+[1;31mE (122732) websocket_client: esp_transport_connect() failed with -1, transport_error=ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST, tls_error_code=0, tls_flags=0, esp_ws_handshake_status_code=0, errno=118[0m
+[0;32mI (122749) websocket_client: Reconnect after 2000 ms[0m
