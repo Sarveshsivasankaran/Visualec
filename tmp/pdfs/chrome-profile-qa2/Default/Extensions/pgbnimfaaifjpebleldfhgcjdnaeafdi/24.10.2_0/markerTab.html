@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>UiPath Browser Automation</title>
+        <style type="text/css">
+            body {
+                margin: 16px;
+                width:  90%;
+                height:  100%;
+            }
+            header {
+                position: relative;
+                width:  100%;
+            }
+            section {
+                clear: both;
+                position: relative;
+                overflow: hidden;
+                min-width: 600px;
+            }
+            section img {
+                float: left;
+            }
+            section div {
+                margin-left: 16px;
+                float: left;
+                width: 512px;
+            }
+            section h2 {
+                margin-top: 5px;
+                margin-bottom: 0px;
+                font-size: 15px;
+                font-weight: 600;
+            }
+            section p {
+                margin-top: 4px;
+                line-height: 18px;
+            }
+            hr {
+                border: none;
+                height: 1px;
+                width: 100%;
+                /* Set the hr color */
+                color: #EEE; /* old IE */
+                background-color: #EEE; /* Modern Browsers */
+            }
+        </style>
+    </head>
+    <body>
+        <header><img src="images/uipath-logo.svg" id="logo" /></header>
+        <section id="status_okay">
+            <hr />
+            <img src="images/ok.svg" alt="Okay" class="ok" />
+            <div class="details">
+                <h2>UiPath Browser Automation</h2>
+                <p>You can safely close this tab.</p>
+            </div>
+        </section>
+
+		<script src="MarkerTab.js"></script>
+    </body>
+</html>

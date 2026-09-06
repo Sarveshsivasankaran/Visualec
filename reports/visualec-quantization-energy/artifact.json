@@ -1,0 +1,454 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "Visualec INT8 Quantization and Edge-Energy Report",
+    "description": "Technical explanation of ESP-DL INT8 quantization, measured ESP32-S3 inference evidence, and the boundaries of Visualec energy-savings claims.",
+    "generatedAt": "2026-09-06T18:00:00+05:30",
+    "sources": [
+      {
+        "id": "visualec_live",
+        "label": "Visualec live system-status snapshot",
+        "query": {
+          "language": "SQL",
+          "description": "Observed physical-device sample supplied during the Visualec ESP32-S3 verification session.",
+          "executed_at": "2026-09-06T18:00:00+05:30",
+          "tables_used": [
+          "Visualec system-status API"
+          ],
+          "filters": [
+            "Connected physical C270",
+            "Connected physical ESP32-S3",
+            "No synthetic detections"
+          ],
+          "metric_definitions": [
+            "Inference latency is the device-reported preprocessing plus ESP-DL model execution time for the observed result.",
+            "Inference FPS is 1000 divided by device-reported inference milliseconds; it is compute capacity, not necessarily keyframe transmission rate.",
+            "Configured load watts is the sum of the three relay rated-wattage fields."
+          ],
+          "engine": "ANSI SQL",
+          "sql": "SELECT 'visualec_esp32s3_1' AS device, 'pedestrian-pico-bootstrap' AS model, 'ESP-DL INT8' AS provider, 126.0 AS inference_ms, 8.0 AS inference_fps, 299.0 AS round_trip_ms, 1 AS people_count, 0 AS protocol_errors, 234 AS completed_frames_start, 244 AS completed_frames_end, 237 AS frame_id_start, 247 AS frame_id_end, 154215 AS free_heap_bytes, 4584960 AS free_psram_bytes, 435440 AS model_bytes, 2865264 AS firmware_bytes"
+        }
+      },
+      {
+        "id": "espdl_quant",
+        "label": "Espressif ESP-DL quantization documentation",
+        "href": "https://docs.espressif.com/projects/esp-dl/en/latest/tutorials/how_to_quantize_model.html",
+        "query": {
+          "language": "SQL",
+          "description": "Official ESP-DL documentation for w8a8 quantization, ESP32-S3 per-tensor strategy, power-of-two scales, and rounding.",
+          "tables_used": [
+            "ESP-DL quantization schemes"
+          ],
+          "metric_definitions": [
+            "Relative storage per scalar assumes the same number of stored numeric values and excludes graph metadata: FP32=32 bits, INT16=16 bits, INT8=8 bits."
+          ],
+          "engine": "ANSI SQL",
+          "sql": "SELECT 'FP32' AS format, 32 AS bits_per_scalar, 4 AS bytes_per_scalar, 100 AS relative_storage_percent, 1 AS compression_vs_fp32 UNION ALL SELECT 'INT16', 16, 2, 50, 2 UNION ALL SELECT 'INT8', 8, 1, 25, 4"
+        }
+      },
+      {
+        "id": "espdl_pedestrian",
+        "label": "Espressif pedestrian detector benchmark",
+        "href": "https://github.com/espressif/esp-dl/blob/master/models/pedestrian_detect/README.md",
+        "query": {
+          "language": "documentation",
+          "description": "Official model table for the ESP32-S3 pedestrian Pico S8 model.",
+          "tables_used": [
+            "ESP-DL pedestrian_detect model latency"
+          ]
+        }
+      },
+      {
+        "id": "esp32s3_datasheet",
+        "label": "Espressif ESP32-S3 Series Datasheet v2.2",
+        "href": "https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf",
+        "query": {
+          "language": "documentation",
+          "description": "Official CPU, SIMD, memory, and current-consumption specifications.",
+          "tables_used": [
+            "ESP32-S3 datasheet sections 4.1 and 5.6"
+          ]
+        }
+      },
+      {
+        "id": "visualec_repo",
+        "label": "Visualec edge firmware and model pipeline",
+        "query": {
+          "language": "C++ and Python",
+          "description": "Reviewed project configuration, firmware model selection, ESP-DL wrapper, real-frame training pipeline, and built artifacts.",
+          "tables_used": [
+          "Visualec ESP-IDF configuration",
+          "Visualec ESP32-S3 firmware runtime",
+          "Visualec-Pico ESP-DL model wrapper",
+          "Visualec real-frame model pipeline"
+          ],
+          "filters": [
+            "esp32-s3_Arch_branch",
+            "No synthetic frames or simulated inference"
+          ],
+          "sql": "SELECT 'OTA application slot' AS resource, 3145728 AS capacity_bytes, 2865264 AS used_bytes, 280464 AS free_bytes, 91.08 AS used_percent UNION ALL SELECT 'Model partition', 2097152, 435440, 1661712, 20.76 UNION ALL SELECT 'Internal DIRAM', 341760, 139313, 202447, 40.76 UNION ALL SELECT 'External PSRAM', 8388608, 3803648, 4584960, 45.34"
+        }
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# Visualec INT8 Quantization and Edge-Energy Report"
+      },
+      {
+        "id": "summary",
+        "type": "markdown",
+        "body": "## Technical summary\n\nVisualec performs real INT8 pedestrian inference on physical device `visualec_esp32s3_1` using Espressif's `pedestrian-pico-bootstrap`; the planned YOLOv8n-distilled `visualec_pico.espdl` artifact has not yet been trained or deployed. The observed device sample shows approximately **126 ms per inference** (**8 FPS compute capacity**), **299 ms round-trip latency**, one current person detection, ten additional completed frames, and zero protocol errors.\n\nINT8 represents model weights and intermediate activations with 8-bit integers instead of 32-bit floating-point values. Holding tensor count constant, scalar storage falls to **25% of FP32**. The 435,440-byte `.espdl` artifact uses **20.76%** of its 2 MiB model partition; the 2,865,264-byte application uses **91.08%** of its 3 MiB OTA slot.\n\nThe device inference target is met (8 FPS versus at least 7 FPS, and 126 ms versus at most 140 ms), but the observed 299 ms round trip exceeds the 200 ms p95 acceptance target. No board-level joules-per-inference or building-level savings have been measured with a power meter, so configured wattage arithmetic is not presented as physical energy evidence."
+      },
+      {
+        "id": "performance_finding",
+        "type": "markdown",
+        "body": "## ESP inference meets its compute gate; end-to-end latency still needs work\n\nThe physical ESP32-S3 sample completed ten frames while frame IDs advanced by ten, confirming continuous result flow for the observed interval. Device compute is inside both firmware acceptance thresholds: **8 FPS** is above the 7 FPS floor and **126 ms** is below the 140 ms ceiling. Round-trip latency is approximately **299 ms**, about 99 ms above the 200 ms p95 target, so network transfer, queueing, and backend handling remain the main performance gap.",
+        "sourceId": "visualec_live"
+      },
+      {
+        "id": "rate_chart_block",
+        "type": "chart",
+        "chartId": "rate_chart"
+      },
+      {
+        "id": "latency_chart_block",
+        "type": "chart",
+        "chartId": "latency_chart"
+      },
+      {
+        "id": "precision_finding",
+        "type": "markdown",
+        "body": "## INT8 reduces scalar storage and data movement by four times\n\nThe chart compares numeric representation only: it holds the number of parameters and activations constant. INT8 needs one byte per scalar versus four bytes for FP32, which makes weights and activations easier to fit in flash, PSRAM, caches, and working buffers. The implication is less data movement and integer-friendly execution; it does **not** guarantee a fourfold reduction in latency or electrical power because operator support, memory access, preprocessing, Wi-Fi, and control tasks remain.",
+        "sourceId": "espdl_quant"
+      },
+      {
+        "id": "precision_chart_block",
+        "type": "chart",
+        "chartId": "precision_chart"
+      },
+      {
+        "id": "running_model",
+        "type": "markdown",
+        "body": "## The deployed model is quantized, but it is the bootstrap detector\n\nThe running device identifies its provider as `ESP-DL INT8` and its model as `pedestrian-pico-bootstrap`. Its compiled input is **224 x 224 x 3**, with a 288 x 160 RGB565 little-endian transport frame. Runtime settings include a dashboard-controlled confidence threshold (observed configuration: **0.45**), **0.50 NMS**, and **top-K 10**. The built `.espdl` model occupies **435,440 bytes**, while the complete application binary occupies **2,865,264 bytes**. These file sizes cannot be converted directly into a parameter count because an `.espdl` artifact also contains graph structure, quantization metadata, and tensor information. The custom `visualec_pico.espdl` remains a planned output of the real-C270 training pipeline.",
+        "sourceId": "visualec_repo"
+      },
+      {
+        "id": "configuration_table_block",
+        "type": "table",
+        "tableId": "configuration_table"
+      },
+      {
+        "id": "live_table_block",
+        "type": "table",
+        "tableId": "live_metrics_table"
+      },
+      {
+        "id": "memory_finding",
+        "type": "markdown",
+        "body": "## Model storage has ample headroom; the OTA application slot is tight\n\nThe model consumes only **20.76%** of its dedicated 2 MiB partition, leaving about **1.58 MiB** free. The application binary consumes **91.08%** of each 3 MiB OTA slot, leaving about **274 KiB**, which is the most immediate firmware-growth constraint. Compiled internal data RAM is **40.76%** used. The last retained device metric reported about **4.37 MiB free PSRAM**; because the edge link later disconnected, that runtime memory figure is retained rather than a fresh live reading.",
+        "sourceId": "visualec_repo"
+      },
+      {
+        "id": "memory_chart_block",
+        "type": "chart",
+        "chartId": "memory_chart"
+      },
+      {
+        "id": "memory_table_block",
+        "type": "table",
+        "tableId": "memory_table"
+      },
+      {
+        "id": "quant_method",
+        "type": "markdown",
+        "body": "## Calibration maps real-valued tensors into signed 8-bit ranges\n\nFor each ESP32-S3 tensor, ESP-DL’s current strategy uses symmetric, power-of-two, per-tensor quantization. A floating value `R` is mapped to `Q = clip(round(R / 2^Exp), -128, 127)` and reconstructed approximately as `R̂ = Q × 2^Exp`. Calibration runs representative real C270 frames through the floating model to choose exponents that cover typical activation ranges.\n\nThe loss mechanism is explicit: values beyond the selected range saturate, while small differences can round to the same integer. Representative calibration frames are therefore essential. Visualec’s intended pipeline uses PTQ first and accepts QAT only when the quantized student loses more than three percentage points against the floating student. No synthetic frames are permitted.",
+        "sourceId": "espdl_quant"
+      },
+      {
+        "id": "pipeline",
+        "type": "markdown",
+        "body": "## YOLOv8n teaches the compact model but does not run on the ESP\n\nThe intended production sequence is: real C270 session capture → YOLOv8n person-only pseudo-labeling → train a one-class ESPDet-Pico-derived student → export ONNX → calibrate and quantize for ESP32-S3 → package and hash the `.espdl` artifact → compare teacher, floating student, quantized host graph, and physical ESP outputs → flash only after quality gates pass.\n\nThis is knowledge distillation, not topology conversion. The ESP model learns from YOLOv8n’s detections, but it uses a smaller architecture and ESP-DL-supported operators. Deploying stock YOLOv8n would exceed the practical latency and memory budget."
+      },
+      {
+        "id": "runtime_method",
+        "type": "markdown",
+        "body": "## Runtime scheduling protects relay control from inference load\n\nThe ESP-IDF firmware separates relay control, inference, metrics, networking, and configuration work. Relay control runs at higher priority than inference; a one-frame newest-wins queue discards stale keyframes instead of building a backlog. Pixel packets use a versioned 28-byte header plus 92,160 bytes of RGB565 data. Occupancy and commands travel as JSON over a persistent WebSocket, and relay acknowledgements are issued only after the GPIO state is applied.\n\nThe N16R8 memory strategy places the model in flash-backed storage where supported, frame and model buffers in 8 MiB OPI PSRAM, and hot control state in internal SRAM. Active-low relay outputs use GPIO LOW for ON and GPIO HIGH for OFF. Automatic activation/deactivation defaults are 1 s and 10 s, while stale camera/link state forces safe-off after 30 s.",
+        "sourceId": "visualec_repo"
+      },
+      {
+        "id": "energy_path",
+        "type": "markdown",
+        "body": "## Energy savings come from shorter integer work and relay-controlled off-time\n\n**Inference path.** Smaller INT8 tensors reduce flash/PSRAM reads, cache pressure, and arithmetic work. The ESP32-S3 contributes a dual-core 240 MHz processor, a 128-bit data bus, and SIMD instructions suited to packed integer operations. The laptop still captures the C270 stream, performs motion selection and temporal tracking, and serves the dashboard; therefore the architecture removes laptop neural inference, not the laptop itself.\n\n**Control path.** The ESP owns activation/deactivation timers and GPIO decisions. For a load `i`, physically saved energy is `Pᵢ × verified_off_timeᵢ`. Across all zones, net system savings are the sum of avoided load energy plus avoided laptop inference energy, minus ESP and networking overhead. The present prototype defines three 9 W loads, so all three off represents 27 W of avoided load power while off; this is configuration arithmetic, not a watt-meter observation.",
+        "sourceId": "visualec_live"
+      },
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "body": "## Current evidence proves execution, not electrical savings or final accuracy\n\nThe live snapshot proves that real frames reach the ESP, inference results return, and the detector is producing people counts. It does not measure joules per inference. Espressif’s chip-level current tables are useful design context, but board regulators, PSRAM, Wi-Fi duty cycle, USB circuitry, relay coils, and the firmware’s disabled Wi-Fi power saving change whole-board consumption.\n\nThe dashboard’s energy figures are software-derived from configured relay wattages and state durations; they are not measurements from a current sensor. Likewise, the custom model has no real dataset, trained artifact, teacher-agreement report, or hardware recall evidence in the repository, so its energy or accuracy cannot yet be compared with the bootstrap model."
+      },
+      {
+        "id": "next_steps",
+        "type": "markdown",
+        "body": "## Measure energy and accuracy before claiming savings\n\n1. Insert a USB power meter or calibrated shunt between the supply and ESP32-S3 board; record voltage/current at idle, connected/no inference, and sustained high-motion inference.\n2. Record inference start/end markers and calculate `joules per inference = integral(V × I dt) / completed inferences` over at least 1,000 real frames.\n3. Measure laptop wall power with local YOLO inference enabled and disabled while keeping capture, tracking, and dashboard activity identical.\n4. Meter each controlled load or use verified nameplate power, then calculate savings from physical relay state durations.\n5. Capture separate real C270 train, calibration, and held-out sessions; train and quantize the custom student and require the existing recall/accuracy gates.\n6. Report total system energy as camera + laptop + ESP board + relay modules + controlled loads, not ESP consumption alone."
+      },
+      {
+        "id": "questions",
+        "type": "markdown",
+        "body": "## Further questions\n\n- What are the real wattages and duty cycles of the final appliances rather than the 9 W prototype loads?\n- Will the laptop remain powered for other work, or should a later architecture also replace laptop capture/tracking?\n- What energy-per-inference and person-recall trade-off is acceptable if INT16 or mixed precision improves difficult detections?\n- Can Wi-Fi transmission be duty-cycled without violating the relay-response and stale-link safety requirements?"
+      }
+    ],
+    "charts": [
+      {
+        "id": "rate_chart",
+        "title": "Inference throughput versus acceptance floor",
+        "subtitle": "Observed physical-device sample; higher is better; units are frames per second",
+        "type": "bar",
+        "encodings": {
+          "x": { "field": "series", "type": "nominal", "title": "Measurement" },
+          "y": { "field": "fps", "type": "quantitative", "title": "Frames per second" }
+        },
+        "options": { "orientation": "vertical", "grouping": "grouped", "showLegend": false },
+        "sourceId": "visualec_live",
+        "dataset": "inference_rate"
+      },
+      {
+        "id": "latency_chart",
+        "title": "Latency versus acceptance ceilings",
+        "subtitle": "Observed physical-device sample; lower is better; each measurement is compared with its own gate",
+        "type": "bar",
+        "encodings": {
+          "x": { "field": "measurement", "type": "nominal", "title": "Latency measure" },
+          "y": { "field": "milliseconds", "type": "quantitative", "title": "Milliseconds" },
+          "color": { "field": "series", "type": "nominal", "title": "Series" }
+        },
+        "options": { "orientation": "vertical", "grouping": "grouped", "showLegend": true },
+        "sourceId": "visualec_live",
+        "dataset": "latency_comparison"
+      },
+      {
+        "id": "precision_chart",
+        "title": "Storage per scalar by numeric format",
+        "subtitle": "Same tensor count; FP32 normalized to 100%",
+        "type": "bar",
+        "encodings": {
+          "x": {
+            "field": "format",
+            "type": "nominal",
+            "title": "Numeric format"
+          },
+          "y": {
+            "field": "relative_storage_percent",
+            "type": "quantitative",
+            "title": "Relative storage (%)"
+          }
+        },
+        "options": {
+          "orientation": "vertical",
+          "grouping": "grouped",
+          "showLegend": false
+        },
+        "sourceId": "espdl_quant",
+        "dataset": "numeric_precision"
+      },
+      {
+        "id": "memory_chart",
+        "title": "Memory and partition utilization",
+        "subtitle": "Compiled artifacts and last retained runtime PSRAM reading; percentage used",
+        "type": "bar",
+        "encodings": {
+          "x": { "field": "resource", "type": "nominal", "title": "Resource" },
+          "y": { "field": "used_percent", "type": "quantitative", "title": "Used (%)" }
+        },
+        "options": { "orientation": "vertical", "grouping": "grouped", "showLegend": false },
+        "sourceId": "visualec_repo",
+        "dataset": "memory_utilization"
+      }
+    ],
+    "tables": [
+      {
+        "id": "configuration_table",
+        "title": "Deployed model and platform parameters",
+        "subtitle": "Compiled configuration and artifact inspection; exact parameter count is not exposed by the packaged model",
+        "columns": [
+          { "field": "parameter", "label": "Parameter", "type": "text" },
+          { "field": "value", "label": "Configured value", "type": "text" },
+          { "field": "evidence", "label": "Evidence", "type": "text" }
+        ],
+        "defaultSort": { "field": "parameter", "direction": "asc" },
+        "sourceId": "visualec_repo",
+        "dataset": "configuration"
+      },
+      {
+        "id": "live_metrics_table",
+        "title": "Live Visualec edge-inference evidence",
+        "subtitle": "Observed physical C270 and ESP32-S3 verification sample supplied on 6 September 2026",
+        "columns": [
+          {
+            "field": "device",
+            "label": "Device",
+            "type": "text"
+          },
+          {
+            "field": "provider",
+            "label": "Provider",
+            "type": "text"
+          },
+          {
+            "field": "inference_ms",
+            "label": "Inference",
+            "type": "number",
+            "format": "number",
+            "unit": "ms"
+          },
+          {
+            "field": "inference_fps",
+            "label": "Compute capacity",
+            "type": "number",
+            "format": "number",
+            "unit": "FPS"
+          },
+          {
+            "field": "round_trip_ms",
+            "label": "Round trip",
+            "type": "number",
+            "format": "number",
+            "unit": "ms"
+          },
+          {
+            "field": "people_count",
+            "label": "People",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "protocol_errors",
+            "label": "Protocol errors",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "frame_progress",
+            "label": "Frame IDs",
+            "type": "text"
+          },
+          {
+            "field": "completed_progress",
+            "label": "Completed",
+            "type": "text"
+          }
+        ],
+        "defaultSort": {
+          "field": "inference_ms",
+          "direction": "asc"
+        },
+        "sourceId": "visualec_live",
+        "dataset": "live_metrics"
+      },
+      {
+        "id": "memory_table",
+        "title": "Exact storage and memory headroom",
+        "subtitle": "Binary bytes; PSRAM is the last retained device metric after edge disconnect",
+        "columns": [
+          { "field": "resource", "label": "Resource", "type": "text" },
+          { "field": "capacity_bytes", "label": "Capacity", "type": "number", "format": "compact", "unit": "bytes" },
+          { "field": "used_bytes", "label": "Used", "type": "number", "format": "compact", "unit": "bytes" },
+          { "field": "free_bytes", "label": "Free", "type": "number", "format": "compact", "unit": "bytes" },
+          { "field": "used_percent", "label": "Used percent", "type": "number", "format": "number", "unit": "%" }
+        ],
+        "defaultSort": { "field": "used_percent", "direction": "desc" },
+        "sourceId": "visualec_repo",
+        "dataset": "memory_utilization"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "status": "ready",
+    "generatedAt": "2026-09-06T18:00:00+05:30",
+    "datasets": {
+      "inference_rate": [
+        { "series": "Observed", "fps": 8.0, "gate_fps": 7.0, "device": "visualec_esp32s3_1", "model": "pedestrian-pico-bootstrap" },
+        { "series": "Acceptance floor", "fps": 7.0, "gate_fps": 7.0, "device": "ESP32-S3 N16R8", "model": "one-class INT8 detector" }
+      ],
+      "latency_comparison": [
+        { "measurement": "Inference", "series": "Observed", "milliseconds": 126.0, "gate_milliseconds": 140.0, "status": "inside gate" },
+        { "measurement": "Inference", "series": "Acceptance ceiling", "milliseconds": 140.0, "gate_milliseconds": 140.0, "status": "reference" },
+        { "measurement": "Round trip", "series": "Observed", "milliseconds": 299.0, "gate_milliseconds": 200.0, "status": "above gate" },
+        { "measurement": "Round trip", "series": "Acceptance ceiling", "milliseconds": 200.0, "gate_milliseconds": 200.0, "status": "reference" }
+      ],
+      "numeric_precision": [
+        {
+          "format": "FP32",
+          "bits_per_scalar": 32,
+          "bytes_per_scalar": 4,
+          "relative_storage_percent": 100,
+          "compression_vs_fp32": 1,
+          "typical_use": "Training and reference inference"
+        },
+        {
+          "format": "INT16",
+          "bits_per_scalar": 16,
+          "bytes_per_scalar": 2,
+          "relative_storage_percent": 50,
+          "compression_vs_fp32": 2,
+          "typical_use": "Higher-accuracy quantized fallback"
+        },
+        {
+          "format": "INT8",
+          "bits_per_scalar": 8,
+          "bytes_per_scalar": 1,
+          "relative_storage_percent": 25,
+          "compression_vs_fp32": 4,
+          "typical_use": "Highest ESP-DL inference speed"
+        }
+      ],
+      "live_metrics": [
+        {
+          "device": "visualec_esp32s3_1",
+          "model": "pedestrian-pico-bootstrap",
+          "provider": "ESP-DL INT8",
+          "inference_ms": 126,
+          "inference_fps": 8.0,
+          "round_trip_ms": 299,
+          "people_count": 1,
+          "protocol_errors": 0,
+          "completed_frames_start": 234,
+          "completed_frames_end": 244,
+          "completed_progress": "234 to 244",
+          "frame_id_start": 237,
+          "frame_id_end": 247,
+          "frame_progress": "237 to 247",
+          "free_heap_bytes": 154215,
+          "free_psram_bytes": 4584960,
+          "model_bytes": 435440,
+          "firmware_bytes": 2865264
+        }
+      ],
+      "configuration": [
+        { "parameter": "Device", "value": "ESP32-S3 N16R8, dual-core 240 MHz", "evidence": "firmware target and sdkconfig" },
+        { "parameter": "External memory", "value": "8 MiB OPI PSRAM at 80 MHz", "evidence": "sdkconfig" },
+        { "parameter": "Model", "value": "pedestrian-pico-bootstrap / PICO_S8_V1", "evidence": "compiled component and device hello" },
+        { "parameter": "Runtime", "value": "ESP-DL 3.3.11; pedestrian_detect 0.3.2", "evidence": "managed component lock" },
+        { "parameter": "Quantization", "value": "w8a8 signed INT8, symmetric power-of-two per tensor", "evidence": "ESP-DL documentation" },
+        { "parameter": "Model input", "value": "224 x 224 x 3", "evidence": "bootstrap model metadata" },
+        { "parameter": "Wire frame", "value": "288 x 160 RGB565LE; 92,188-byte packet", "evidence": "backend protocol and 28-byte header" },
+        { "parameter": "Confidence threshold", "value": "0.45 dashboard configuration", "evidence": "backend configuration; applied by firmware" },
+        { "parameter": "NMS / top-K", "value": "0.50 / 10", "evidence": "detector construction" },
+        { "parameter": "Preprocessing", "value": "mean [0,0,0]; divisor [1,1,1]", "evidence": "ESP-DL wrapper" },
+        { "parameter": "Model SHA-256", "value": "9A728500A8E7114318FA15CE06788F9C8F501F360C40A78D124AB7E3273FAF95", "evidence": "built artifact hash" },
+        { "parameter": "Firmware SHA-256", "value": "0307A6F107CA349B809D8202A79050956BC80E5F3D67B13A032BA27087D3EE6F", "evidence": "built artifact hash" }
+      ],
+      "memory_utilization": [
+        { "resource": "OTA application slot", "capacity_bytes": 3145728, "used_bytes": 2865264, "free_bytes": 280464, "used_percent": 91.08, "measurement_state": "compiled artifact" },
+        { "resource": "Model partition", "capacity_bytes": 2097152, "used_bytes": 435440, "free_bytes": 1661712, "used_percent": 20.76, "measurement_state": "compiled artifact" },
+        { "resource": "Internal DIRAM", "capacity_bytes": 341760, "used_bytes": 139313, "free_bytes": 202447, "used_percent": 40.76, "measurement_state": "linker report" },
+        { "resource": "External PSRAM", "capacity_bytes": 8388608, "used_bytes": 3803648, "free_bytes": 4584960, "used_percent": 45.34, "measurement_state": "last retained runtime metric" }
+      ]
+    }
+  },
+  "sources": []
+}

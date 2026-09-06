@@ -1,0 +1,14 @@
+{
+   "badgeTextError": {
+      "message": "Error!"
+   },
+   "multipleProfilesError": {
+      "message": "The extension cannot automate the browser running with multiple user profiles.\u003Cbr>Restart the browser and use a single profile at a time."
+   },
+   "multipleWindowsError": {
+      "message": "The extension was enabled but it cannot access the browser windows that were already open.\u003Cbr>Restart the browser before trying to use the extension."
+   },
+   "nativeHostDisconnected": {
+      "message": "The native part of the extension is not configured correctly.\u003Cbr>Re-install the extension from UiPath Studio."
+   }
+}

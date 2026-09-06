@@ -1,0 +1,36 @@
+{
+   "action": {
+      "default_popup": ""
+   },
+   "background": {
+      "service_worker": "BackgroundServiceWorker.js"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "ContentMain.js" ],
+      "match_about_blank": true,
+      "matches": [ "http://*/*", "https://*/*", "file://*/*" ],
+      "run_at": "document_start"
+   } ],
+   "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+   },
+   "default_locale": "en",
+   "description": "Expands your browser automation capabilities from Studio desktop.",
+   "externally_connectable": {
+      "matches": [ "*://*.uipath.com/*" ]
+   },
+   "host_permissions": [ "\u003Call_urls>" ],
+   "icons": {
+      "128": "uiPath128.png",
+      "16": "uiPath16.png",
+      "32": "uiPath32.png",
+      "48": "uiPath48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr5PrCRRZa+fXxutJOrXoLvyAUkQhCVW4dBn0wfnc1OFm3v1gH3rDDDwWpJYFYNcx4NtQHXHyfpr6BJmcWWKQ5S3tPG8hCRgHPECktObx5YXVpCnGkV6GRYucpn28tG0o2RxTChL9rDI4o5neD+JlIdSWSuQ5k7yEj3t+8Zgiu1TJ3NP2Cpp8xGSsyruW+0idqvfNRXI3IA0yz374BGT4Orq0AQmLSR2XxC04DcFOK672klPDqEiwvKvkgJgvs88bMKLc1nWvH1GK3lmfXQlscCx/ynF/VM3LXkSNfUhS9yf2i4A86UP7Xu2JzCCW7GTb/YOlGHkhODccF7uTrigB2QIDAQAB",
+   "manifest_version": 3,
+   "name": "UiPath Browser Automation 24.10",
+   "permissions": [ "management", "nativeMessaging", "tabs", "webNavigation", "debugger", "cookies", "scripting", "webRequest", "downloads" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "24.10.2"
+}

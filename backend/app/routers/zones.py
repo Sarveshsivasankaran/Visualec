@@ -28,6 +28,8 @@ def create(payload: ZoneCreate, request: Request, db: Session = Depends(get_db))
         db.add(ZoneRelayMapping(zone_id=zone.id, relay_id=relay_id, auto_control_enabled=payload.auto_control_enabled))
     db.commit()
     request.app.state.zone_service.reload(db)
+    request.app.state.edge_service.bump_configuration_revision()
+    request.app.state.edge_service.schedule_current_config()
     return {"id": zone.id, **payload.model_dump(mode="json")}
 
 
@@ -44,6 +46,8 @@ def update(zone_id: int, payload: ZoneUpdate, request: Request, db: Session = De
         db.add(ZoneRelayMapping(zone_id=zone_id, relay_id=relay_id, auto_control_enabled=payload.auto_control_enabled))
     db.commit()
     request.app.state.zone_service.reload(db)
+    request.app.state.edge_service.bump_configuration_revision()
+    request.app.state.edge_service.schedule_current_config()
     return {"id": zone_id, **payload.model_dump(mode="json")}
 
 
@@ -55,6 +59,8 @@ def remove(zone_id: int, request: Request, db: Session = Depends(get_db)) -> Res
     db.delete(zone)
     db.commit()
     request.app.state.zone_service.reload(db)
+    request.app.state.edge_service.bump_configuration_revision()
+    request.app.state.edge_service.schedule_current_config()
     return Response(status_code=204)
 
 
@@ -65,4 +71,6 @@ def reset(request: Request, db: Session = Depends(get_db)) -> list[dict]:
     db.commit()
     request.app.state.zone_service.seed_defaults(db)
     request.app.state.zone_service.reload(db)
+    request.app.state.edge_service.bump_configuration_revision()
+    request.app.state.edge_service.schedule_current_config()
     return list_zones(db)

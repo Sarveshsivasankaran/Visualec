@@ -11,3 +11,11 @@ dist/
 .idea/
 .vscode/
 *.pt
+.codex-plan/
+.codex-ppt-build/
+ml/data/
+ml/artifacts/
+firmware/visualec_edge_espidf/build/
+firmware/visualec_edge_espidf/sdkconfig
+firmware/visualec_edge_espidf/sdkconfig.artifact.generated
+*.pptx.inspect.ndjson

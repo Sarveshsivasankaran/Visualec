@@ -32,11 +32,16 @@ def update(payload: SystemSettingsUpdate, request: Request) -> dict:
         state.mode = values["mode"]
     if "activation_delay_seconds" in values:
         request.app.state.occupancy_service.activation_delay = values["activation_delay_seconds"]
+        request.app.state.settings.activation_delay_seconds = values["activation_delay_seconds"]
     if "deactivation_delay_seconds" in values:
         request.app.state.occupancy_service.deactivation_delay = values["deactivation_delay_seconds"]
+        request.app.state.settings.deactivation_delay_seconds = values["deactivation_delay_seconds"]
     if "energy_tariff_per_kwh" in values:
         request.app.state.energy_service.settings.energy_tariff_per_kwh = values["energy_tariff_per_kwh"]
     if "esp32_base_url" in values:
         request.app.state.relay_service.settings.esp32_base_url = values["esp32_base_url"].rstrip("/")
         request.app.state.runtime_state.esp32_connected = False
+    if any(key in values for key in ("activation_delay_seconds", "deactivation_delay_seconds")):
+        request.app.state.edge_service.bump_configuration_revision()
+        request.app.state.edge_service.schedule_current_config()
     return {"success": True, **values}
