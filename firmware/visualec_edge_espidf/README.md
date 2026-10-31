@@ -2,7 +2,7 @@
 
 This ESP-IDF 5.3+ application is the production edge path for an ESP32-S3 N16R8. It connects outbound to the authenticated FastAPI `/ws/edge` endpoint, receives CRC-protected RGB565 keyframes, runs ESP-DL person detection, returns frame-linked boxes, and owns occupancy delays plus relay safety.
 
-The existing `firmware/visualec_esp32_s3` Arduino sketch remains the relay-only rollback firmware.
+This replaces legacy laptop-side inference and previous relay-only sketches.
 
 ## Build and flash
 
