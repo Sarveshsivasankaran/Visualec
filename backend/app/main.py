@@ -99,6 +99,15 @@ async def edge_websocket_endpoint(websocket: WebSocket) -> None:
     configured = websocket.app.state.settings.edge_device_token
     supplied = websocket.query_params.get("token") or websocket.headers.get("x-device-token", "")
     await websocket.accept()
+    try:
+        import socket
+        transport = websocket.scope.get("transport")
+        if transport is not None:
+            raw_socket = transport.get_extra_info("socket")
+            if raw_socket is not None:
+                raw_socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+    except Exception:
+        pass
     if not configured or not hmac.compare_digest(configured, supplied):
         await websocket.close(code=1008, reason="invalid device token")
         return

@@ -39,11 +39,8 @@ class FrameTransform:
 
 
 def bgr_to_rgb565_le(frame: np.ndarray) -> bytes:
-    blue = frame[:, :, 0].astype(np.uint16)
-    green = frame[:, :, 1].astype(np.uint16)
-    red = frame[:, :, 2].astype(np.uint16)
-    packed = ((red >> 3) << 11) | ((green >> 2) << 5) | (blue >> 3)
-    return packed.astype("<u2", copy=False).tobytes()
+    # Use native OpenCV SIMD vectorized conversion for sub-millisecond execution
+    return cv2.cvtColor(frame, cv2.COLOR_BGR2BGR565).tobytes()
 
 
 def letterbox_rgb565(

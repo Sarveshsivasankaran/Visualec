@@ -128,7 +128,8 @@ class EdgeInferenceService:
             transform.target_height,
             flags=1 if force else 0,
         )
-        pending = PendingFrame(self._frame_sequence, now, transform)
+        sent_at = time.monotonic()
+        pending = PendingFrame(self._frame_sequence, sent_at, transform)
         self._pending_frame = pending
         try:
             await self.send_binary(packet)
@@ -136,7 +137,7 @@ class EdgeInferenceService:
             self._pending_frame = None
             await self.disconnect()
             return False
-        self._last_send_at = now
+        self._last_send_at = sent_at
         self.state.edge.last_frame_id = pending.frame_id
         return True
 
