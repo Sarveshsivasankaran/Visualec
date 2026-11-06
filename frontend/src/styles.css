@@ -36,3 +36,61 @@
 .zone-resize-handle[data-handle="se"]{right:-10px;bottom:-10px;cursor:nwse-resize}
 .zone-resize-handle[data-handle="sw"]{left:-10px;bottom:-10px;cursor:nesw-resize}
 .zone-resize-handle[data-handle="ne"]:after,.zone-resize-handle[data-handle="nw"]:after,.zone-resize-handle[data-handle="se"]:after,.zone-resize-handle[data-handle="sw"]:after{width:9px;height:9px;left:50%;top:50%;transform:translate(-50%,-50%)}
+
+/* Safety Priority & Edge SLA Telemetry Styling */
+.safety-alert-banner{display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:12px;margin-bottom:24px;animation:fadeIn 0.25s ease-out}
+.safety-alert-banner.tier-1{background:linear-gradient(135deg,#2a0b12,#1d080e);border:1px solid #731b2c;color:#ff98a6}
+.safety-alert-banner.tier-2{background:linear-gradient(135deg,#2b1c09,#1a1005);border:1px solid #7c480d;color:#fbbf24}
+.safety-banner-icon{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;flex-shrink:0}
+.safety-alert-banner.tier-1 .safety-banner-icon{background:#47111b;color:#ff4d67}
+.safety-alert-banner.tier-2 .safety-banner-icon{background:#422608;color:var(--amber)}
+.safety-banner-content{flex:1}
+.safety-banner-content strong{display:block;font-size:13px;font-weight:700;color:#ffffff;margin-bottom:2px}
+.safety-banner-content p{margin:0;font-size:11px;line-height:1.5;opacity:0.9}
+.zone-card.emergency-locked{border-color:#521824;background:#100b11}
+.zone-head-badges{margin-left:auto;display:flex;align-items:center;gap:6px}
+.priority-tier-badge{font:600 9px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.4px;padding:3px 7px;border-radius:6px;white-space:nowrap}
+.priority-tier-badge.tone-good{background:#0f2c20;color:var(--green);border:1px solid #1a563d}
+.priority-tier-badge.tone-warn{background:#2e1d09;color:var(--amber);border:1px solid #633e0e}
+.priority-tier-badge.tone-danger{background:#330d15;color:var(--red);border:1px solid #731e2f}
+.priority-tier-badge.tone-neutral{background:#111e2f;color:var(--muted);border:1px solid var(--border)}
+.appliance-meta{display:flex;align-items:center;gap:10px;min-width:0}
+.appliance-info{display:flex;flex-direction:column;min-width:0}
+.appliance-title{display:flex;align-items:center;gap:6px}
+.appliance-title strong{font-size:11px;color:#ecf3fc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wattage-tag{font:500 9px 'DM Mono',monospace;background:#102638;color:var(--cyan);padding:1px 5px;border-radius:4px;border:1px solid #1d4666}
+.power-icon.danger{background:#301018;color:var(--red)}
+.section-meta-tags{display:flex;align-items:center;gap:8px;font:500 10px 'DM Mono',monospace}
+.sla-tag{display:inline-flex;align-items:center;gap:5px;background:#0d2538;color:var(--cyan);padding:4px 8px;border-radius:6px;border:1px solid #19486c}
+.timing-tag{display:inline-flex;align-items:center;gap:5px;color:var(--muted);background:#0f1c2b;padding:4px 8px;border-radius:6px;border:1px solid var(--border)}
+.metric-header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.metric-card.tone-good{border-color:#1a4a37}
+.metric-card.tone-warn{border-color:#5c3a10}
+.metric-card.tone-danger{border-color:#661a28}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
+/* Multi-Chart Analytics View Styling */
+.chart-view-nav{margin:24px 0 18px}
+.chart-view-tabs{display:inline-flex;padding:4px;background:#091422;border:1px solid var(--border);border-radius:10px;gap:3px;flex-wrap:wrap}
+.chart-view-tabs button{display:inline-flex;align-items:center;gap:7px;border:0;background:transparent;color:var(--muted);padding:8px 14px;border-radius:7px;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s ease}
+.chart-view-tabs button:hover{color:#e8f0fa;background:#132336}
+.chart-view-tabs button.active{background:linear-gradient(135deg,#13283c,#18324a);color:#38bdf8;box-shadow:0 2px 8px #0004}
+.analytics-multi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.full-width-panel{margin-top:10px}
+.large-chart{height:440px}
+.donut-wrap{display:flex;align-items:center;padding:15px}
+.circuit-legend-list{flex:1;display:flex;flex-direction:column;gap:12px;padding-left:12px}
+.circuit-legend-row{display:flex;align-items:center;gap:10px}
+.circuit-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.circuit-name{flex:1;display:flex;flex-direction:column}
+.circuit-name strong{font-size:11px;color:#dce7f5}
+.circuit-name small{font-size:9px;color:var(--muted)}
+.circuit-kwh{font:500 11px 'DM Mono',monospace;color:var(--cyan)}
+.large-list{max-width:380px;gap:16px}
+.analytics-summary-banner{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:22px 28px;margin-top:20px}
+.summary-banner-item{display:flex;align-items:center;gap:14px}
+.summary-banner-item strong{display:block;font-size:17px;color:#ecf4fe}
+.summary-banner-item small{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+@media(max-width:1100px){.analytics-multi-grid{grid-template-columns:1fr}.donut-wrap{flex-direction:column}.circuit-legend-list{padding-left:0;margin-top:16px;width:100%}}
+@media(max-width:700px){.analytics-summary-banner{grid-template-columns:1fr;gap:14px}.chart-view-tabs{width:100%}.chart-view-tabs button{flex:1;justify-content:center;padding:7px 8px;font-size:10px}}
+

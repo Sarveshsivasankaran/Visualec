@@ -1,0 +1,47 @@
+menu "Visualec edge configuration"
+
+config VISUALEC_WIFI_SSID
+    string "Wi-Fi SSID"
+    default "Xx"
+
+config VISUALEC_WIFI_PASSWORD
+    string "Wi-Fi password"
+    default "sarvesh@2643"
+
+config VISUALEC_BACKEND_WS_URL
+    string "Backend edge WebSocket URL"
+    default "ws://10.57.98.1:8000/ws/edge"
+
+config VISUALEC_DEVICE_TOKEN
+    string "Edge device token"
+    default "change-this-edge-token"
+
+config VISUALEC_DEVICE_ID
+    string "Device ID"
+    default "visualec-esp32-s3"
+
+config VISUALEC_FIRMWARE_VERSION
+    string "Firmware version"
+    default "visualec-edge-1.0.0"
+
+config VISUALEC_MODEL_VERSION
+    string "Model version"
+    default "pedestrian-pico-bootstrap"
+
+config VISUALEC_MODEL_SHA256
+    string "Expected model SHA-256"
+    default "bootstrap-component"
+
+choice VISUALEC_MODEL_PROVIDER
+    prompt "Inference model provider"
+    default VISUALEC_USE_BOOTSTRAP_MODEL
+
+config VISUALEC_USE_BOOTSTRAP_MODEL
+    bool "Espressif pedestrian Pico bootstrap model"
+
+config VISUALEC_USE_CUSTOM_MODEL
+    bool "Verified Visualec-Pico artifact from VISUALEC_MODEL_ARTIFACT"
+
+endchoice
+
+endmenu

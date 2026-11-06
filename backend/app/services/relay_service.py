@@ -1,7 +1,7 @@
 import asyncio
 import time
 from datetime import datetime, timezone
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import httpx
 from sqlalchemy.orm import Session
@@ -10,15 +10,24 @@ from ..config import Settings
 from ..models import Relay, RelayEvent
 from .state import RuntimeState
 
+if TYPE_CHECKING:
+    from .edge_inference_service import EdgeInferenceService
+
 
 class RelayCommandError(RuntimeError):
     pass
 
 
 class RelayService:
-    def __init__(self, settings: Settings, state: RuntimeState) -> None:
+    def __init__(
+        self,
+        settings: Settings,
+        state: RuntimeState,
+        edge_service: "EdgeInferenceService | None" = None,
+    ) -> None:
         self.settings = settings
         self.state = state
+        self.edge_service = edge_service
         self._client = httpx.AsyncClient(timeout=settings.esp32_timeout_seconds)
         self._command_lock = asyncio.Lock()
 
@@ -45,6 +54,9 @@ class RelayService:
         return states
 
     async def check_health(self) -> bool:
+        if self.edge_service is not None and self.edge_service.connected:
+            self.state.esp32_connected = True
+            return True
         previous = self.state.esp32_connected
         try:
             response = await self._client.get(f"{self.settings.esp32_base_url}/health")
@@ -78,13 +90,17 @@ class RelayService:
             raise RelayCommandError("Emergency stop is active")
         with self.state.lock:
             current = self.state.relays.get(relay_id, relay.state)
-        if current == desired and self.state.esp32_connected and not force:
+        edge_manual_refresh = bool(
+            self.edge_service is not None
+            and self.edge_service.connected
+            and source in {"manual", "override"}
+        )
+        if current == desired and self.state.esp32_connected and not force and not edge_manual_refresh:
             return {"success": True, "relay_id": relay_id, "state": "on" if desired else "off", "duplicate": True, "acknowledged": True}
         started = time.perf_counter()
         acknowledged = False
         response: dict = {}
         async with self._command_lock:
-            endpoint = f"{self.settings.esp32_base_url}/control"
             command_id = f"relay-{relay_id}-{time.time_ns()}"
             packet: dict[str, Any] = {
                 "command_id": command_id,
@@ -97,35 +113,52 @@ class RelayService:
             if packet_context:
                 packet.update(packet_context)
             error: Exception | None = None
-            for attempt in range(self.settings.relay_retries + 1):
-                try:
-                    result = await self._client.post(
-                        endpoint,
-                        headers={"X-Command-ID": command_id},
-                        json=packet,
+            if self.edge_service is not None and self.edge_service.connected:
+                override = self.state.manual_overrides.get(relay_id)
+                if source in {"manual", "override"}:
+                    packet["type"] = "manual_override"
+                    packet["duration_seconds"] = max(0.0, override[1] - time.monotonic()) if override else (
+                        self.settings.deactivation_delay_seconds if desired else self.settings.activation_delay_seconds
                     )
-                    result.raise_for_status()
-                    try:
-                        response = result.json()
-                        acknowledged = bool(response.get("success")) and response.get("state") == ("on" if desired else "off")
-                    except ValueError:
-                        # A physical readback is authoritative even if an older firmware
-                        # returns a malformed command acknowledgement.
-                        device_states = await self._read_device_relay_states()
-                        acknowledged = device_states.get(relay_id) == desired
-                        response = {
-                            "success": acknowledged,
-                            "relay_id": relay_id,
-                            "state": "on" if desired else "off",
-                            "acknowledged_by": "relay_readback",
-                        }
-                    if acknowledged:
-                        break
-                    error = RelayCommandError("Device response did not confirm the requested state")
-                except (httpx.HTTPError, ValueError, RelayCommandError) as exc:
+                else:
+                    packet["type"] = "relay_command"
+                try:
+                    response = await self.edge_service.command(packet)
+                    effective = response.get("effective_state", response.get("state"))
+                    acknowledged = response.get("type") == "ack" and effective == ("on" if desired else "off")
+                    if not acknowledged:
+                        error = RelayCommandError("Edge acknowledgement did not confirm the requested state")
+                except (ConnectionError, TimeoutError, asyncio.TimeoutError) as exc:
                     error = exc
-                if attempt < self.settings.relay_retries:
-                    await asyncio.sleep(.15 * (attempt + 1))
+            else:
+                endpoint = f"{self.settings.esp32_base_url}/control"
+                for attempt in range(self.settings.relay_retries + 1):
+                    try:
+                        result = await self._client.post(
+                            endpoint,
+                            headers={"X-Command-ID": command_id},
+                            json=packet,
+                        )
+                        result.raise_for_status()
+                        try:
+                            response = result.json()
+                            acknowledged = bool(response.get("success")) and response.get("state") == ("on" if desired else "off")
+                        except ValueError:
+                            device_states = await self._read_device_relay_states()
+                            acknowledged = device_states.get(relay_id) == desired
+                            response = {
+                                "success": acknowledged,
+                                "relay_id": relay_id,
+                                "state": "on" if desired else "off",
+                                "acknowledged_by": "relay_readback",
+                            }
+                        if acknowledged:
+                            break
+                        error = RelayCommandError("Device response did not confirm the requested state")
+                    except (httpx.HTTPError, ValueError, RelayCommandError) as exc:
+                        error = exc
+                    if attempt < self.settings.relay_retries:
+                        await asyncio.sleep(.15 * (attempt + 1))
             if not acknowledged:
                 self.state.esp32_connected = False
                 raise RelayCommandError(f"ESP32 command failed: {error}")

@@ -41,15 +41,24 @@ async def emergency_stop(request: Request, db: Session = Depends(get_db)) -> dic
     state.mode = "manual"
     request.app.state.detector.stop()
     state.alert("critical", "Emergency stop activated")
+    edge = request.app.state.edge_service
+    if edge.connected:
+        command_id = f"emergency-{int(datetime.now(timezone.utc).timestamp() * 1_000_000)}"
+        acknowledgement = await edge.command({"type": "emergency", "command_id": command_id, "active": True})
+        return {"success": acknowledgement.get("type") == "ack", "emergency": True, "acknowledgement": acknowledgement}
     results = await request.app.state.relay_service.all_off(db, "emergency")
     return {"success": all(item.get("success") for item in results), "emergency": True, "results": results}
 
 
 @router.post("/reset")
-def reset(request: Request) -> dict:
+async def reset(request: Request) -> dict:
     state = request.app.state.runtime_state
     state.emergency = False
     state.mode = "automatic"
     request.app.state.detector.start()
     state.alert("info", "System reset completed")
+    edge = request.app.state.edge_service
+    if edge.connected:
+        command_id = f"emergency-reset-{int(datetime.now(timezone.utc).timestamp() * 1_000_000)}"
+        await edge.command({"type": "emergency", "command_id": command_id, "active": False})
     return {"success": True, "emergency": False, "mode": state.mode}

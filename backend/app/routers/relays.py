@@ -1,4 +1,5 @@
 import asyncio
+import time
 
 from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlalchemy.orm import Session
@@ -78,12 +79,16 @@ async def override(relay_id: int, payload: ManualOverride, request: Request, db:
 
 
 @router.delete("/{relay_id}/override")
-def cancel_override(relay_id: int, request: Request) -> dict:
+async def cancel_override(relay_id: int, request: Request) -> dict:
     state = request.app.state.runtime_state
     state.manual_overrides.pop(relay_id, None)
     if state.mode == "hybrid" and not state.manual_overrides:
         state.mode = "automatic"
         state.record_event("mode", "Automatic control resumed", source="dashboard", status="automatic")
+    edge = request.app.state.edge_service
+    if edge.connected:
+        command_id = f"override-cancel-{relay_id}-{time.time_ns()}"
+        await edge.command({"type": "manual_override_cancel", "command_id": command_id, "relay_id": relay_id})
     return {"success": True, "mode": state.mode}
 
 

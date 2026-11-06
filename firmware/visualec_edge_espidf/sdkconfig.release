@@ -1,0 +1,7 @@
+CONFIG_VISUALEC_USE_CUSTOM_MODEL=y
+# CONFIG_VISUALEC_USE_BOOTSTRAP_MODEL is not set
+# The managed Espressif pedestrian model remains a compile-time bootstrap
+# dependency, but it must not write a second artifact into our model partition.
+# CONFIG_PEDESTRIAN_DETECT_MODEL_IN_FLASH_PARTITION is not set
+CONFIG_PEDESTRIAN_DETECT_MODEL_IN_SDCARD=y
+# CONFIG_FLASH_PEDESTRIAN_DETECT_PICO_S8_V1 is not set

@@ -26,7 +26,7 @@ class CameraState:
 class DetectionState:
     running: bool = False
     model_loaded: bool = False
-    model_name: str = "yolov8n.pt"
+    model_name: str = "visualec-pico.espdl"
     provider: str = "unloaded"
     people_count: int = 0
     inference_ms: float = 0.0
@@ -41,6 +41,7 @@ class ZoneRuntime:
     name: str
     colour: str
     occupied: bool = False
+    raw_occupied: bool = False
     people_count: int = 0
     first_detected_at: float | None = None
     empty_since: float | None = None
@@ -50,11 +51,39 @@ class ZoneRuntime:
     auto_control_enabled: bool = True
 
 
+@dataclass
+class EdgeState:
+    connected: bool = False
+    device_id: str = "visualec-esp32-s3"
+    firmware_version: str = "unknown"
+    model_version: str = "unknown"
+    model_sha256: str = ""
+    model_input_width: int = 288
+    model_input_height: int = 160
+    configuration_revision: int = 0
+    inference_ms: float = 0.0
+    inference_fps: float = 0.0
+    round_trip_ms: float = 0.0
+    motion_score: float = 0.0
+    last_frame_id: int = 0
+    completed_frames: int = 0
+    dropped_keyframes: int = 0
+    timed_out_frames: int = 0
+    late_results: int = 0
+    protocol_errors: int = 0
+    free_heap_bytes: int = 0
+    free_psram_bytes: int = 0
+    wifi_rssi: int = 0
+    last_acknowledgement: str = ""
+    last_seen_at: float | None = None
+
+
 class RuntimeState:
     def __init__(self) -> None:
         self.lock = RLock()
         self.camera = CameraState()
         self.detection = DetectionState()
+        self.edge = EdgeState()
         self.zones: dict[int, ZoneRuntime] = {}
         self.relays: dict[int, bool] = {}
         self.relay_names: dict[int, str] = {}
@@ -126,6 +155,7 @@ class RuntimeState:
                     for relay_id, state in sorted(self.relays.items())
                 ],
                 "esp32": {"connected": self.esp32_connected},
+                "edge": asdict(self.edge),
                 "mode": self.mode,
                 "emergency": self.emergency,
                 "alerts": self.alerts[:5],

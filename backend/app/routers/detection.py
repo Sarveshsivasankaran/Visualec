@@ -25,6 +25,9 @@ def stop(request: Request) -> dict:
 @router.put("/settings")
 def settings(payload: DetectionSettings, request: Request) -> dict:
     request.app.state.detector.configure(payload.confidence, payload.inference_interval_ms)
+    request.app.state.settings.detection_confidence = payload.confidence
+    request.app.state.edge_service.bump_configuration_revision()
+    request.app.state.edge_service.schedule_current_config()
     return {"success": True, **payload.model_dump()}
 
 

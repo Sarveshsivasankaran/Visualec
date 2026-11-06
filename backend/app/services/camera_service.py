@@ -22,6 +22,7 @@ class CameraService:
         self._index = settings.camera_index
         self._width = settings.camera_width
         self._height = settings.camera_height
+        self._fallback_applied = False
 
     @staticmethod
     def list_devices(max_devices: int = 6) -> list[dict]:
@@ -54,9 +55,10 @@ class CameraService:
         self._stop.set()
         if self._thread:
             self._thread.join(timeout=3)
+            self._thread = None
         if self._capture:
             self._capture.release()
-        self._capture = None
+            self._capture = None
         self.state.camera.running = False
         self.state.camera.connected = False
         self.state.camera.health = "stopped"
@@ -85,13 +87,21 @@ class CameraService:
             time.sleep(0.05)
 
     def _open(self) -> bool:
+        if self._capture is not None:
+            try:
+                self._capture.release()
+            except Exception:
+                pass
+            self._capture = None
+            time.sleep(0.5)
         capture = cv2.VideoCapture(self._index, cv2.CAP_DSHOW)
-        capture.set(cv2.CAP_PROP_FRAME_WIDTH, self._width)
-        capture.set(cv2.CAP_PROP_FRAME_HEIGHT, self._height)
-        capture.set(cv2.CAP_PROP_BUFFERSIZE, 1)
         if not capture.isOpened():
             capture.release()
             return False
+        capture.set(cv2.CAP_PROP_FRAME_WIDTH, self._width)
+        capture.set(cv2.CAP_PROP_FRAME_HEIGHT, self._height)
+        capture.set(cv2.CAP_PROP_FPS, self.settings.camera_fps)
+        capture.set(cv2.CAP_PROP_BUFFERSIZE, 1)
         self._capture = capture
         return True
 
@@ -102,6 +112,7 @@ class CameraService:
             self.state.camera.health = "error"
             self.state.alert("error", self.state.camera.error)
         frame_count, window_start = 0, time.monotonic()
+        slow_windows = 0
         reconnect_at = time.monotonic() + 5
         while not self._stop.is_set():
             if not connected:
@@ -123,6 +134,7 @@ class CameraService:
                     self._capture.release()
                     self._capture = None
                     connected = False
+                    time.sleep(0.5)
                     reconnect_at = time.monotonic() + 5
                     with self._frame_lock:
                         self._frame = None
@@ -137,12 +149,39 @@ class CameraService:
             frame_count += 1
             elapsed = time.monotonic() - window_start
             if elapsed >= 1:
-                self.state.camera.fps = round(frame_count / elapsed, 1)
+                measured_fps = frame_count / elapsed
+                self.state.camera.fps = round(measured_fps, 1)
+                if (
+                    not self._fallback_applied
+                    and self._width >= 1280
+                    and self._height >= 720
+                    and measured_fps < self.settings.camera_fps * 0.8
+                ):
+                    slow_windows += 1
+                else:
+                    slow_windows = 0
+                if slow_windows >= 3:
+                    if self._capture is not None:
+                        self._capture.release()
+                        self._capture = None
+                    time.sleep(0.5)
+                    self._width, self._height = 640, 480
+                    self._fallback_applied = True
+                    connected = self._open()
+                    slow_windows = 0
+                    self.state.record_event(
+                        "camera",
+                        "C270 changed to 640×480 to preserve the 24 FPS capture target",
+                        source="camera",
+                        status="fallback",
+                    )
+                    continue
                 frame_count, window_start = 0, time.monotonic()
-            self.state.camera.connected = True
-            self.state.camera.health = "healthy"
-            self.state.camera.last_frame_at = now_iso()
-            self.state.camera.index = self._index
-            self.state.camera.width = frame.shape[1]
-            self.state.camera.height = frame.shape[0]
-            time.sleep(max(0.001, 1 / self.settings.camera_fps))
+            if frame is not None:
+                self.state.camera.connected = True
+                self.state.camera.health = "healthy"
+                self.state.camera.last_frame_at = now_iso()
+                self.state.camera.index = self._index
+                self.state.camera.width = frame.shape[1]
+                self.state.camera.height = frame.shape[0]
+            time.sleep(0.001)

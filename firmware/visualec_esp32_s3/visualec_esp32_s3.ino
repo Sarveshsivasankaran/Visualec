@@ -3,8 +3,9 @@
 #include <Preferences.h>
 
 // -------- User-configurable hardware and network settings --------
-const char* WIFI_SSID = "Xx";
-const char* WIFI_PASSWORD = "sarvesh@2643";
+// Fallback credentials used only if nothing is stored in flash memory
+const char* DEFAULT_WIFI_SSID = "Xx";
+const char* DEFAULT_WIFI_PASSWORD = "sarvesh@2643";
 const char* DEVICE_NAME = "visualec-esp32";
 constexpr bool RELAY_ACTIVE_LOW = true;
 constexpr uint8_t RELAY_COUNT = 3;
@@ -15,10 +16,14 @@ constexpr uint8_t ZONE_COUNT = 3;
 // Values are zero-based relay indexes: Zone 1 -> Relay 1, etc.
 const uint8_t ZONE_RELAY_MAP[ZONE_COUNT] = {0, 1, 2};
 constexpr unsigned long WIFI_RETRY_MS = 5000;
+constexpr uint8_t BOOT_PIN = 0; // ESP32-S3 BOOT button for forced setup mode
 // -----------------------------------------------------------------
 
 WebServer server(80);
 Preferences preferences;
+bool inPortalMode = false;
+String activeSsid = "";
+String activePassword = "";
 bool relayStates[RELAY_COUNT] = {false, false, false};
 bool emergencyStopped = false;
 unsigned long lastWifiAttempt = 0;
@@ -310,19 +315,55 @@ void setupRoutes() {
   server.onNotFound(handleNotFound);
 }
 
-void connectWifi() {
-  WiFi.mode(WIFI_STA);
-  WiFi.setHostname(DEVICE_NAME);
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
-  Serial.print("Connecting to Wi-Fi");
-  for (uint8_t i = 0; i < 30 && WiFi.status() != WL_CONNECTED; i++) { delay(500); Serial.print('.'); }
-  Serial.println();
-  if (WiFi.status() == WL_CONNECTED) Serial.println("IP: " + WiFi.localIP().toString());
-  else Serial.println("Wi-Fi unavailable; relays remain safe OFF");
+void handlePortalRoot() {
+  String page = "<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1.0'><title>Visualec Setup</title>"
+    "<style>* { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, sans-serif; } "
+    "body { background: #0b0f19; color: #f3f4f6; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; } "
+    ".card { background: #111827; border: 1px solid #1f2937; border-radius: 14px; padding: 28px; width: 100%; max-width: 420px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); } "
+    ".hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #1f2937; padding-bottom: 14px; } "
+    ".title { font-size: 20px; font-weight: 700; color: #60a5fa; } "
+    ".badge { background: #1e3a5f; color: #93c5fd; font-size: 11px; padding: 4px 8px; border-radius: 9999px; font-weight: 600; text-transform: uppercase; } "
+    ".desc { font-size: 13px; color: #9ca3af; margin-bottom: 20px; line-height: 1.5; } "
+    ".field { margin-bottom: 16px; } "
+    "label { display: block; font-size: 12px; font-weight: 600; color: #d1d5db; margin-bottom: 6px; text-transform: uppercase; } "
+    "input { width: 100%; padding: 10px 12px; background: #1f2937; border: 1px solid #374151; border-radius: 8px; color: #fff; font-size: 14px; outline: none; } "
+    ".btn { width: 100%; padding: 12px; background: #2563eb; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; margin-top: 8px; } "
+    ".footer { margin-top: 20px; font-size: 11px; color: #6b7280; text-align: center; }</style></head><body>"
+    "<div class='card'>"
+    "<div class='hdr'><div class='title'>Visualec S3</div><span class='badge'>Wi-Fi Setup</span></div>"
+    "<p class='desc'>Configure local 2.4 GHz Wi-Fi credentials for the Visualec relay controller.</p>"
+    "<form action='/save' method='POST'>"
+    "<div class='field'><label>Wi-Fi SSID</label><input type='text' name='ssid' required autofocus value='" + activeSsid + "'></div>"
+    "<div class='field'><label>Password</label><input type='password' name='password' value='" + activePassword + "'></div>"
+    "<button type='submit' class='btn'>Save & Connect</button>"
+    "</form><div class='footer'>Setup Hotspot: <strong>Visualec-Setup</strong> (192.168.4.1)</div>"
+    "</div></body></html>";
+  server.send(200, "text/html", page);
+}
+
+void handlePortalSave() {
+  if (server.method() != HTTP_POST) { server.send(405, "text/plain", "Method Not Allowed"); return; }
+  String ssid = server.arg("ssid");
+  String pass = server.arg("password");
+  if (ssid.length() == 0) { server.send(400, "text/plain", "SSID cannot be empty"); return; }
+
+  preferences.putString("wifi_ssid", ssid);
+  preferences.putString("wifi_pass", pass);
+
+  String savedPage = "<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1.0'>"
+    "<style>body { background:#0b0f19; color:#f3f4f6; font-family:sans-serif; display:flex; align-items:center; justify-content:center; height:100vh; margin:0; } "
+    ".card { background:#111827; border:1px solid #1f2937; border-radius:14px; padding:32px; text-align:center; max-width:380px; } "
+    "h2 { color:#10b981; margin-top:0; } p { color:#9ca3af; font-size:14px; }</style></head><body>"
+    "<div class='card'><h2>✓ Wi-Fi Saved</h2><p>Rebooting now to connect to <strong>" + ssid + "</strong>.<br>The setup hotspot is shutting down.</p></div>"
+    "</body></html>";
+  server.send(200, "text/html", savedPage);
+  delay(1500);
+  ESP.restart();
 }
 
 void setup() {
   Serial.begin(115200);
+
   for (uint8_t i = 0; i < RELAY_COUNT; i++) {
     // Preload the OFF level before enabling output to avoid a boot pulse.
     digitalWrite(RELAY_PINS[i], RELAY_ACTIVE_LOW ? HIGH : LOW);
@@ -330,12 +371,34 @@ void setup() {
     Serial.printf("Relay %u configured on GPIO %u (%s)\n", i + 1, RELAY_PINS[i], RELAY_ACTIVE_LOW ? "active-LOW" : "active-HIGH");
   }
   setSafeState();
+
   preferences.begin("Visualec", false);
   emergencyStopped = preferences.getBool("emergency", false);
-  connectWifi();
+  activeSsid = preferences.getString("wifi_ssid", DEFAULT_WIFI_SSID);
+  activePassword = preferences.getString("wifi_pass", DEFAULT_WIFI_PASSWORD);
+
+  // Dual AP+STA mode: broadcast setup portal AND connect to configured Wi-Fi network concurrently
+  WiFi.mode(WIFI_AP_STA);
+  WiFi.softAP("Visualec-Setup");
+  WiFi.setHostname(DEVICE_NAME);
+  WiFi.begin(activeSsid.c_str(), activePassword.c_str());
+
+  Serial.println("\n==================================================");
+  Serial.println("Visualec Wi-Fi Mode: Concurrent AP + STA");
+  Serial.println("Connecting Station to: '" + activeSsid + "'");
+  Serial.println("Setup Hotspot Active: 'Visualec-Setup' (http://192.168.4.1/)");
+  Serial.println("==================================================\n");
+
+  // Register setup web portal routes
+  server.on("/", HTTP_GET, handlePortalRoot);
+  server.on("/save", HTTP_POST, handlePortalSave);
+  server.on("/generate_204", HTTP_GET, []() { server.sendHeader("Location", "http://192.168.4.1/"); server.send(302); });
+  server.on("/hotspot-detect.html", HTTP_GET, []() { server.sendHeader("Location", "http://192.168.4.1/"); server.send(302); });
+
+  // Register REST API routes
   setupRoutes();
   server.begin();
-  Serial.println("Visualec ESP32 REST server ready");
+  Serial.println("Visualec REST and Web Server ready on port 80");
 }
 
 void loop() {
@@ -343,7 +406,7 @@ void loop() {
   if (WiFi.status() != WL_CONNECTED && millis() - lastWifiAttempt >= WIFI_RETRY_MS) {
     lastWifiAttempt = millis();
     WiFi.disconnect();
-    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    WiFi.begin(activeSsid.c_str(), activePassword.c_str());
   }
   delay(2);
 }

@@ -5,7 +5,13 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    model_config = SettingsConfigDict(
+        env_file=[
+            Path(__file__).resolve().parent.parent / ".env",
+            ".env",
+        ],
+        extra="ignore",
+    )
 
     app_name: str = "Visualec"
     app_env: str = "development"
@@ -16,8 +22,8 @@ class Settings(BaseSettings):
     camera_height: int = 720
     camera_fps: int = 24
     auto_start_camera: bool = True
-    detection_model: str = "yolov8n.pt"
-    detection_input_size: int = 320
+    detection_model: str = "visualec-pico.espdl"
+    detection_input_size: int = 288
     detection_confidence: float = 0.45
     inference_interval_ms: int = 20
     activation_delay_seconds: float = 1.0
@@ -28,6 +34,19 @@ class Settings(BaseSettings):
     esp32_timeout_seconds: float = 3.0
     relay_retries: int = 2
     energy_tariff_per_kwh: float = 8.0
+    edge_device_token: str = "change-this-edge-token"
+    edge_expected_model_sha256: str = ""
+    edge_input_width: int = 288
+    edge_input_height: int = 160
+    edge_high_motion_fps: float = 8.0
+    edge_medium_motion_fps: float = 4.0
+    edge_low_motion_fps: float = 1.0
+    edge_mandatory_refresh_seconds: float = 1.0
+    edge_inference_timeout_seconds: float = 1.0
+    edge_occupancy_heartbeat_seconds: float = 0.5
+    edge_motion_pixel_threshold: int = 20
+    edge_motion_high_threshold: float = 0.06
+    edge_motion_medium_threshold: float = 0.015
 
     @property
     def allowed_origins(self) -> list[str]:
