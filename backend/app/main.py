@@ -90,8 +90,41 @@ async def websocket_endpoint(websocket: WebSocket) -> None:
             message = await websocket.receive_text()
             if message == "ping":
                 await websocket.send_text("pong")
-    except WebSocketDisconnect:
+    except (WebSocketDisconnect, Exception):
+        pass
+    finally:
         await manager.disconnect(websocket)
+
+
+def _tune_edge_socket(websocket: WebSocket) -> None:
+    try:
+        import socket
+        tuned = False
+        for attr in ("_receive", "_send"):
+            receiver = getattr(websocket, attr, None)
+            proto = getattr(receiver, "__self__", None)
+            transport = getattr(proto, "transport", None)
+            if transport is not None:
+                raw_sock = transport.get_extra_info("socket")
+                if raw_sock is not None:
+                    raw_sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+                    try:
+                        raw_sock.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 262144)
+                        raw_sock.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, 262144)
+                    except OSError:
+                        pass
+                    tuned = True
+                    logger.info(f"[_tune_edge_socket] Socket tuned successfully on {attr}!")
+                    break
+        if not tuned:
+            logger.warning(f"[_tune_edge_socket] Could not find socket to tune on websocket: {dir(websocket)}")
+    except Exception as exc:
+        logger.warning(f"[_tune_edge_socket] Exception: {exc}")
+
+
+import logging
+
+logger = logging.getLogger("uvicorn.error")
 
 
 @app.websocket("/ws/edge")
@@ -99,29 +132,29 @@ async def edge_websocket_endpoint(websocket: WebSocket) -> None:
     configured = websocket.app.state.settings.edge_device_token
     supplied = websocket.query_params.get("token") or websocket.headers.get("x-device-token", "")
     await websocket.accept()
-    try:
-        import socket
-        transport = websocket.scope.get("transport")
-        if transport is not None:
-            raw_socket = transport.get_extra_info("socket")
-            if raw_socket is not None:
-                raw_socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
-    except Exception:
-        pass
+    _tune_edge_socket(websocket)
     if not configured or not hmac.compare_digest(configured, supplied):
+        logger.warning(f"[EDGE WS] Auth rejected! configured={configured!r}, supplied={supplied!r}")
         await websocket.close(code=1008, reason="invalid device token")
         return
     service: EdgeInferenceService = websocket.app.state.edge_service
     await service.connect(websocket)
+    logger.info(f"[EDGE WS] Connected: {websocket.client}")
     try:
         while True:
             message = await websocket.receive()
             if message.get("type") == "websocket.disconnect":
+                logger.info(f"[EDGE WS] Disconnect message received: code={message.get('code')}")
                 break
             text = message.get("text")
+            bytes_payload = message.get("bytes")
             if text is not None:
+                logger.info(f"[EDGE WS] Text payload received: {text[:100]}")
                 await service.handle_text(text)
-    except WebSocketDisconnect:
-        pass
+            elif bytes_payload is not None:
+                logger.info(f"[EDGE WS] Bytes payload received: len={len(bytes_payload)}")
+    except (WebSocketDisconnect, Exception) as exc:
+        logger.exception(f"[EDGE WS] Exception in loop: {exc}")
     finally:
+        logger.info(f"[EDGE WS] Disconnecting service")
         await service.disconnect(websocket)

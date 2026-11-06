@@ -52,19 +52,22 @@ cd "firmware/visualec_edge_espidf"
 idf.py set-target esp32s3
 ```
 
-### 4. Configure Wi-Fi & Backend Endpoint
-Launch the interactive configuration menu:
+### 4. First-Boot Web Interface or Menuconfig Setup
+
+Visualec supports **one-time local web configuration on first bootup**:
+1. When powered on for the first time (or if holding the **BOOT button (GPIO 0)** at startup), the ESP32-S3 starts a setup hotspot:
+   - **Hotspot SSID**: `Visualec-Setup` (Open network, no password required)
+   - **Local Web Interface**: `http://192.168.4.1/`
+2. Connect your smartphone or computer to `Visualec-Setup`. The captive portal will pop up automatically (or open `http://192.168.4.1` in your browser).
+3. Enter your local 2.4 GHz Wi-Fi SSID, Password, and Backend WebSocket URL (`ws://<YOUR_LAPTOP_IP>:8000/ws/edge`).
+4. Click **Save & Connect**. The ESP32-S3 stores the credentials in non-volatile flash (NVS), shuts down the setup hotspot, and reboots directly into normal operation.
+5. On all subsequent bootups, the board automatically connects to your saved Wi-Fi network and backend server.
+
+*(Optional)* You can also still pre-bake default credentials at compile time via menuconfig:
 ```powershell
 idf.py menuconfig
 ```
-Navigate to **Visualec edge configuration** and configure:
-- **Wi-Fi SSID**: Your local 2.4 GHz Wi-Fi network name.
-- **Wi-Fi Password**: Your Wi-Fi network password.
-- **Backend Edge WebSocket URL**: `ws://<YOUR_LAPTOP_IP>:8000/ws/edge` (e.g., `ws://192.168.1.100:8000/ws/edge`).
-- **Edge Device Token**: Must match `EDGE_DEVICE_TOKEN` in `backend/.env`.
-- **Device ID**: Identifier (default: `visualec-esp32-s3`).
-
-Save configuration (`S` then `Enter`) and exit (`Esc`).
+Navigate to **Visualec edge configuration** to configure compile-time defaults.
 
 ### 5. Build the Project
 ```powershell

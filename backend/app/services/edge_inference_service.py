@@ -20,6 +20,7 @@ class PendingFrame:
     frame_id: int
     sent_at: float
     transform: FrameTransform
+    send_done_at: float = 0.0
 
 
 class EdgeInferenceService:

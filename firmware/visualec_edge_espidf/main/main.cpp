@@ -30,10 +30,12 @@
 #endif
 
 #include "relay_controller.hpp"
+#include "wifi_provisioner.hpp"
 
 namespace {
 
 constexpr char kTag[] = "visualec_edge";
+static EdgeNetworkConfig g_net_config;
 constexpr uint8_t kFrameVersion = 1;
 constexpr uint8_t kRgb565Le = 1;
 constexpr size_t kFrameHeaderSize = 28;
@@ -382,10 +384,13 @@ void reset_fragment_buffer()
 void handle_websocket_payload(esp_websocket_event_data_t *data)
 {
     if (!data || data->payload_len < 0 || data->data_len < 0 || data->payload_offset < 0) return;
+    // Silently ignore RFC 6455 control frames (0x8 Close, 0x9 Ping, 0xA Pong) or empty keepalives
+    if (data->op_code == 0x8 || data->op_code == 0x9 || data->op_code == 0xA || data->payload_len == 0) return;
+
     const size_t total_length = static_cast<size_t>(data->payload_len);
     const size_t chunk_length = static_cast<size_t>(data->data_len);
     const size_t offset = static_cast<size_t>(data->payload_offset);
-    if (total_length == 0 || total_length > kMaxWebsocketPayloadSize ||
+    if (total_length > kMaxWebsocketPayloadSize ||
         offset > total_length || chunk_length > total_length - offset) {
         reset_fragment_buffer();
         send_error("invalid_websocket_payload", "WebSocket payload length is outside the supported range");
@@ -572,33 +577,60 @@ void metrics_task(void *)
     }
 }
 
-void wifi_event_handler(void *, esp_event_base_t event_base, int32_t event_id, void *)
+void wifi_event_handler(void *, esp_event_base_t event_base, int32_t event_id, void *event_data)
 {
     if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_START) {
+        ESP_LOGI(kTag, "Wi-Fi Station started, connecting to '%s'...", g_net_config.ssid.c_str());
         esp_wifi_connect();
     } else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_DISCONNECTED) {
+        ESP_LOGW(kTag, "Wi-Fi disconnected. Reconnecting...");
         esp_wifi_connect();
+    } else if (event_base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP) {
+        ip_event_got_ip_t *event = static_cast<ip_event_got_ip_t *>(event_data);
+        ESP_LOGI(kTag, "Wi-Fi connected! Station IP: " IPSTR, IP2STR(&event->ip_info.ip));
     }
 }
 
 void initialise_wifi()
 {
+    load_edge_network_config(g_net_config);
+
     ESP_ERROR_CHECK(esp_netif_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default());
+
+    // Create both Station (connects to your router) and SoftAP (setup web portal) interfaces
     esp_netif_create_default_wifi_sta();
+    esp_netif_create_default_wifi_ap();
+
     wifi_init_config_t config = WIFI_INIT_CONFIG_DEFAULT();
     ESP_ERROR_CHECK(esp_wifi_init(&config));
     ESP_ERROR_CHECK(esp_event_handler_register(WIFI_EVENT, ESP_EVENT_ANY_ID, wifi_event_handler, nullptr));
-    wifi_config_t wifi_config = {};
-    strlcpy(reinterpret_cast<char *>(wifi_config.sta.ssid), CONFIG_VISUALEC_WIFI_SSID, sizeof(wifi_config.sta.ssid));
-    strlcpy(reinterpret_cast<char *>(wifi_config.sta.password), CONFIG_VISUALEC_WIFI_PASSWORD, sizeof(wifi_config.sta.password));
-    wifi_config.sta.threshold.authmode = WIFI_AUTH_WPA2_PSK;
-    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
-    ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
+    ESP_ERROR_CHECK(esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, wifi_event_handler, nullptr));
+
+    // 1. SoftAP Setup: "Visualec-Setup" (IP 192.168.4.1) for local web configuration
+    wifi_config_t ap_config = {};
+    strlcpy(reinterpret_cast<char *>(ap_config.ap.ssid), "Visualec-Setup", sizeof(ap_config.ap.ssid));
+    ap_config.ap.ssid_len = strlen("Visualec-Setup");
+    ap_config.ap.channel = 1;
+    ap_config.ap.max_connection = 4;
+    ap_config.ap.authmode = WIFI_AUTH_OPEN;
+
+    // 2. Station Setup: connects to default "Xx" / "sarvesh@2643" (or NVS credentials)
+    wifi_config_t sta_config = {};
+    strlcpy(reinterpret_cast<char *>(sta_config.sta.ssid), g_net_config.ssid.c_str(), sizeof(sta_config.sta.ssid));
+    strlcpy(reinterpret_cast<char *>(sta_config.sta.password), g_net_config.password.c_str(), sizeof(sta_config.sta.password));
+    sta_config.sta.threshold.authmode = g_net_config.password.empty() ? WIFI_AUTH_OPEN : WIFI_AUTH_WPA2_PSK;
+
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_APSTA));
+    ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_AP, &ap_config));
+    ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &sta_config));
     ESP_ERROR_CHECK(esp_wifi_start());
-    // Streaming a frame and returning its result is latency-sensitive. Modem
-    // sleep adds hundreds of milliseconds of jitter on some access points.
     ESP_ERROR_CHECK(esp_wifi_set_ps(WIFI_PS_NONE));
+
+    // Start local web configuration server on port 80 (accessible on 192.168.4.1 or station IP)
+    start_web_config_server(g_net_config);
+
+    ESP_LOGI(kTag, "AP+STA mode active. Hotspot: 'Visualec-Setup' (192.168.4.1), connecting to '%s'", g_net_config.ssid.c_str());
 }
 
 void load_persisted_state()
@@ -631,7 +663,7 @@ void load_persisted_state()
 
 void start_websocket()
 {
-    static std::string uri = std::string(CONFIG_VISUALEC_BACKEND_WS_URL) + "?token=" + CONFIG_VISUALEC_DEVICE_TOKEN;
+    static std::string uri = g_net_config.ws_url + "?token=" + g_net_config.device_token;
     esp_websocket_client_config_t websocket_config = {};
     websocket_config.uri = uri.c_str();
     websocket_config.network_timeout_ms = 5000;
@@ -639,7 +671,7 @@ void start_websocket()
     websocket_config.enable_close_reconnect = true;
     websocket_config.task_stack = 8192;
     websocket_config.buffer_size = 32768; // 32 KB buffer to minimize fragmentation context switches
-    websocket_config.task_prio = 5;
+    websocket_config.task_prio = 10; // High networking priority (preempts control/inference for immediate packet processing)
     websocket_config.task_core_id_set = true;
     websocket_config.task_core_id = 0; // Pin WebSocket networking to Core 0
     g_websocket = esp_websocket_client_init(&websocket_config);

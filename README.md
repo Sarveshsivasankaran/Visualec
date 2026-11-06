@@ -41,8 +41,13 @@ python -m venv .venv
 .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 Copy-Item .env.example .env
-uvicorn app.main:app --reload
+
+# Run FastAPI backend bound to 0.0.0.0 (required for ESP32 Wi-Fi edge connectivity)
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
+
+> [!IMPORTANT]
+> The backend **must** be launched with `--host 0.0.0.0` (not `127.0.0.1`), allowing the physical ESP32-S3 on your local Wi-Fi subnet to reach `ws://<laptop-ip>:8000/ws/edge`.
 
 Set a long random `EDGE_DEVICE_TOKEN` in `backend/.env` and set the same value in ESP-IDF menuconfig. In another terminal:
 
@@ -53,6 +58,46 @@ npm run dev
 ```
 
 Open `http://localhost:5173`; OpenAPI is at `http://localhost:8000/docs`. The edge device connects to `ws://<laptop-ip>:8000/ws/edge?token=<token>`.
+
+## Build and flash the ESP32-S3 firmware
+
+Requirements: ESP-IDF v5.3+ installed, ESP32-S3 board with Octal PSRAM (N16R8 recommended) connected via USB (e.g. `COM11`).
+
+### 1. Build the firmware
+Open the **ESP-IDF 5.3+ PowerShell** terminal:
+```powershell
+cd "D:\Program files\Visualec\firmware\visualec_edge_espidf"
+idf.py set-target esp32s3
+idf.py build
+```
+
+### 2. Flash to ESP32-S3
+
+#### Option A: Direct ROM Flashing with esptool (Recommended on Windows / USB-Serial-JTAG)
+Direct ROM mode (`--no-stub`) bypasses RAM stub UART packet drops over Windows USB-JTAG:
+```powershell
+# Flash application binary only (fast updates):
+python -m esptool --chip esp32s3 -p COM11 --no-stub write_flash -u 0x20000 build/visualec_edge.bin
+
+# Or flash complete clean firmware (bootloader + partition table + app):
+python -m esptool --chip esp32s3 -p COM11 --no-stub write_flash `
+  0x0 build/bootloader/bootloader.bin `
+  0x8000 build/partition_table/partition-table.bin `
+  0x20000 build/visualec_edge.bin
+```
+
+#### Option B: Standard ESP-IDF Flashing & Monitor
+```powershell
+idf.py -p COM11 flash monitor
+```
+*(Press `Ctrl+]` to exit the serial monitor).*
+
+### 3. Wi-Fi and Backend Configuration
+- **First-Boot Web Portal**: On initial bootup (or by holding the **BOOT button (GPIO 0)** during power-on), the ESP32-S3 hosts a local setup portal:
+  - **Hotspot SSID**: `Visualec-Setup` (Open network, no password required)
+  - **Portal Web Interface**: `http://192.168.4.1/`
+  - Enter your local 2.4 GHz Wi-Fi SSID, Password, and Backend WebSocket URL (`ws://<laptop-ip>:8000/ws/edge`). Credentials are saved to NVS and persist across reboots.
+- **Default Fallback**: Pre-configured with default credentials SSID `"Xx"` / `"sarvesh@2643"` if unconfigured.
 
 ## Train and deploy the edge model
 

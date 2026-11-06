@@ -2,11 +2,11 @@ menu "Visualec edge configuration"
 
 config VISUALEC_WIFI_SSID
     string "Wi-Fi SSID"
-    default ""
+    default "Xx"
 
 config VISUALEC_WIFI_PASSWORD
     string "Wi-Fi password"
-    default ""
+    default "sarvesh@2643"
 
 config VISUALEC_BACKEND_WS_URL
     string "Backend edge WebSocket URL"

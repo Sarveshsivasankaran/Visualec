@@ -55,9 +55,10 @@ class CameraService:
         self._stop.set()
         if self._thread:
             self._thread.join(timeout=3)
+            self._thread = None
         if self._capture:
             self._capture.release()
-        self._capture = None
+            self._capture = None
         self.state.camera.running = False
         self.state.camera.connected = False
         self.state.camera.health = "stopped"
@@ -86,14 +87,21 @@ class CameraService:
             time.sleep(0.05)
 
     def _open(self) -> bool:
+        if self._capture is not None:
+            try:
+                self._capture.release()
+            except Exception:
+                pass
+            self._capture = None
+            time.sleep(0.5)
         capture = cv2.VideoCapture(self._index, cv2.CAP_DSHOW)
+        if not capture.isOpened():
+            capture.release()
+            return False
         capture.set(cv2.CAP_PROP_FRAME_WIDTH, self._width)
         capture.set(cv2.CAP_PROP_FRAME_HEIGHT, self._height)
         capture.set(cv2.CAP_PROP_FPS, self.settings.camera_fps)
         capture.set(cv2.CAP_PROP_BUFFERSIZE, 1)
-        if not capture.isOpened():
-            capture.release()
-            return False
         self._capture = capture
         return True
 
@@ -126,6 +134,7 @@ class CameraService:
                     self._capture.release()
                     self._capture = None
                     connected = False
+                    time.sleep(0.5)
                     reconnect_at = time.monotonic() + 5
                     with self._frame_lock:
                         self._frame = None
@@ -152,9 +161,10 @@ class CameraService:
                 else:
                     slow_windows = 0
                 if slow_windows >= 3:
-                    assert self._capture is not None
-                    self._capture.release()
-                    self._capture = None
+                    if self._capture is not None:
+                        self._capture.release()
+                        self._capture = None
+                    time.sleep(0.5)
                     self._width, self._height = 640, 480
                     self._fallback_applied = True
                     connected = self._open()
@@ -165,11 +175,13 @@ class CameraService:
                         source="camera",
                         status="fallback",
                     )
+                    continue
                 frame_count, window_start = 0, time.monotonic()
-            self.state.camera.connected = True
-            self.state.camera.health = "healthy"
-            self.state.camera.last_frame_at = now_iso()
-            self.state.camera.index = self._index
-            self.state.camera.width = frame.shape[1]
-            self.state.camera.height = frame.shape[0]
+            if frame is not None:
+                self.state.camera.connected = True
+                self.state.camera.health = "healthy"
+                self.state.camera.last_frame_at = now_iso()
+                self.state.camera.index = self._index
+                self.state.camera.width = frame.shape[1]
+                self.state.camera.height = frame.shape[0]
             time.sleep(0.001)
